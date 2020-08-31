@@ -72,8 +72,70 @@
                     <td>브라우저 페이지를 기준으로 Y좌표의 위치를 반환합니다.</td>
                     <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
                 </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.max()</span></code></td>
+                    <td>주어진 수 중에서 가장 큰 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.min()</span></code></td>
+                    <td>주어진 수 중에서 가장 작은 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.ceil()</span></code></td>
+                    <td>숫자 보다 크거나 같은 수 중에서 가장 작은 정수를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.floor()</span></code></td>
+                    <td>제공된 숫자 보다 작거나 같은 가장 큰 정수를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.round()</span></code></td>
+                    <td>제공된 숫자를 반올림하여 가장 가까운 정수를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.random()</span></code></td>
+                    <td>0과 1사이의 의사 난수 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
             </tbody>
         </table> 
+
+<pre class="line-numbers language-js"><code>let max = Math.max(100, 200);
+let min = Math.min(100, 200);
+
+let xx = 100; let yy = -200;
+let zz = Math.min(xx, yy);
+
+let arr = [100, 200, 300];
+let max = Math.max(...arr)
+
+//주어진 숫자보다 크거나 같은 숫자 중 가장 작은 숫자
+let ceil = Math.ceil(0.95) //1
+let ceil = Math.ceil(4) //4
+let ceil = Math.ceil(6.00005)  //7
+let ceil = Math.ceil(-0.95) //-0
+let ceil = Math.ceil(-4) //-4
+
+//주어진 수 이하의 가장 큰 정수
+let floor = Math.floor(39.35)  //39
+let floor = Math.floor(39.85) //39
+let floor = Math.floor(4) //4
+
+//입력값을 반올림한 값과 가장 가까운 정수를 출력
+let round = Math.round(20.49) //20
+let round = Math.round(20.5) //21
+let round = Math.round(20) //20
+
+//랜덤 0~1사이 값
+let random = Math.round(Math.random() * 10)
+console.log(random)
+</code></pre>
+
     </div>
 
     <div class="code-preview">
@@ -93,44 +155,40 @@
     &lt;head&gt;
         &lt;meta charset="UTF-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Moust Effect03 - jQuery&lt;/title&gt;
+        &lt;title&gt;Moust Effect04 - jQuery&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
         
         &lt;!-- main --&gt;
         &lt;main&gt;
             &lt;div class="cursor"&gt;&lt;/div&gt;
-
-            &lt;div class="contents"&gt;
-                &lt;p&gt;Never &lt;em&gt;underestimate&lt;/em&gt; your own ignorance.&lt;/p&gt;
-                &lt;p&gt;네 자신의 무지를 절대 &lt;em&gt;과소평가&lt;/em&gt; 하지 마라.&lt;/p&gt;
+    
+            &lt;div class="move-image"&gt;
+                &lt;div class="mimg"&gt;&lt;img src="../assets/img/su05.jpg" alt="이미지"&gt;&lt;/div&gt;
+                &lt;div class="mtext"&gt;
+                    &lt;p&gt;Luck is when preparedness meets opportunity.&lt;/p&gt;
+                    &lt;p&gt;운이란 준비가 기회를 만나는 것이다.&lt;/p&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/main&gt;
         &lt;!-- //main --&gt;
         
         &lt;!-- info --&gt;
         &lt;div class="info left"&gt;
-            &lt;h1&gt;&lt;a href="mouse00.html"&gt;jQuery Mouse Effect03&lt;/a&gt;&lt;/h1&gt;
-            &lt;p&gt;마우스 따라다니기 - 브랜드 효과&lt;/p&gt;
+            &lt;h1&gt;&lt;a href="mouse00.html"&gt;jQuery Mouse Effect04&lt;/a&gt;&lt;/h1&gt;
+            &lt;p&gt;마우스 방향에 따라 움직이기&lt;/p&gt;
         &lt;/div&gt;
-
+    
         &lt;div class="info bottom"&gt;
             &lt;ul&gt;
-                &lt;li&gt;multiply&lt;/li&gt;
-                &lt;li&gt;screen&lt;/li&gt;
-                &lt;li&gt;overlay&lt;/li&gt;
-                &lt;li&gt;darken&lt;/li&gt;
-                &lt;li&gt;lighten&lt;/li&gt;
-                &lt;li&gt;color-dodge&lt;/li&gt;
-                &lt;li&gt;color-burn&lt;/li&gt;
-                &lt;li&gt;hard-light&lt;/li&gt;
-                &lt;li&gt;soft-light&lt;/li&gt;
-                &lt;li class="active"&gt;difference&lt;/li&gt;
-                &lt;li&gt;exclusion&lt;/li&gt;
-                &lt;li&gt;hue&lt;/li&gt;
-                &lt;li&gt;saturation&lt;/li&gt;
-                &lt;li&gt;color&lt;/li&gt;
-                &lt;li&gt;luminosity&lt;/li&gt;
+                &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;mouseX : &lt;span class="mouseX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;mouseY : &lt;span class="mouseY"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;angleX : &lt;span class="angleX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;angleY : &lt;span class="angleY"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;fmouseX : &lt;span class="fmouseX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;fmouseY : &lt;span class="fmouseY"&gt;0&lt;/span&gt;&lt;/li&gt;
             &lt;/ul&gt;
         &lt;/div&gt;
         &lt;!-- //info --&gt;
@@ -287,31 +345,45 @@ body::before {
 }
 
 /* main */
-.contents {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    flex-direction: column;
-    overflow: hidden;
+.move-image { 
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) perspective(600px) rotateX(0deg) rotateY(0deg);
+    transform-style: preserve-3d;
+    will-change: transform;
 }
 
-.contents p {
-    max-width: 70vw;
-    font-size: 3vw;
-    text-align: justify;
+.move-image .mimg img {
+    border-radius: 5px;
 }
 
-.contents p:first-child {
-    font-size: 2.2vw;
-    line-height: 2;
+.move-image .mimg {
+    position: relative;
 }
 
-.contents p em {
-    color: orange;
-    border-bottom: 2px dashed orange;
-    font-style: normal;
+.move-image .mimg::before {
+    content: '';
+    position: absolute; z-index: -1;
+    left: 5%; bottom: -20px;
+    width: 90%; height: 40px;
+    background: url(../parallax2/img/su05.jpg) no-repeat;
+    background-size: 100% 40px;
+    filter: blur(15px);
+    opacity: 0.9;
+}
+
+.move-image .mtext {
+    font-size: 1vw;
+    position: absolute;
+    left: 50%; bottom: 50%;
+    transform: translate3d(-50%, 68%, 150px);
+    background: rgba(0,0,0,0.3);
+    padding: 2vw;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.move-image .mtext p:nth-child(1){
+    font-size: 0.5vw;
 }
 
 .cursor {
@@ -324,7 +396,6 @@ body::before {
     pointer-events: none;
     transform: scale(1);
     transition: transform 0.3s ease-in-out;
-    mix-blend-mode: difference;
 }
 
 .cursor.active {
@@ -336,27 +407,50 @@ body::before {
                     <pre class="line-numbers xml"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-    //jQuery + GSAP
-    const cursor = $(".cursor");
+    let x = 0,
+        y = 0,
+        mouseX = 0,
+        mouseY = 0,
+        angleX = 0,
+        angleY = 0,
+        fmouseX = 0,
+        fmouseY = 0;
 
-    //움직임 효과
-    $(document).mousemove(function(e){
-        gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY - 5 });
-    });
+    $(window).mousemove(function(e){
+        x = e.pageX;    //마우스 X축 좌표값
+        y = e.pageY;    //마우스 Y축 좌표값
 
-    //오버 효과
-    $(".contents em").hover(function(){
-        cursor.addClass("active");
-    }, function(){
-        cursor.removeClass("active");
-    });
+        //let mouseX = $(window).width()/2 - x    //마우스의 X축 좌표값을 가운데로 설정
+        //let mouseY = $(window).height()/2 - y   //마우스의 Y축 좌표값을 가운데로 설정
+
+        //마우스의 x축 y축 쵯소값 -100 쵯대값 100으로 설정
+        mouseX = Math.max(-50, Math.min(50, $(window).width()/2 - x));
+        mouseY = Math.max(-50, Math.min(50, $(window).height()/2 - y));
+
+        angleX = (12 * mouseX) / 100;
+        angleY = (12 * mouseY) / 100;
+
+        fmouseX += (angleX - fmouseX) * 1/10;
+        fmouseY += (angleY - fmouseY) * 1/10;
+
+        //커서 
+        gsap.to(".cursor", 0.3, {left: x, top: y });
+
+        //움직임
+        $(".move-image").css({"transform": "translate(-50%, -50%) perspective(600px) rotateX("+fmouseY+"deg) rotateY("+ -fmouseX+"deg)" });
+        //gsap.to(".move-image", {duration: 1, scale: 1, rotateX: fmouseY, rotateY: fmouseX, transformOrigin: "50% 50%", ease: "elastic.out(0.5, 0.2)" });
+    })
 
     //출력용
-    $(".info.bottom li").click(function(e){  
-        const text = $(this).text();
-        $(".info.bottom li").removeClass();
-        $(this).addClass("active");
-        $(".cursor").css("mix-blend-mode",text);
+    $(window).mousemove(function(e){ 
+        $(".pageX").text(x);
+        $(".pageY").text(y); 
+        $(".mouseX").text(mouseX);
+        $(".mouseY").text(mouseY); 
+        $(".angleX").text(angleX);
+        $(".angleY").text(angleY); 
+        $(".fmouseX").text(Math.round(fmouseX));
+        $(".fmouseY").text(Math.round(fmouseY)); 
     });
 &lt;/script&gt;</code></pre>
                 </div>

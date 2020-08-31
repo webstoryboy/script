@@ -162,12 +162,15 @@
             transform-style: preserve-3d;
             will-change: transform;
         }
+
         .move-image .mimg img {
             border-radius: 5px;
         }
+
         .move-image .mimg {
             position: relative;
         }
+
         .move-image .mimg::before {
             content: '';
             position: absolute; z-index: -1;
@@ -178,6 +181,7 @@
             filter: blur(15px);
             opacity: 0.9;
         }
+
         .move-image .mtext {
             font-size: 1vw;
             position: absolute;
@@ -188,9 +192,11 @@
             text-align: center;
             border-radius: 2px;
         }
+
         .move-image .mtext p:nth-child(1){
             font-size: 0.5vw;
         }
+
         .cursor {
             position: absolute;
             width: 10px; height: 10px;
@@ -202,6 +208,7 @@
             transform: scale(1);
             transition: transform 0.3s ease-in-out;
         }
+
         .cursor.active {
             transform: scale(12);
         }
@@ -221,9 +228,8 @@
             </div>
         </div>
     </main>
-    <!-- main -->
+    <!-- //main -->
     
-
     <!-- info -->
     <div class="info left">
         <h1><a href="mouse00.html">jQuery Mouse Effect04</a></h1>
@@ -232,16 +238,16 @@
 
     <div class="info right">
         <ul>
-            <li>Mouse <a href="mouse01.html">1</a><a href="jmouse01.html">1</a></li>
-            <li>Mouse <a href="mouse02.html">2</a><a href="jmouse02.html">2</a></li>
-            <li>Mouse <a href="mouse03.html">3</a><a href="jmouse03.html">3</a></li>
-            <li class="active">Mouse <a href="mouse04.html">4</a><a href="jmouse04.html">4</a></li>
-            <li>Mouse <a href="mouse05.html">5</a><a href="jmouse05.html">5</a></li>
-            <li>Mouse <a href="mouse06.html">6</a><a href="jmouse06.html">6</a></li>
-            <li>Mouse <a href="mouse07.html">7</a><a href="jmouse07.html">7</a></li>
-            <li>Mouse <a href="mouse08.html">8</a><a href="jmouse08.html">8</a></li>
-            <li>Mouse <a href="mouse09.html">9</a><a href="jmouse09.html">9</a></li>
-            <li>Mouse <a href="mouse10.html">10</a><a href="jmouse10.html">10</a></li>
+            <li>Mouse <a href="mouse01.html">1</a><a href="mouse01-javascript.html">1</a></li>
+            <li>Mouse <a href="mouse02.html">2</a><a href="mouse02-javascript.html">2</a></li>
+            <li>Mouse <a href="mouse03.html">3</a><a href="mouse03-javascript.html">3</a></li>
+            <li class="active">Mouse <a href="mouse04.html">4</a><a href="mouse04-javascript.html">4</a></li>
+            <li>Mouse <a href="mouse05.html">5</a><a href="mouse05-javascript.html">5</a></li>
+            <li>Mouse <a href="mouse06.html">6</a><a href="mouse06-javascript.html">6</a></li>
+            <li>Mouse <a href="mouse07.html">7</a><a href="mouse07-javascript.html">7</a></li>
+            <li>Mouse <a href="mouse08.html">8</a><a href="mouse08-javascript.html">8</a></li>
+            <li>Mouse <a href="mouse09.html">9</a><a href="mouse09-javascript.html">9</a></li>
+            <li>Mouse <a href="mouse10.html">10</a><a href="mouse10-javascript.html">10</a></li>
         </ul>
     </div>
 
@@ -259,10 +265,9 @@
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/349" target="_blank" class="view">소스보기</a>
+        <a href="https://wtss.tistory.com/350" target="_blank" class="view">소스보기</a>
     </div>
-    <!-- info -->
-
+    <!-- //info -->
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -302,7 +307,6 @@
             //gsap.to(".move-image", {duration: 1, scale: 1, rotateX: fmouseY, rotateY: fmouseX, transformOrigin: "50% 50%", ease: "elastic.out(0.5, 0.2)" });
         })
 
-
         //출력용
         $(window).mousemove(function(e){ 
             $(".pageX").text(x);
@@ -314,37 +318,6 @@
             $(".fmouseX").text(Math.round(fmouseX));
             $(".fmouseY").text(Math.round(fmouseY)); 
         });
-
-
-        // let max = Math.max(100, 200);
-        // let min = Math.min(100, 200);
-
-        // let xx = 100; let yy = -200;
-        // let zz = Math.min(xx, yy);
-
-        //let arr = [100, 200, 300];
-        //let max = Math.max(...arr)
-
-        //주어진 숫자보다 크거나 같은 숫자 중 가장 작은 숫자
-        //let ceil = Math.ceil(0.95) //1
-        //let ceil = Math.ceil(4) //4
-        //let ceil = Math.ceil(6.00005)  //7
-        //let ceil = Math.ceil(-0.95) //-0
-        //let ceil = Math.ceil(-4) //-4
-
-        //주어진 수 이하의 가장 큰 정수
-        //let floor = Math.floor(39.35)  //39
-        //let floor = Math.floor(39.85) //39
-        //let floor = Math.floor(4) //4
-
-        //입력값을 반올림한 값과 가장 가까운 정수를 출력
-        // let round = Math.round(20.49) //20
-        // let round = Math.round(20.5) //21
-        // let round = Math.round(20) //20
-
-        //랜덤 0~1사이 값
-        //let random = Math.round(Math.random() * 10)
-        //console.log(random)
     </script>
 </body>
 </html>
