@@ -13,7 +13,7 @@
         <br />
 
         <p class="bubble warning">샘플 소스는 여기서 확인 할 수 있습니다. </p>
-        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/mouseEffect/mouse01.html">바로가기</a></p>
+        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/mouseEffect/mouse02.html">바로가기</a></p>
     </div>
     <div class="code-reference">
         <h2>Code Reference</h2>
@@ -26,11 +26,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.css()</span></code></td>
-                    <td>.css() 메서드는 선택한 요소에 CSS 속성 값을 설정합니다.</td>
-                    <td><a href="https://webzz.tistory.com/113">View</a></td>
-                </tr>
                 <tr>
                     <td><code class="hljs javascript"><span class="hljs-built_in">.addClass()</span></code></td>
                     <td>.addClass() 메서드는 선택한 요소에 클래스를 추가하는 메서드입니다.</td>
@@ -68,26 +63,6 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">clientX</span></code></td>
-                    <td>브라우저 페이지를 기준으로 X좌표의 위치를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT" class="color-view">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">clientY</span></code></td>
-                    <td>브라우저 페이지를 기준으로 Y좌표의 위치를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">offsetX</span></code></td>
-                    <td>선택한 객체를 기준으로 X좌표의 위치를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">offsetY</span></code></td>
-                    <td>선택한 객체를 기준으로 Y좌표의 위치를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
-                </tr>
-                <tr>
                     <td><code class="hljs javascript"><span class="hljs-built_in">pageX</span></code></td>
                     <td>브라우저 페이지를 기준으로 X좌표의 위치를 반환합니다.</td>
                     <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
@@ -95,16 +70,6 @@
                 <tr>
                     <td><code class="hljs javascript"><span class="hljs-built_in">pageY</span></code></td>
                     <td>브라우저 페이지를 기준으로 Y좌표의 위치를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">screenX</span></code></td>
-                    <td>모니터 스크린을 기준으로 X좌표의 위치를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">screenY</span></code></td>
-                    <td>모니터 스크린을 기준으로 Y좌표의 위치를 반환합니다.</td>
                     <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
                 </tr>
             </tbody>
@@ -125,45 +90,40 @@
                 <div>
 <pre class="line-numbers xml"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
-    &lt;head&gt;
-        &lt;meta charset="UTF-8"&gt;
-        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Moust Effect01 - jQuery&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        
-        &lt;!-- main --&gt;
-        &lt;main&gt;
-            &lt;div class="cursor"&gt;&lt;/div&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mouse Effect02 - jQuery&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
     
-            &lt;div class="contents"&gt;
-                &lt;p&gt;To climb steep hills requires &lt;em&gt;slow&lt;/em&gt; pace at first. &lt;/p&gt;
-                &lt;p&gt;험준한 산을 오르기 위해선 먼저 &lt;em&gt;천천히&lt;/em&gt; 걸어야 한다.&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/main&gt;
-        &lt;!-- //main --&gt;
-        
-        &lt;!-- info --&gt;
-        &lt;div class="info left"&gt;
-            &lt;h1&gt;&lt;a href="mouse00.html"&gt;jQuery Mouse Effect01&lt;/a&gt;&lt;/h1&gt;
-            &lt;p&gt;마우스 따라다니기&lt;/p&gt;
-        &lt;/div&gt;
-    
-        &lt;div class="info bottom"&gt;
-            &lt;ul&gt;
-                &lt;li&gt;clientX : &lt;span class="clientX"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;clientY : &lt;span class="clientY"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;offsetX : &lt;span class="offsetX"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;offsetY : &lt;span class="offsetY"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;screenX : &lt;span class="screenX"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;screenY : &lt;span class="screenY"&gt;0&lt;/span&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/div&gt;
-        &lt;!-- //info --&gt;
+    &lt;!-- main --&gt;
+    &lt;main&gt;
+        &lt;div class="cursor"&gt;&lt;/div&gt;
+        &lt;div class="cursor-follower"&gt;&lt;/div&gt;
 
-    &lt;/body&gt;
+        &lt;div class="contents"&gt;
+            &lt;p&gt;When money speaks, the &lt;em&gt;truth&lt;/em&gt; keeps silent.&lt;/p&gt;
+            &lt;p&gt;돈이 말할 때는 &lt;em&gt;진실&lt;/em&gt;은 입을 다문다&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+    &lt;!-- //main --&gt;
+    
+    &lt;!-- info --&gt;
+    &lt;div class="info left"&gt;
+        &lt;h1&gt;&lt;a href="mouse00.html"&gt;jQuery Mouse Effect02&lt;/a&gt;&lt;/h1&gt;
+        &lt;p&gt;마우스 따라다니기&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="info bottom"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!-- //info --&gt;
+
+&lt;/body&gt;
 &lt;/html&gt;</code></pre>
                 </div>
                 <!--//tab-cont1 -->
@@ -206,7 +166,7 @@ li {
 }
 
 body {
-    background: url(../assets/img/su02.jpg) no-repeat center center;
+    background: url(../assets/img/su03.jpg) no-repeat center center;
     background-size: cover;
     color: #fff;
     height: 100vh;
@@ -331,49 +291,64 @@ body::before {
 
 .cursor {
     position: absolute;
-    left: -100px;
-    top: -100px;
-    width: 50px;
-    height: 50px;
+    width: 10px; height: 10px;
+    background: #fff;
     border-radius: 50%;
-    border: 3px solid #fff;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.1);
     user-select: none;
     pointer-events: none;
-    transition: background-color .2s, border-color .2s;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .cursor.active {
-    background-color: rgba(255, 165, 0, 0.4);
-    border-color: orange;
+    opacity: .5;
+    transform: scale(0);
+}
+
+.cursor-follower {
+    position: absolute;
+    width: 30px; height: 30px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.cursor-follower.active {
+    opacity: .7;
+    transform: scale(4);
 }</code></pre>
                 </div>
                 <!--//tab-cont2 -->
                 <div>
                     <pre class="line-numbers xml"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-    //출력용
-    $(window).mousemove(function (event) {
-        $(".clientX").text(event.clientX);
-        $(".clientY").text(event.clientY);
-        $(".offsetX").text(event.offsetX);
-        $(".offsetY").text(event.offsetY);
-        $(".pageX").text(event.pageX);
-        $(".pageY").text(event.pageY);
-        $(".screenX").text(event.screenX);
-        $(".screenY").text(event.screenY);
+    //jQuery + GSAP
+    const cursor = $(".cursor");
+    const follower = $(".cursor-follower");
+
+    //움직임 효과
+    $(document).mousemove(function(e){
+        gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY - 5 });
+        gsap.to(follower, 0.8, {left: e.pageX - 15 , top: e.pageY  - 15});
     });
 
-    //마우스 움직이기
-    $(window).mousemove(function (event) {
-        $(".cursor").css({ left: event.clientX - 25, top: event.clientY - 25 });
+    //오버 효과
+    $(".contents em").hover(function(){
+        cursor.addClass("active");
+        follower.addClass("active");
+    }, function(){
+        cursor.removeClass("active");
+        follower.removeClass("active");
+    });
 
-        $(".contents em").hover(function () {
-            $(".cursor").addClass("active");
-        }, function () {
-            $(".cursor").removeClass("active");
-        });
+    //출력용
+    $(document).mousemove(function(e){  //마우스가 움직였을 때 이벤트 함수
+        $(".pageX").text(e.pageX);  //이벤트 pageX 값을 화면에 출력
+        $(".pageY").text(e.pageY);  //이벤트 pageY 값을 화면에 출력
     });
 &lt;/script&gt;</code></pre>
                 </div>
