@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Slider Effect06</title>
+    <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
+	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
+    <meta name="author" content="webstoryboy">
+    
+    <style>
+        /* reset */
+        @font-face { 
+            font-family: 'MapoFlowerIsland'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff'); 
+            font-weight: normal; 
+            font-style: normal; 
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px dashed #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        ul {
+            padding: 10px 20px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background: url(../assets/img/su10.jpg) no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            height: 100vh;
+            transition: all 0.2s;
+            overflow: hidden;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: 'MapoFlowerIsland';
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(50, 37, 11, 0.9);
+            z-index: -1;
+        }
+
+        /* info */
+        .info {
+            position: absolute;
+            z-index: 1000;
+        }
+
+        .info h1 {
+            font-size: 20px;
+            border-bottom: 1px dashed #fff;
+            margin-bottom: 8px;
+        }
+
+        .info p, .info li {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 3px;
+        }
+
+        .info li.active a:first-child {
+            background: #fff;
+            color: #000;
+        }
+
+        .info.left {
+            left: 20px;
+            top: 20px;
+        }
+
+        .info.right {
+            right: 10px;
+            top: 10px;
+        }
+
+        .info.right a {
+            display: inline-block;
+            margin-left: 5px;
+            width: 20px; height: 20px;
+            border: 1px dashed #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .info.right a:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .info.bottom {
+            left: 10px;
+            bottom: 10px;
+        }
+
+        .info.view {
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .info.view a {
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 30px;
+            padding: 5px 30px;
+        }
+
+        @media (max-width: 800px){
+            .info.bottom {display: none;}
+            .info.right {display: none;}
+        }
+
+        /* slide */
+        .slider-wrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 1200px;
+            overflow: hidden;
+            /* background: #ccc; */
+        }
+
+        .slider-img {
+            position: relative;
+            width: 5000px;
+            overflow: hidden;
+        }
+
+        .slider-img .slider {
+            float: left;
+            width: 400px;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .slider-img .slider span {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+        }
+
+        .slider-btn a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+        }
+
+        .slider-btn a.prev {
+            left: 0;
+        }
+
+        .slider-btn a.next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+        
+    <!-- main -->
+    <main>
+        <div class="slider-wrap">
+            <div class="slider-img">
+                <div class="slider"><img src="../assets/img/so01.jpg" alt="이미지1"><span>이미지1</span></div>
+                <div class="slider"><img src="../assets/img/so02.jpg" alt="이미지2"><span>이미지2</span></div>
+                <div class="slider"><img src="../assets/img/so03.jpg" alt="이미지3"><span>이미지3</span></div>
+                <div class="slider"><img src="../assets/img/so04.jpg" alt="이미지4"><span>이미지4</span></div>
+                <div class="slider"><img src="../assets/img/so05.jpg" alt="이미지5"><span>이미지5</span></div>
+            </div>
+        </div>
+        <div class="slider-btn">
+            <a href="#" class="prev">prev</a>
+            <a href="#" class="next">next</a>
+        </div>
+    </main>
+    <!-- main -->
+    
+    <!-- info -->
+    <div class="info left">
+        <h1><a href="slider00.html">jQuery Slider Effect06</a></h1>
+        <p>이미지 슬라이드 효과 : 3단 슬라이드 만들기</p>
+    </div>
+
+    <div class="info right">
+        <ul>
+            <li>Slider <a href="slider01.html">1</a><a href="jslider01.html">1</a></li>
+            <li>Slider <a href="slider02.html">2</a><a href="jslider02.html">2</a></li>
+            <li>Slider <a href="slider03.html">3</a><a href="jslider03.html">3</a></li>
+            <li>Slider <a href="slider04.html">4</a><a href="jslider04.html">4</a></li>
+            <li>Slider <a href="slider05.html">5</a><a href="jslider05.html">5</a></li>
+            <li class="active">Slider <a href="slider06.html">6</a><a href="jslider06.html">6</a></li>
+            <li>Slider <a href="slider07.html">7</a><a href="jslider07.html">7</a></li>
+            <li>Slider <a href="slider08.html">8</a><a href="jslider08.html">8</a></li>
+            <li>Slider <a href="slider09.html">9</a><a href="jslider09.html">9</a></li>
+            <li>Slider <a href="slider10.html">10</a><a href="jslider10.html">10</a></li>
+        </ul>
+    </div>
+
+    <div class="info bottom">
+        
+    </div>
+
+    <div class="info view">
+        <a href="https://wtss.tistory.com/347" target="_blank" class="view">소스보기</a>
+    </div>
+    <!-- info -->
+
+
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        const sliderWrap = $(".slider-wrap");
+        const sliderImg = $(".slider-img");
+        const slider = $(".slider");
+        const sliderBtn = $(".slider-btn");
+
+        let sliderCount = slider.length;
+        let sliderWidth = slider.outerWidth();
+        let showNumber = 3;
+        let currentIndex = 0;
+
+        var sliderCopy = $(".slider:lt(" + showNumber + ")").clone();
+        sliderImg.append(sliderCopy);
+
+        //이미지 움직이기
+        function back() {
+            if (currentIndex == 0) {
+                currentIndex = sliderCount;
+                sliderImg.css("margin-left", -currentIndex * sliderWidth + "px");
+            }
+            currentIndex--;
+            sliderImg.stop().animate({ "margin-left": -sliderWidth * currentIndex + "px" }, 400);
+        }
+
+        function next() {
+            if (currentIndex == sliderCount) {
+                currentIndex = 0;
+                sliderImg.css("margin-left", currentIndex);
+            }
+            currentIndex++;
+            sliderImg.stop().animate({ "margin-left": -sliderWidth * currentIndex + "px" }, 400);
+        }
+
+        //버튼 클릭하기
+        sliderBtn.on("click", "a", function () {
+            if ($(this).hasClass("prev")) {
+                back();
+            } else {
+                next();
+            }
+        });
+        
+    </script>
+</body>
+</html>

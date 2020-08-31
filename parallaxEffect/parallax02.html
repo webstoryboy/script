@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax02</title>
+    <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
+	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
+    <meta name="author" content="webstoryboy">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        @font-face { 
+            font-family: 'Cafe24Simplehae'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Simplehae.woff') format('woff'); 
+            font-weight: normal; 
+            font-style: normal; 
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px dashed #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        body {
+            background: url(../assets/img/su02.jpg) no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            transition: all 0.2s;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+        }
+
+        /* main */
+        :root {
+            font-size: 12px;
+        }
+
+        body {
+            --color-h1: #fff;
+            --color-title: #fff;
+            --color-sub: #999;
+            --color-link: #000;
+            --color-bg: #111;
+            --font-family: 'lato','Cafe24Simplehae';
+            --aspect-ratio: 33/17;
+            --image-width-max: 500px;
+
+            background-color: var(--color-bg);
+            font-family: var(--font-family);
+            color: var(--color-title);
+        }
+
+        .info {
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+            text-align: right;
+        }
+
+        .info .menu {
+            padding-top: 10px;
+        }
+
+        .info .menu li {
+            margin-bottom: 5px;
+            list-style: none;
+        }
+        .info .menu li a {
+            display: inline-block;
+            margin-left: 5px;
+            width: 20px; height: 20px;
+            border: 1px dashed #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .info .menu li.active a:first-child {
+            background: #fff;
+            color: #000;
+        }
+
+        .info h1 {
+            padding-bottom: 10px;
+            font-size: 28px;
+            font-family: 'Cafe24Simplehae';
+        }
+
+        .info p {
+            padding-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .info li {
+            font-size: 16px;
+            font-family: 'Cafe24Simplehae';
+        }
+
+        .info2 {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.4;
+            font-weight: 300;
+            z-index: 10000;
+            font-family: 'Cafe24Simplehae';
+        }
+
+        .info2 strong {
+            color: #fff;
+        }
+
+        /* contents */
+        #wrap h1 {
+            font-size: 8vw;
+            line-height: 1.2;
+            color: var(--color-h1);
+            padding: 5vw;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #wrap h1 em {
+            display: block;
+            font-weight: 100;
+            padding-left: 18vw;
+        }
+
+        .contents {
+            margin: 35vh auto 35vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .content-item {
+            position: relative;
+            /* --image-width: calc(var(--image-width-max) * var(--aspect-ratio));
+            width: var(--image-width); */
+            width: 1000px;
+            max-width: 90vw;
+            margin: 60vh 0 60vh;
+        }
+
+        .content-item:nth-child(even) {
+            margin-left: auto;
+        }
+
+        .content-item-num {
+            font-size: 25vw;
+            font-weight: 100;
+            position: absolute;
+            right: -5vw;
+            top: -20vw;
+            opacity: 0.07;
+        }
+
+        .content-item:nth-child(even) .content-item-num {
+            right: auto;
+            left: -5vw;
+        }
+
+        .content-item-title {
+            text-align: right;
+            font-weight: 300;
+            text-transform: capitalize;
+            color: var(--color-sub);
+            padding-bottom: 0.8vw;
+            font-size: 1.5rem;
+        }
+
+        .content-item:nth-child(even) .content-item-title {
+            text-align: left;
+        }
+
+        .content-item-imgWrap {
+            position: relative;
+            --width: 100%;
+            width: var(--width);
+            padding-bottom: calc(var(--width) / (var(--aspect-ratio)));
+            overflow: hidden;
+            background: #ccc;
+        }
+
+        .content-item-img {
+            width: var(--width);
+            --overflow: 60px;
+            position: absolute;
+            top: calc(-2 * var(--overflow));
+            height: calc(100% + (2 * var(--overflow)));
+            background-size: cover;
+            background-position: 50% 0;
+        }
+
+        .content-item-desc {
+            font-size: 5vw;
+            line-height: 1.2;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--color-title);
+            text-align: right;
+            word-break: keep-all;
+            margin-top: -6vw;
+            margin-right: -4vw;
+            position: relative;
+            z-index: 20;
+        }
+
+        .content-item:nth-child(even) .content-item-desc {
+            text-align: left;
+            margin-right: 0;
+            margin-left: -4vw;
+        }
+
+        #section1 .content-item-img {
+            background-image: url(../assets/img/so09.jpg);
+        }
+
+        #section2 .content-item-img {
+            background-image: url(../assets/img/so02.jpg);
+        }
+
+        #section3 .content-item-img {
+            background-image: url(../assets/img/so03.jpg);
+        }
+
+        #section4 .content-item-img {
+            background-image: url(../assets/img/so04.jpg);
+        }
+
+        #section5 .content-item-img {
+            background-image: url(../assets/img/so05.jpg);
+        }
+
+        #section6 .content-item-img {
+            background-image: url(../assets/img/so06.jpg);
+        }
+
+        #section7 .content-item-img {
+            background-image: url(../assets/img/so07.jpg);
+        }
+
+        #section8 .content-item-img {
+            background-image: url(../assets/img/so08.jpg);
+        }
+
+        #section9 .content-item-img {
+            background-image: url(../assets/img/so01.jpg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- info -->
+    <div class="info">
+        <h1>Parallax02</h1>
+        <p>패럴랙스 스크로링 효과</p>
+        <ul class="menu">
+            <li>Parallax <a href="parallax01.html">1</a><a href="jparallax01.html">1</a></li>
+            <li class="active">Parallax <a href="parallax02.html">2</a><a href="jparallax02.html">2</a></li>
+            <li>Parallax <a href="parallax03.html">3</a><a href="jparallax03.html">3</a></li>
+            <li>Parallax <a href="parallax04.html">4</a><a href="jparallax04.html">4</a></li>
+            <li>Parallax <a href="parallax05.html">5</a><a href="jparallax05.html">5</a></li>
+            <li>Parallax <a href="parallax06.html">6</a><a href="jparallax06.html">6</a></li>
+            <li>Parallax <a href="parallax07.html">7</a><a href="jparallax07.html">7</a></li>
+            <li>Parallax <a href="parallax08.html">8</a><a href="jparallax08.html">8</a></li>
+            <li>Parallax <a href="parallax09.html">9</a><a href="jparallax09.html">9</a></li>
+            <li>Parallax <a href="parallax10.html">10</a><a href="jparallax10.html">10</a></li>
+        </ul>
+    </div>
+
+    <div class="info2">
+        <span>scrollTop() : <strong class="scrollTop">0</strong>px</span><br>
+    </div>
+    <!-- info -->
+    
+
+    <!-- contents -->
+    <main>
+        <section id="wrap">
+            <h1>Parallax <em>Scrolling</em></h1>
+            <div class="contents">
+                <section id="section1" class="content-item">
+                    <span class="content-item-num">01</span>
+                    <h2 class="content-item-title">Section1</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                </section>
+                <section id="section2" class="content-item">
+                    <span class="content-item-num">02</span>
+                    <h2 class="content-item-title">Section2</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">결과도 중요하지만, 과정을 더 중요하게 생각한다.</p>
+                </section>
+                <section id="section3" class="content-item">
+                    <span class="content-item-num">03</span>
+                    <h2 class="content-item-title">Section3</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">매 순간에 최선을 다하고, 끊임없이 변화한다.</p>
+                </section>
+                <section id="section4" class="content-item">
+                    <span class="content-item-num">04</span>
+                    <h2 class="content-item-title">Section4</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">모든지 기본을 중요하게 생각한다.</p>
+                </section>
+                <section id="section5" class="content-item">
+                    <span class="content-item-num">05</span>
+                    <h2 class="content-item-title">Section5</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">천 마디의 말보다 하나의 행동이 더 값지다.</p>
+                </section>
+                <section id="section6" class="content-item">
+                    <span class="content-item-num">06</span>
+                    <h2 class="content-item-title">Section6</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">조그만 성공에 만족하지 않으며, 방심을 경계한다.</p>
+                </section>
+                <section id="section7" class="content-item">
+                    <span class="content-item-num">07</span>
+                    <h2 class="content-item-title">Section7</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">내 스타일을 다른 사람에게 강요하지 않는다.</p>
+                </section>
+                <section id="section8" class="content-item">
+                    <span class="content-item-num">08</span>
+                    <h2 class="content-item-title">Section8</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">자신의 이익을 위해 다른 사람을 이용하지 않는다.</p>
+                </section>
+                <section id="section9" class="content-item">
+                    <span class="content-item-num">09</span>
+                    <h2 class="content-item-title">Section9</h2>
+                    <figure class="content-item-imgWrap">
+                        <div class="content-item-img"></div>
+                    </figure>
+                    <p class="content-item-desc">나보다 다른 사람의 의견도 존중한다.</p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <!-- //contents -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script>
+        //제이쿼리
+        $(window).scroll(function () {
+            let scrollTop = $(window).scrollTop() + $(window).height() * 0.6;
+
+            $(".scrollTop").text(scrollTop);
+
+            // let offset1 = (scrollTop - $("#section1").offset().top)
+            // let offset2 = (scrollTop - $("#section2").offset().top)
+            // let offset3 = (scrollTop - $("#section3").offset().top)
+            // let offset4 = (scrollTop - $("#section4").offset().top)
+            // let offset5 = (scrollTop - $("#section5").offset().top)
+            // let offset6 = (scrollTop - $("#section6").offset().top)
+            // let offset7 = (scrollTop - $("#section7").offset().top)
+            // let offset8 = (scrollTop - $("#section8").offset().top)
+            // let offset9 = (scrollTop - $("#section9").offset().top)
+
+            // $("#section1 .content-item-desc").css({ transform: "translateX("+ offset1+"px)" });
+            // $("#section2 .content-item-desc").css({ transform: "translateX("+ offset2+"px)" });
+            // $("#section3 .content-item-desc").css({ transform: "translateX("+ offset3+"px)" });
+            // $("#section4 .content-item-desc").css({ transform: "translateX("+ offset4+"px)" });
+            // $("#section5 .content-item-desc").css({ transform: "translateX("+ offset5+"px)" });
+            // $("#section6 .content-item-desc").css({ transform: "translateX("+ offset6+"px)" });
+            // $("#section7 .content-item-desc").css({ transform: "translateX("+ offset7+"px)" });
+            // $("#section8 .content-item-desc").css({ transform: "translateX("+ offset8+"px)" });
+            // $("#section9 .content-item-desc").css({ transform: "translateX("+ offset9+"px)" });
+
+            // for(let i=1; i<=9; i++){
+            //     let offset = (scrollTop - $("#section"+i).offset().top)
+            //     $("#section"+i+" .content-item-desc").css({transform : "translateX("+offset+"px)"});
+            // }
+
+            $(".content-item").each(function () {
+                let offset1 = (scrollTop - $(this).offset().top) * 0.1;
+                let offset2 = (scrollTop - $(this).offset().top) * 0.2;
+                let offset3 = (scrollTop - $(this).offset().top) * 0.3;
+                let offset4 = (scrollTop - $(this).offset().top) * 0.4;
+
+                $(this).find(".content-item-desc").css({ "transform": "translateY(" + -offset2 + "px)" });
+                $(this).find(".content-item-num").css({ "transform": "translateY(" + offset1 + "px)" });
+                $(this).find(".content-item-img").css({ "transform": "translateY(" + offset2 + "px)" });
+            });
+        });
+    </script>
+</body>
+</html>

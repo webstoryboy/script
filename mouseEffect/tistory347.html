@@ -1,0 +1,218 @@
+<div class="info-output">
+    <p class="bubble">마우스를 이용한 효과입니다. 제이쿼리와 자바스크립트를 이용한 스크립트입니다.
+    </p>
+
+    <div class="code-youtube">
+        <h2>Code Youtube</h2>
+        <iframe src="https://www.youtube.com/embed" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+    <div class="code-reference">
+        <h2>Code Reference</h2>
+        <p class="bubble info">소스는 여기서 다운 받을 수 있습니다. <a class="color-values"
+                href="https://github.com/webstoryboy/sample/tree/master/mouse">바로가기</a></p>
+        <br />
+        <p class="bubble warning">샘플 예제 <a class="color-values"
+                href="https://webstoryboy.github.io/sample/mouse/mouse01-jquery.html">바로가기</a></p>
+        <br />
+    </div>
+    <div class="code-preview">
+        <h2>Code example</h2>
+        <div class="tab-menu">
+            <div class="tab-btn">
+                <ul>
+                    <li class="active"><a href="#">index.html</a></li>
+                    <li><a href="#">style.css</a></li>
+                    <li><a href="#">jquery.js</a></li>
+                </ul>
+            </div>
+            <div class="tab-cont">
+                <div>
+                    <pre class="line-numbers xml"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mouse Effect01 - jquery&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- contents --&gt;
+    &lt;div class="cursor"&gt;&lt;/div&gt;
+    &lt;div class="contents"&gt;
+        &lt;p&gt;To climb steep hills requires &lt;strong&gt;slow&lt;/strong&gt; pace at first. &lt;/p&gt;
+        &lt;p&gt;험준한 산을 오르기 위해선 먼저 &lt;strong&gt;천천히&lt;/strong&gt; 걸어야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- //contents --&gt;
+
+
+    &lt;!-- infor --&gt;
+    &lt;div class="infor"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;clientX : &lt;span class="clientX"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;clientY : &lt;span class="clientY"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;offsetX : &lt;span class="offsetX"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;offsetY : &lt;span class="offsetY"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;screenX : &lt;span class="screenX"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;screenY : &lt;span class="screenY"&gt;0&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </div>
+                <!--//tab-cont1 -->
+                <div>
+                    <pre class="line-numbers language-css"><code>/* reset */
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+ul {
+    padding: 10px 20px;
+}
+
+body {
+    background: url(https://tistory3.daumcdn.net/tistory/2818477/skin/images/su09.jpg) no-repeat center center;
+    background-size: cover;
+    font-family: 'Abel', 'GmarketSansMedium';
+    color: #fff;
+    height: 100vh;
+    transition: all 0.2s;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(45, 71, 100, 0.8);
+    z-index: -1;
+}
+
+/* infor */
+.infor {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.infor li {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.infor li a {
+    color: #fff;
+}
+
+/* content */
+.contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: none;
+}
+
+.contents p {
+    max-width: 70vw;
+    font-size: 3vw;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.contents p strong {
+    color: orange;
+    font-weight: bold;
+    border-bottom: 2px dashed orange;
+}
+
+.cursor {
+    position: absolute;
+    left: -100px;
+    top: -100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.1);
+    user-select: none;
+    pointer-events: none;
+    transition: background-color .2s, border-color .2s;
+}
+
+.cursor.active {
+    background-color: rgba(255, 165, 0, 0.4);
+    border-color: orange;
+}</code></pre>
+                </div>
+                <!--//tab-cont2 -->
+                <div>
+                    <pre class="line-numbers language-js"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    //마우스 움직이기
+    $(window).mousemove(function (event) {
+        $(".cursor").css({ left: event.clientX - 25, top: event.clientY - 25 });
+
+        $(".contents strong").hover(function () {
+            $(".cursor").addClass("active");
+        }, function () {
+            $(".cursor").removeClass("active");
+        });
+    });
+
+    //출력용
+    $(window).mousemove(function (event) {
+        $(".clientX").text(event.clientX);
+        $(".clientY").text(event.clientY);
+        $(".offsetX").text(event.offsetX);
+        $(".offsetY").text(event.offsetY);
+        $(".pageX").text(event.pageX);
+        $(".pageY").text(event.pageY);
+        $(".screenX").text(event.screenX);
+        $(".screenY").text(event.screenY);
+    });
+&lt;/script&gt;</code></pre>
+                </div>
+                <!--//tab-cont3 -->
+            </div>
+            <!-- //tab-cont-->
+        </div>
+        <!-- //tab-munu -->
+    </div>
+    <!-- //code-preview -->
+</div>
+<!-- //demo-info -->

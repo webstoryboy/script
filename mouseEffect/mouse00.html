@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
+	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
+    <meta name="author" content="webstoryboy">
+    
+    <style>
+        @font-face { 
+            font-family: 'NEXON Lv1 Gothic OTF'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal; 
+            font-style: normal; 
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px dashed #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        body {
+            background: url(../assets/img/su02.jpg) no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            height: 100vh;
+            transition: all 0.2s;
+            overflow: hidden;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: 'NEXON Lv1 Gothic OTF';
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(5, 36, 70, 0.9);
+            z-index: -1;
+        }
+
+        .menu {
+            margin: 10px;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        .menu li {
+            list-style: none;
+        }
+
+        main {
+            padding: 7vw;
+        }
+        h1 {
+            font-size: 2rem;
+            padding-bottom: 0.5rem;
+        }
+        table {
+            width: 100%;
+            color: #fff;
+            border-collapse: collapse;
+            border-bottom: 1px solid #dee2e6;
+        }
+        table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+        table td, table th {
+            padding: .85rem;
+            border-top: 1px solid #dee2e6;
+        }
+        table tr:hover {
+            background-color: rgba(0,0,0,.075);
+        }
+        table .ce {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="menu">
+        <li><a href="../mouseEffect/mouse00.html">마우스</a></li>
+        <li><a href="../sliderEffect/slider00.html">이미지</a></li>
+        <li><a href="../parallaxEffect/parallax00.html">패랠랙스</a></li>
+        <li><a href="../menuEffect/menu00.html">메뉴</a></li>
+    </ul>
+    
+    <main>
+        <h1>마우스 이펙트 배우기</h1>
+
+        <div class="table-wrap">
+            <table>
+                <colgroup>
+                    <col style="width:5%">
+                    <col style="width:50%">
+                    <col style="width:10%">
+                    <col style="width:10%">
+                    <col style="width:5%">
+                    <col style="width:5%">
+                    <col style="width:5%">
+                    <col style="width:5%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">번호</th>
+                        <th scope="col">설명</th>
+                        <th scope="col">제이쿼리</th>
+                        <th scope="col">자바스크립트</th>
+                        <th scope="col">완성</th>
+                        <th scope="col">완성</th>
+                        <th scope="col">영상</th>
+                        <th scope="col">영상</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과를 배웁니다. clientX, clientY</td>
+                        <td class="ce"><a href="mouse01.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse01.html">바로가기</a></td>
+                        <td class="ce">O</td>
+                        <td class="ce">O</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과. GSAP를 이용하여 만들기</td>
+                        <td class="ce"><a href="mouse02.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse03.html">바로가기</a></td>
+                        <td class="ce">O</td>
+                        <td class="ce">O</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과, mix-blend-mode 효과 이용하기</td>
+                        <td class="ce"><a href="mouse03.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse04.html">바로가기</a></td>
+                        <td class="ce">O</td>
+                        <td class="ce">O</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>마우스를 방향에 따라 움직이기, 최소값 최대값 구하기</td>
+                        <td class="ce"><a href="mouse04.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse04.html">바로가기</a></td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과입니다.</td>
+                        <td class="ce"><a href="mouse05.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse05.html">바로가기</a></td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과입니다.</td>
+                        <td class="ce"><a href="mouse06.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse06.html">바로가기</a></td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과입니다.</td>
+                        <td class="ce"><a href="mouse07.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse07.html">바로가기</a></td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과입니다.</td>
+                        <td class="ce"><a href="mouse08.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse08.html">바로가기</a></td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과입니다.</td>
+                        <td class="ce"><a href="mouse09.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse09.html">바로가기</a></td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td>마우스를 따라다니는 가장 기본적인 효과입니다.</td>
+                        <td class="ce"><a href="mouse10.html">바로가기</a></td>
+                        <td class="ce"><a href="jmouse10.html">바로가기</a></td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                        <td class="ce">X</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
