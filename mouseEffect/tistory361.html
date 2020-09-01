@@ -37,54 +37,14 @@
                     <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
                 </tr>
                 <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">innerWidth</span></code></td>
-                    <td>브라우저의 콘텐츠 영역의 너비(스크롤 포함)값을 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/81">View</a></td>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">getBoundingClientRect()</span></code></td>
+                    <td>요소의 크기와 뷰표트 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
                 </tr>
                 <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">innerHeight</span></code></td>
-                    <td>브라우저의 콘텐츠 영역의 높이(스크롤 포함)값을 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/81">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">outerWidth</span></code></td>
-                    <td>브라우저의 툴바/스크롤바를 포함한 바깥 영역의 너비를 반환홥니다.</td>
-                    <td><a href="https://webzz.tistory.com/81">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">outerHeight</span></code></td>
-                    <td>브라우저의 툴바/스크롤바를 포함한 바깥 영역의 높이를 반환홥니다.</td>
-                    <td><a href="https://webzz.tistory.com/81">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.max()</span></code></td>
-                    <td>주어진 수 중에서 가장 큰 값을 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/79">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.min()</span></code></td>
-                    <td>주어진 수 중에서 가장 작은 값을 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/79">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.ceil()</span></code></td>
-                    <td>숫자 보다 크거나 같은 수 중에서 가장 작은 정수를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/79">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.floor()</span></code></td>
-                    <td>제공된 숫자 보다 작거나 같은 가장 큰 정수를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/79">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.round()</span></code></td>
-                    <td>제공된 숫자를 반올림하여 가장 가까운 정수를 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/79">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.random()</span></code></td>
-                    <td>0과 1사이의 의사 난수 값을 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">setProperty()</span></code></td>
+                    <td>요소의 속성 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
                 </tr>
             </tbody>
         </table> 
@@ -113,10 +73,7 @@
         
         &lt;!-- main --&gt;
         &lt;main&gt;
-            &lt;div class="cursor"&gt;
-                &lt;strong&gt;mouseX : &lt;span class="mouseX"&gt;0&lt;/span&gt;&lt;/strong&gt;
-                &lt;strong&gt;mouseY : &lt;span class="mouseY"&gt;0&lt;/span&gt;&lt;/strong&gt;
-            &lt;/div&gt;
+            &lt;div class="cursor"&gt;&lt;/div&gt;
     
             &lt;div class="contents"&gt;
                 &lt;div class="move-image"&gt;
@@ -138,30 +95,11 @@
             &lt;p&gt;마우스 방향에 따라 움직이기&lt;/p&gt;
         &lt;/div&gt;
     
-        &lt;div class="info right"&gt;
-            &lt;ul&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse01.html"&gt;1&lt;/a&gt;&lt;a href="mouse01-javascript.html"&gt;1&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse02.html"&gt;2&lt;/a&gt;&lt;a href="mouse02-javascript.html"&gt;2&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse03.html"&gt;3&lt;/a&gt;&lt;a href="mouse03-javascript.html"&gt;3&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse04.html"&gt;4&lt;/a&gt;&lt;a href="mouse04-javascript.html"&gt;4&lt;/a&gt;&lt;/li&gt;
-                &lt;li class="active"&gt;Mouse &lt;a href="mouse05.html"&gt;5&lt;/a&gt;&lt;a href="mouse05-javascript.html"&gt;5&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse06.html"&gt;6&lt;/a&gt;&lt;a href="mouse06-javascript.html"&gt;6&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse07.html"&gt;7&lt;/a&gt;&lt;a href="mouse07-javascript.html"&gt;7&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse08.html"&gt;8&lt;/a&gt;&lt;a href="mouse08-javascript.html"&gt;8&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse09.html"&gt;9&lt;/a&gt;&lt;a href="mouse09-javascript.html"&gt;9&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Mouse &lt;a href="mouse10.html"&gt;10&lt;/a&gt;&lt;a href="mouse10-javascript.html"&gt;10&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/div&gt;
-    
         &lt;div class="info bottom"&gt;
             &lt;ul&gt;
                 &lt;li&gt;clientX : &lt;span class="clientX"&gt;0&lt;/span&gt;&lt;/li&gt;
                 &lt;li&gt;clientY : &lt;span class="clientY"&gt;0&lt;/span&gt;&lt;/li&gt;
             &lt;/ul&gt;
-        &lt;/div&gt;
-    
-        &lt;div class="info view"&gt;
-            &lt;a href="https://wtss.tistory.com/361" target="_blank"&gt;소스보기&lt;/a&gt;
         &lt;/div&gt;
         &lt;!-- //info --&gt;
 
@@ -378,23 +316,6 @@ body::before {
     pointer-events: none;
     transform: scale(1);
     transition: transform 0.3s ease-in-out;
-}
-
-.cursor strong {
-    background: rgba(0,0,0,1);
-    white-space: nowrap;
-    position: absolute;
-    display: block;
-    padding: 0 5px;
-    display: none;
-}
-
-.cursor strong:first-child {
-    left: 30px; top: 10px;
-}
-
-.cursor strong:last-child {
-    left: 30px; top: 35px;
 }</code></pre>
                 </div>
                 <!--//tab-cont2 -->

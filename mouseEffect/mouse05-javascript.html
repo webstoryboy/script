@@ -218,33 +218,13 @@
             transform: scale(1);
             transition: transform 0.3s ease-in-out;
         }
-
-        .cursor strong {
-            background: rgba(0,0,0,1);
-            white-space: nowrap;
-            position: absolute;
-            display: block;
-            padding: 0 5px;
-            display: none;
-        }
-        
-        .cursor strong:first-child {
-            left: 30px; top: 10px;
-        }
-
-        .cursor strong:last-child {
-            left: 30px; top: 35px;
-        }
     </style>
 </head>
 <body>
     
     <!-- main -->
     <main>
-        <div class="cursor">
-            <strong>mouseX : <span class="mouseX">0</span></strong>
-            <strong>mouseY : <span class="mouseY">0</span></strong>
-        </div>
+        <div class="cursor"></div>
 
         <div class="contents">
             <div class="move-image">
