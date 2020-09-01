@@ -1,0 +1,456 @@
+<div class="info-output">
+    <p class="bubble">마우스를 이용한 자바스크립트 효과입니다. 마우스 값을 이용하여 효과를 만들 수 있습니다.</p>
+    
+
+    <div class="code-youtube">
+        <h2>Code Youtube</h2>
+        <iframe src="https://www.youtube.com/embed" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+    <div class="code-reference">
+        <h2>Code Sample</h2>
+        <p class="bubble info">전체 소스는 여기서 다운 받을 수 있습니다. </p>
+        <p class="bubble info"><a class="color-values" href="https://github.com/webstoryboy/script/tree/master">바로가기</a></p>
+        <br />
+
+        <p class="bubble warning">샘플 소스는 여기서 확인 할 수 있습니다. </p>
+        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/mouseEffect/mouse04-javascript.html">바로가기</a></p>
+    </div>
+    <div class="code-reference">
+        <h2>Code Reference</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Value</td>
+                    <td>Description</td>
+                    <td>View</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">pageX</span></code></td>
+                    <td>브라우저 페이지를 기준으로 X좌표의 위치를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">pageY</span></code></td>
+                    <td>브라우저 페이지를 기준으로 Y좌표의 위치를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/category/REFERENCE/JAVASCRIPT">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">innerWidth</span></code></td>
+                    <td>브라우저의 콘텐츠 영역의 너비(스크롤 포함)값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/81">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">innerHeight</span></code></td>
+                    <td>브라우저의 콘텐츠 영역의 높이(스크롤 포함)값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/81">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">outerWidth</span></code></td>
+                    <td>브라우저의 툴바/스크롤바를 포함한 바깥 영역의 너비를 반환홥니다.</td>
+                    <td><a href="https://webzz.tistory.com/81">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">outerHeight</span></code></td>
+                    <td>브라우저의 툴바/스크롤바를 포함한 바깥 영역의 높이를 반환홥니다.</td>
+                    <td><a href="https://webzz.tistory.com/81">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.max()</span></code></td>
+                    <td>주어진 수 중에서 가장 큰 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.min()</span></code></td>
+                    <td>주어진 수 중에서 가장 작은 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.ceil()</span></code></td>
+                    <td>숫자 보다 크거나 같은 수 중에서 가장 작은 정수를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.floor()</span></code></td>
+                    <td>제공된 숫자 보다 작거나 같은 가장 큰 정수를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.round()</span></code></td>
+                    <td>제공된 숫자를 반올림하여 가장 가까운 정수를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">Math.random()</span></code></td>
+                    <td>0과 1사이의 의사 난수 값을 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/79">View</a></td>
+                </tr>
+            </tbody>
+        </table> 
+<pre class="line-numbers language-js"><code>let max = Math.max(100, 200);
+let min = Math.min(100, 200);
+
+let xx = 100; let yy = -200;
+let zz = Math.min(xx, yy);
+
+let arr = [100, 200, 300];
+let max = Math.max(...arr)
+
+//주어진 숫자보다 크거나 같은 숫자 중 가장 작은 숫자
+let ceil = Math.ceil(0.95) //1
+let ceil = Math.ceil(4) //4
+let ceil = Math.ceil(6.00005)  //7
+let ceil = Math.ceil(-0.95) //-0
+let ceil = Math.ceil(-4) //-4
+
+//주어진 수 이하의 가장 큰 정수
+let floor = Math.floor(39.35)  //39
+let floor = Math.floor(39.85) //39
+let floor = Math.floor(4) //4
+
+//입력값을 반올림한 값과 가장 가까운 정수를 출력
+let round = Math.round(20.49) //20
+let round = Math.round(20.5) //21
+let round = Math.round(20) //20
+
+//랜덤 0~1사이 값
+let random = Math.round(Math.random() * 10)
+console.log(random)
+</code></pre>
+    </div>
+
+    <div class="code-preview">
+        <h2>Code example</h2>
+        <div class="tab-menu">
+            <div class="tab-btn">
+                <ul>
+                    <li class="active"><a href="#">index.html</a></li>
+                    <li><a href="#">style.css</a></li>
+                    <li><a href="#">javascript.js</a></li>
+                </ul>
+            </div>
+            <div class="tab-cont">
+                <div>
+<pre class="line-numbers xml"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Moust Effect04 - Javascript&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        
+        &lt;!-- main --&gt;
+        &lt;main&gt;
+            &lt;div class="cursor"&gt;&lt;/div&gt;
+    
+            &lt;div class="move-image"&gt;
+                &lt;div class="mimg"&gt;&lt;img src="../assets/img/su05.jpg" alt="이미지"&gt;&lt;/div&gt;
+                &lt;div class="mtext"&gt;
+                    &lt;p&gt;Luck is when preparedness meets opportunity.&lt;/p&gt;
+                    &lt;p&gt;운이란 준비가 기회를 만나는 것이다.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/main&gt;
+        &lt;!-- //main --&gt;
+        
+        &lt;!-- info --&gt;
+        &lt;div class="info left"&gt;
+            &lt;h1&gt;&lt;a href="mouse00.html"&gt;Javascript Mouse Effect04&lt;/a&gt;&lt;/h1&gt;
+            &lt;p&gt;마우스 방향에 따라 움직이기&lt;/p&gt;
+        &lt;/div&gt;
+    
+        &lt;div class="info bottom"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;mouseX : &lt;span class="mouseX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;mouseY : &lt;span class="mouseY"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;angleX : &lt;span class="angleX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;angleY : &lt;span class="angleY"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;fmouseX : &lt;span class="fmouseX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;fmouseY : &lt;span class="fmouseY"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;!-- //info --&gt;
+    
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <!--//tab-cont1 -->
+                <div>
+<pre class="line-numbers language-css"><code>/* reset */
+@font-face { 
+    font-family: 'NEXON Lv1 Gothic OTF'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+*, *::before, *::after {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+a:hover {
+    border-bottom: 1px dashed #fff;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+ul {
+    padding: 10px 20px;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background: url(../assets/img/su05.jpg) no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    transition: all 0.2s;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    cursor: none;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(13, 28, 3, 0.9);
+    z-index: -1;
+}
+
+/* info */
+.info {
+    position: absolute;
+    z-index: 1000;
+}
+
+.info h1 {
+    font-size: 20px;
+    border-bottom: 1px dashed #fff;
+    margin-bottom: 8px;
+}
+
+.info p, .info li {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 3px;
+}
+
+.info li.active a:last-child {
+    background: #fff;
+    color: #000;
+}
+
+.info.left {
+    left: 20px;
+    top: 20px;
+}
+
+.info.right {
+    right: 10px;
+    top: 10px;
+}
+
+.info.right a {
+    display: inline-block;
+    margin-left: 5px;
+    width: 20px; height: 20px;
+    border: 1px dashed #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.info.right a:hover {
+    background: #fff;
+    color: #000;
+}
+
+.info.bottom {
+    left: 10px;
+    bottom: 10px;
+}
+
+.info.bottom li {
+    display: block;
+    transition: all 0.2s;
+}
+
+.info.bottom li.active {
+    color: orange;
+}
+
+.info.bottom li:hover {
+    color: orange;
+}
+
+.info.view {
+    right: 20px;
+    bottom: 20px;
+}
+
+.info.view a {
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 5px 30px;
+}
+
+@media (max-width: 800px){
+    .info.bottom {display: none;}
+    .info.right {display: none;}
+}
+
+/* main */
+.move-image { 
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) perspective(600px) rotateX(0deg) rotateY(0deg);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.move-image .mimg img {
+    border-radius: 5px;
+}
+
+.move-image .mimg {
+    position: relative;
+}
+
+.move-image .mimg::before {
+    content: '';
+    position: absolute; z-index: -1;
+    left: 5%; bottom: -20px;
+    width: 90%; height: 40px;
+    background: url(../parallax2/img/su05.jpg) no-repeat;
+    background-size: 100% 40px;
+    filter: blur(15px);
+    opacity: 0.9;
+}
+
+.move-image .mtext {
+    font-size: 1vw;
+    position: absolute;
+    left: 50%; bottom: 50%;
+    transform: translate3d(-50%, 68%, 150px);
+    background: rgba(0,0,0,0.3);
+    padding: 2vw;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.move-image .mtext p:nth-child(1){
+    font-size: 0.5vw;
+}
+
+.cursor {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.cursor.active {
+    transform: scale(12);
+}</code></pre>
+                </div>
+                <!--//tab-cont2 -->
+                <div>
+                    <pre class="line-numbers xml"><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    let x = 0,
+        y = 0,
+        mouseX = 0,
+        mouseY = 0,
+        angleX = 0,
+        angleY = 0,
+        fmouseX = 0,
+        fmouseY = 0;
+
+    document.addEventListener("mousemove", function (e){
+        x = e.pageX;    //마우스 X축 좌표값
+        y = e.pageY;    //마우스 Y축 좌표값
+
+        //let mouseX = window.innerWidth/2 - x    //마우스의 X축 좌표값을 가운데로 설정
+        //let mouseY = window.innerHeight/2 - y   //마우스의 Y축 좌표값을 가운데로 설정
+
+        //마우스의 x축 y축 쵯소값 -100 쵯대값 100으로 설정
+        mouseX = Math.max(-50, Math.min(50, window.innerWidth/2 - x));
+        mouseY = Math.max(-50, Math.min(50, window.innerHeight/2 - y));
+
+        angleX = (12 * mouseX) / 100;
+        angleY = (12 * mouseY) / 100;
+
+        fmouseX += (angleX - fmouseX) * 1/10;
+        fmouseY += (angleY - fmouseY) * 1/10;
+
+        //커서 
+        gsap.to(".cursor", 0.3, {left: x, top: y });
+
+        //움직임
+        let move = document.querySelector(".move-image");
+        move.style.transform = "translate(-50%, -50%) perspective(600px) rotateX("+fmouseY+"deg) rotateY("+ -fmouseX+"deg)"
+    });
+
+    //출력용
+    document.addEventListener("mousemove", function (e){
+        document.querySelector(".pageX").textContent = x;
+        document.querySelector(".pageY").textContent = y;
+        document.querySelector(".mouseX").textContent = mouseX;
+        document.querySelector(".mouseY").textContent = mouseY;
+        document.querySelector(".angleX").textContent = angleX;
+        document.querySelector(".angleY").textContent = angleY;
+        document.querySelector(".fmouseX").textContent = Math.round(fmouseX);
+        document.querySelector(".fmouseY").textContent = Math.round(fmouseY);
+    });
+&lt;/script&gt;</code></pre>
+                </div>
+                <!--//tab-cont3 -->
+            </div>
+            <!-- //tab-cont-->
+        </div>
+        <!-- //tab-munu -->
+    </div>
+    <!-- //code-preview -->
+
+    
+    <div class="code-preview">
+        <h2>Share</h2>
+        <p class="bubble warning">INSTAGRAM <a class="color-values" href="https://www.instagram.com/webstoryboy/" target="_blank" rel="noopener"> 바로가기</a></p>
+        <p class="bubble warning">TWITTER <a class="color-values" href="https://twitter.com/webstoryboy" target="_blank" rel="noopener"> 바로가기</a></p>
+        <p class="bubble warning">STUDY <a class="color-values" href="https://cafe.naver.com/crossbrowsing" target="_blank" rel="noopener"> 바로가기</a></p>
+        <p class="bubble warning">YOUTUBE <a class="color-values" href="https://www.youtube.com/webstoryboy" target="_blank" rel="noopener"> 바로가기</a></p><br>
+        <p class="bubble">여러분의 댓글은 영상을 제작하는데 많은 힘이 됩니다.<br />모르시거나 궁금한 사항은 언제든지 댓글로 남겨주세요.<br />최대한 힘이 되어 드리겠습니다.<br />오늘도 수고하셨습니다.</p>
+    </div>
+</div>
+<!-- //demo-info -->
