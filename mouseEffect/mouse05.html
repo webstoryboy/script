@@ -217,6 +217,12 @@
             padding: 0 5px;
             display: none;
         }
+        .cursor strong:first-child {
+            left: 30px; top: 10px;
+        }
+        .cursor strong:last-child {
+            left: 30px; top: 35px;
+        }
     </style>
 </head>
 <body>
@@ -224,8 +230,8 @@
     <!-- main -->
     <main>
         <div class="cursor">
-            <!-- <strong>mouseX : <span class="mouseX">0</span></strong>
-            <strong>mouseY : <span class="mouseY">0</span></strong> -->
+            <strong>mouseX : <span class="mouseX">0</span></strong>
+            <strong>mouseY : <span class="mouseY">0</span></strong>
         </div>
 
         <div class="contents">
@@ -240,9 +246,8 @@
             </div>
         </div>
     </main>
-    <!-- main -->
+    <!-- //main -->
     
-
     <!-- info -->
     <div class="info left">
         <h1><a href="mouse00.html">jQuery Mouse Effect05</a></h1>
@@ -251,16 +256,16 @@
 
     <div class="info right">
         <ul>
-            <li>Mouse <a href="mouse01.html">1</a><a href="jmouse01.html">1</a></li>
-            <li>Mouse <a href="mouse02.html">2</a><a href="jmouse02.html">2</a></li>
-            <li>Mouse <a href="mouse03.html">3</a><a href="jmouse03.html">3</a></li>
-            <li>Mouse <a href="mouse04.html">4</a><a href="jmouse04.html">4</a></li>
-            <li class="active">Mouse <a href="mouse05.html">5</a><a href="jmouse05.html">5</a></li>
-            <li>Mouse <a href="mouse06.html">6</a><a href="jmouse06.html">6</a></li>
-            <li>Mouse <a href="mouse07.html">7</a><a href="jmouse07.html">7</a></li>
-            <li>Mouse <a href="mouse08.html">8</a><a href="jmouse08.html">8</a></li>
-            <li>Mouse <a href="mouse09.html">9</a><a href="jmouse09.html">9</a></li>
-            <li>Mouse <a href="mouse10.html">10</a><a href="jmouse10.html">10</a></li>
+            <li>Mouse <a href="mouse01.html">1</a><a href="mouse01-javascript.html">1</a></li>
+            <li>Mouse <a href="mouse02.html">2</a><a href="mouse02-javascript.html">2</a></li>
+            <li>Mouse <a href="mouse03.html">3</a><a href="mouse03-javascript.html">3</a></li>
+            <li>Mouse <a href="mouse04.html">4</a><a href="mouse04-javascript.html">4</a></li>
+            <li class="active">Mouse <a href="mouse05.html">5</a><a href="mouse05-javascript.html">5</a></li>
+            <li>Mouse <a href="mouse06.html">6</a><a href="mouse06-javascript.html">6</a></li>
+            <li>Mouse <a href="mouse07.html">7</a><a href="mouse07-javascript.html">7</a></li>
+            <li>Mouse <a href="mouse08.html">8</a><a href="mouse08-javascript.html">8</a></li>
+            <li>Mouse <a href="mouse09.html">9</a><a href="mouse09-javascript.html">9</a></li>
+            <li>Mouse <a href="mouse10.html">10</a><a href="mouse10-javascript.html">10</a></li>
         </ul>
     </div>
 
@@ -272,10 +277,10 @@
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/349" target="_blank" class="view">소스보기</a>
+        <a href="#" class="cord">좌표보기</a>
+        <a href="https://wtss.tistory.com/351" target="_blank">소스보기</a>
     </div>
     <!-- info -->
-
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -296,7 +301,7 @@
             x =  e.clientX - ($(".move-image").width()/2 + $(".move-image").position().left);
             y =  e.clientY - ($(".move-image").height()/2 + $(".move-image").position().top);
 
-            $(".img").attr({"style":"transform: translate("+x/20+"px,"+y/20+"px)" });
+            $(".img").attr({"style":"transform: translate(" + x/20 + "px," + y/20 + "px)" });
         });
 
         //출력용
@@ -308,7 +313,8 @@
         });
 
         //좌표 확인
-        $(".cord").click(function(){
+        $(".cord").click(function(e){
+            e.preventDefault();
             $(".cursor strong").fadeToggle();
         });
     </script>
