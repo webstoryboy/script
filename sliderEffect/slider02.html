@@ -173,16 +173,15 @@
 </head>
 <body>
 
-        
     <!-- main -->
     <main>
         <div class="slider-wrap">
             <div class="slider-img">
-                <div class="slider"><img src="../assets/img/so01.jpg" alt="이미지1"><span>이미지1</span></div>
-                <div class="slider"><img src="../assets/img/so02.jpg" alt="이미지2"><span>이미지2</span></div>
-                <div class="slider"><img src="../assets/img/so03.jpg" alt="이미지3"><span>이미지3</span></div>
-                <div class="slider"><img src="../assets/img/so04.jpg" alt="이미지4"><span>이미지4</span></div>
-                <div class="slider"><img src="../assets/img/so05.jpg" alt="이미지5"><span>이미지5</span></div>
+                <div class="slider"><img src="../assets/img/su06.jpg" alt="이미지1"><span>이미지1</span></div>
+                <div class="slider"><img src="../assets/img/su07.jpg" alt="이미지2"><span>이미지2</span></div>
+                <div class="slider"><img src="../assets/img/su08.jpg" alt="이미지3"><span>이미지3</span></div>
+                <div class="slider"><img src="../assets/img/su09.jpg" alt="이미지4"><span>이미지4</span></div>
+                <div class="slider"><img src="../assets/img/su10.jpg" alt="이미지5"><span>이미지5</span></div>
             </div>
         </div>
     </main>
@@ -196,27 +195,23 @@
 
     <div class="info right">
         <ul>
-            <li>Slider <a href="slider01.html">1</a><a href="jslider01.html">1</a></li>
-            <li class="active">Slider <a href="slider02.html">2</a><a href="jslider02.html">2</a></li>
-            <li>Slider <a href="slider03.html">3</a><a href="jslider03.html">3</a></li>
-            <li>Slider <a href="slider04.html">4</a><a href="jslider04.html">4</a></li>
-            <li>Slider <a href="slider05.html">5</a><a href="jslider05.html">5</a></li>
-            <li>Slider <a href="slider06.html">6</a><a href="jslider06.html">6</a></li>
-            <li>Slider <a href="slider07.html">7</a><a href="jslider07.html">7</a></li>
-            <li>Slider <a href="slider08.html">8</a><a href="jslider08.html">8</a></li>
-            <li>Slider <a href="slider09.html">9</a><a href="jslider09.html">9</a></li>
-            <li>Slider <a href="slider10.html">10</a><a href="jslider10.html">10</a></li>
+            <li>Slider <a href="slider01.html">1</a><a href="slider01-javascript.html">1</a></li>
+            <li class="active">Slider <a href="slider02.html">2</a><a href="slider02-javascript.html">2</a></li>
+            <li>Slider <a href="slider03.html">3</a><a href="slider03-javascript.html">3</a></li>
+            <li>Slider <a href="slider04.html">4</a><a href="slider04-javascript.html">4</a></li>
+            <li>Slider <a href="slider05.html">5</a><a href="slider05-javascript.html">5</a></li>
+            <li>Slider <a href="slider06.html">6</a><a href="slider06-javascript.html">6</a></li>
+            <li>Slider <a href="slider07.html">7</a><a href="slider07-javascript.html">7</a></li>
+            <li>Slider <a href="slider08.html">8</a><a href="slider08-javascript.html">8</a></li>
+            <li>Slider <a href="slider09.html">9</a><a href="slider09-javascript.html">9</a></li>
+            <li>Slider <a href="slider10.html">10</a><a href="slider10-javascript.html">10</a></li>
         </ul>
     </div>
 
-    <div class="info bottom">
-        
-    </div>
-
     <div class="info view">
-        <a href="https://wtss.tistory.com/347" target="_blank" class="view">소스보기</a>
+        <a href="https://wtss.tistory.com/368" target="_blank" class="view">소스보기</a>
     </div>
-    <!-- info -->
+    <!-- //info -->
 
 
     <!-- script -->
@@ -224,7 +219,7 @@
     <script>
         const sliderWrap = $(".slider-wrap");
         const sliderImg = $(".slider-img");
-        const slides = $(".slider");
+        const slider = $(".slider");
 
         let currentIndex = 0;
 
@@ -238,7 +233,6 @@
 
             let sliderPosition = currentIndex * (-1000) + "px";
             sliderImg.animate({ left: sliderPosition }, 400);
-
         }, 3000);
     </script>
 </body>
