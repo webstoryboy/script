@@ -1,5 +1,5 @@
 <div class="info-output">
-    <p class="bubble">제이쿼리를 이용한 이미지 슬라이드 효과입니다. 플러그인을 사용하지 않고 이미지 슬라이드를 만들어 보겠습니다.</p>
+    <p class="bubble">자바스크립트를 이용한 이미지 슬라이드 효과입니다. 플러그인을 사용하지 않고 이미지 슬라이드를 만들어 보겠습니다.</p>
     
     <div class="code-youtube">
         <h2>Code Youtube</h2>
@@ -12,36 +12,10 @@
         <br />
 
         <p class="bubble warning">샘플 소스는 여기서 확인 할 수 있습니다. </p>
-        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/sliderEffect/slider02.html">바로가기</a></p>
+        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/sliderEffect/slider02-javascript.html">바로가기</a></p>
     </div>
     <div class="code-reference">
         <h2>Code Reference</h2>
-        <table>
-            <thead>
-                <tr>
-                    <td>Value</td>
-                    <td>Description</td>
-                    <td>View</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.eq()</span></code></td>
-                    <td>.eq() 메서드는 선택한 요소의 인덱스 번호에 해당하는 요소를 찾습니다.</td>
-                    <td><a href="https://webzz.tistory.com/90">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.fadeIn()</span></code></td>
-                    <td>.fadeIn() 메서드는 선택한 요소를 선택한 요소를 천천히 보여줍니다.</td>
-                    <td><a href="https://webzz.tistory.com/166">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.fadeOut()</span></code></td>
-                    <td>.fadeOut() 메서드는 선택한 요소를 천천히 숨김니다.</td>
-                    <td><a href="https://webzz.tistory.com/167">View</a></td>
-                </tr>
-            </tbody>
-        </table> 
         <table>
             <thead>
                 <tr>
@@ -56,6 +30,16 @@
                     <td>일정 시간마다 함수를 반복해서 실행합니다.</td>
                     <td><a href="https://webzz.tistory.com/81" class="color-view">View</a></td>
                 </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">querySelector()</span></code></td>
+                    <td>선택자로 가장 처음 선택되는 문서 객체를 가져옵니다.</td>
+                    <td><a href="https://webzz.tistory.com/86" class="color-view">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">querySelectorAll()</span></code></td>
+                    <td>선택자로 선택되는 문서 객체를 배열로 가져옵니다.</td>
+                    <td><a href="https://webzz.tistory.com/86" class="color-view">View</a></td>
+                </tr>
             </tbody>
         </table> 
     </div>
@@ -67,7 +51,7 @@
                 <ul>
                     <li class="active"><a href="#">index.html</a></li>
                     <li><a href="#">style.css</a></li>
-                    <li><a href="#">jquery.js</a></li>
+                    <li><a href="#">javascript.js</a></li>
                 </ul>
             </div>
             <div class="tab-cont">
@@ -77,7 +61,7 @@
     &lt;head&gt;
         &lt;meta charset="UTF-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;jQuery Slider Effect02&lt;/title&gt;
+        &lt;title&gt;Javascript Slider Effect02&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
     
@@ -93,11 +77,11 @@
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/main&gt;
-        &lt;!-- main --&gt;
+        &lt;!-- //main --&gt;
         
         &lt;!-- info --&gt;
         &lt;div class="info left"&gt;
-            &lt;h1&gt;&lt;a href="slider00.html"&gt;jQuery Slider Effect02&lt;/a&gt;&lt;/h1&gt;
+            &lt;h1&gt;&lt;a href="slider00.html"&gt;Javascript Slider Effect02&lt;/a&gt;&lt;/h1&gt;
             &lt;p&gt;이미지 슬라이드 효과 : 좌로 넘기기&lt;/p&gt;
         &lt;/div&gt;
         &lt;!-- //info --&gt;
@@ -158,7 +142,7 @@ body::before {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(50, 37, 11, 0.9);
+    background: rgba(8, 31, 36, 0.9);
     z-index: -1;
 }
 
@@ -180,7 +164,7 @@ body::before {
     margin-bottom: 3px;
 }
 
-.info li.active a:first-child {
+.info li.active a:last-child {
     background: #fff;
     color: #000;
 }
@@ -270,11 +254,11 @@ body::before {
                 </div>
                 <!--//tab-cont2 -->
                 <div>
-<pre class="line-numbers xml"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+<pre class="line-numbers xml"><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-    const sliderWrap = $(".slider-wrap");
-    const sliderImg = $(".slider-img");
-    const slider = $(".slider");
+    const sliderWrap = document.querySelector(".slider-wrap");
+    const sliderImg = document.querySelector(".slider-img");
+    const slider = document.querySelectorAll(".slider");
 
     let currentIndex = 0;
 
@@ -287,7 +271,11 @@ body::before {
         currentIndex &lt; 4 ? currentIndex++ : currentIndex = 0;
 
         let sliderPosition = currentIndex * (-1000) + "px";
-        sliderImg.animate({ left: sliderPosition }, 400);
+        //sliderImg.animate({ left: sliderPosition }, 400);
+
+        // sliderImg.style.transition = "all 0.6s";
+        // sliderImg.style.left = sliderPosition;
+        gsap.to(sliderImg, {duration: 0.4, left: sliderPosition});
     }, 3000);
 &lt;/script&gt;</code></pre>
                 </div>
@@ -299,7 +287,6 @@ body::before {
     </div>
     <!-- //code-preview -->
 
-    
     <div class="code-preview">
         <h2>Share</h2>
         <p class="bubble warning">INSTAGRAM <a class="color-values" href="https://www.instagram.com/webstoryboy/" target="_blank" rel="noopener"> 바로가기</a></p>
