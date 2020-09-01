@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery Slider Effect01</title>
+    <title>Javascript Slider Effect01</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
@@ -65,7 +65,7 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(50, 37, 11, 0.9);
+            background: rgba(8, 31, 36, 0.9);
             z-index: -1;
         }
 
@@ -87,7 +87,7 @@
             margin-bottom: 3px;
         }
 
-        .info li.active a:first-child {
+        .info li.active a:last-child {
             background: #fff;
             color: #000;
         }
@@ -161,6 +161,7 @@
             position: absolute;
             left: 0;
             top: 0;
+            transition: all 0.8s;
         }
         .slider-img .slider:nth-child(1) {z-index: 5;}
         .slider-img .slider:nth-child(2) {z-index: 4;}
@@ -193,7 +194,7 @@
     
     <!-- info -->
     <div class="info left">
-        <h1><a href="slider00.html">jQuery Slider Effect01</a></h1>
+        <h1><a href="slider00.html">Javascript Slider Effect01</a></h1>
         <p>이미지 슬라이드 효과</p>
     </div>
 
@@ -213,27 +214,27 @@
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/367" target="_blank">소스보기</a>
+        <a href="https://wtss.tistory.com/377" target="_blank">소스보기</a>
     </div>
     <!-- //info -->
 
     <!-- script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
-        let sliderWrap = $(".slider-wrap");
-        let sliderImg = $(".slider-img");
-        let slider = $(".slider");
+        const sliderWrap = document.querySelector(".slider-wrap");
+        const sliderImg = document.querySelector(".slider-img");
+        const slider = document.querySelectorAll(".slider");
 
-        let currentIndex = 0;               //현재 첫 번재 보이는 이미지
+        let currentIndex = 0;                //현재 첫 번재 보이는 이미지
         let sliderCount = slider.length;     //이미지 갯수
 
         setInterval(function(){
             let nextIndex = (currentIndex + 1) % sliderCount;
 
-            slider.eq(currentIndex).fadeOut();  //현재 이미지를 사라지게
-            slider.eq(nextIndex).fadeIn();      //다음 이미지를 나타나게
-            // console.log("currentIndex : " + currentIndex);  
-            // console.log("nextIndex : " + nextIndex);
+            // slider[currentIndex].style.display = "none";
+            // slider[nextIndex].style.display = "block";
+
+            slider[currentIndex].style.opacity = "0";
+            slider[nextIndex].style.opacity = "1";
 
             currentIndex = nextIndex;
         }, 2000);
