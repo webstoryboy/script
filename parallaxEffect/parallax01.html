@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax01</title>
+    <title>Parallax Effect01 - jQuery</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
+
+    <!-- webfonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
+
     <style>
         /* reset */
         @font-face {
@@ -15,8 +19,6 @@
             font-weight: normal;
             font-style: normal;
         }
-            
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
              
         *, *::before, *::after {
             box-sizing: border-box; 
@@ -45,14 +47,6 @@
 
         li {
             list-style: none;
-        }
-
-        body {
-            color: #fff;
-            transition: all 0.2s;
-            font-size: 16px;
-            line-height: 1.5;
-            background: 111;
         }
 
         /* info */
@@ -134,7 +128,7 @@
             --color-sub: #999;
             --color-link: #000;
             --color-bg: #111;
-            --font-family: 'lato','Chosunilbo_myungjo';
+            --font-family: 'Lato','Chosunilbo_myungjo';
             --aspect-ratio: 33/17;
             --image-width-max: 500px;
 
@@ -149,11 +143,11 @@
             color: var(--color-h1);
             padding: 10vw 8vw 0 8vw;
             text-transform: uppercase;
-            font-weight: normal;
         }
 
         #wrap h1 em {
             display: block;
+            font-family: 'Lato';
             font-weight: 100;
             padding-left: 18vw;
         }
@@ -432,7 +426,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
     <script>
-        //제이쿼리
         $(window).scroll(function () {
             const scrollTop = $(window).scrollTop() + $(window).height();
             //console.log($(window).height()/2)
