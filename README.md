@@ -18,8 +18,6 @@
 </ul>
 
 
-<br><br>
-
 <h1>Slider Effect</h1>
 <p><a href="https://webstoryboy.github.io/script/sliderEffect/slider00.html">슬라이드 효과 전체보기</a></p>
 
@@ -33,7 +31,6 @@
 </ul>
 
 
-<br><br>
 
 <h1>Parallax Effect</h1>
 <p><a href="https://webstoryboy.github.io/script/parallaxEffect/parallax00.html">패랠랙스 효과 전체보기</a></p>
