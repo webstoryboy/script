@@ -22,12 +22,12 @@
 <p><a href="https://webstoryboy.github.io/script/sliderEffect/slider00.html">슬라이드 효과 전체보기</a></p>
 
 <ul>
-  <li><a href="https://webstoryboy.github.io/script/parallaxEffect/slider01.html">jQuery Slider Effect01</a></li>
-  <li><a href="https://webstoryboy.github.io/script/parallaxEffect/slider02.html">jQuery Slider Effect02</a></li>
-  <li><a href="https://webstoryboy.github.io/script/parallaxEffect/slider02.html">jQuery Slider Effect02</a></li>
-  <li><a href="https://webstoryboy.github.io/script/parallaxEffect/slider01-javascript.html">Javascript Slider Effect01</a></li>
-  <li><a href="https://webstoryboy.github.io/script/parallaxEffect/slider02-javascript.html">Javascript Slider Effect02</a></li>
-  <li><a href="https://webstoryboy.github.io/script/parallaxEffect/slider03-javascript.html">Javascript Slider Effect03</a></li>
+  <li><a href="https://webstoryboy.github.io/script/sliderEffect/slider01.html">jQuery Slider Effect01</a></li>
+  <li><a href="https://webstoryboy.github.io/script/sliderEffect/slider02.html">jQuery Slider Effect02</a></li>
+  <li><a href="https://webstoryboy.github.io/script/sliderEffect/slider03.html">jQuery Slider Effect02</a></li>
+  <li><a href="https://webstoryboy.github.io/script/sliderEffect/slider01-javascript.html">Javascript Slider Effect01</a></li>
+  <li><a href="https://webstoryboy.github.io/script/sliderEffect/slider02-javascript.html">Javascript Slider Effect02</a></li>
+  <li><a href="https://webstoryboy.github.io/script/sliderEffect/slider03-javascript.html">Javascript Slider Effect03</a></li>
 </ul>
 
 
