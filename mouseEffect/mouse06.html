@@ -169,16 +169,18 @@
 
         .contents p {
             max-width: 80vw;
-            font-size: 4vw;
+            font-size: 3vw;
             text-transform: uppercase;
-            color: #000;
-            font-weight: 300;
-            line-height: 1.4;
+            color: #fff;
+            line-height: 1.6;
+            text-align: center;
+            word-break: break-word;
+            font-weight: normal;
         }
 
-        .contents p a {
-            color: #fff;
-            border-bottom: 1px dashed #fff;
+        .contents p .word {
+            color: orange;
+            font-size: 8vw
         }
 
         .cursor {
@@ -189,17 +191,8 @@
             z-index: 1000;
             user-select: none;
             pointer-events: none;
-            transform: scale(1);
+            transform: scale(.5);
             transition: transform 0.3s ease-in-out;
-        }
-
-        .cursor strong {
-            background: rgba(0,0,0,1);
-            white-space: nowrap;
-            position: absolute;
-            display: block;
-            padding: 0 5px;
-            display: none;
         }
     </style>
 </head>
@@ -207,23 +200,14 @@
     
     <!-- main -->
     <main>
-        <div class="cursor">
-            <!-- <strong>mouseX : <span class="mouseX">0</span></strong>
-            <strong>mouseY : <span class="mouseY">0</span></strong> -->
-        </div>
-
         <div class="contents">
-            <p>
-                Hi, my name is Eddie and I am a <a class="word">pragmatic</a> UI designer who has worked with dozens of
-                <a>businesses</a> and some <a>non-profit</a> organizations. If you'd like me to help you with
-                your next
-                UI project, <a>let's talk</a>!
-            </p>
+            <p>열심히 할수록 <strong>기회</strong>는 따른다.</p>
+            <p>운이 좋은 사람은 없다. 단지 운을 만들 뿐이다. </p>
+            <p><strong class="word">★</strong></p>
         </div>
     </main>
-    <!-- main -->
+    <!-- //main -->
     
-
     <!-- info -->
     <div class="info left">
         <h1><a href="mouse00.html">jQuery Mouse Effect06</a></h1>
@@ -232,73 +216,79 @@
 
     <div class="info right">
         <ul>
-            <li>Mouse <a href="mouse01.html">1</a><a href="jmouse01.html">1</a></li>
-            <li>Mouse <a href="mouse02.html">2</a><a href="jmouse02.html">2</a></li>
-            <li>Mouse <a href="mouse03.html">3</a><a href="jmouse03.html">3</a></li>
-            <li>Mouse <a href="mouse04.html">4</a><a href="jmouse04.html">4</a></li>
-            <li>Mouse <a href="mouse05.html">5</a><a href="jmouse05.html">5</a></li>
-            <li class="active">Mouse <a href="mouse06.html">6</a><a href="jmouse06.html">6</a></li>
-            <li>Mouse <a href="mouse07.html">7</a><a href="jmouse07.html">7</a></li>
-            <li>Mouse <a href="mouse08.html">8</a><a href="jmouse08.html">8</a></li>
-            <li>Mouse <a href="mouse09.html">9</a><a href="jmouse09.html">9</a></li>
-            <li>Mouse <a href="mouse10.html">10</a><a href="jmouse10.html">10</a></li>
+            <li>Mouse <a href="mouse01.html">1</a><a href="mouse01-javascript.html">1</a></li>
+            <li>Mouse <a href="mouse02.html">2</a><a href="mouse02-javascript.html">2</a></li>
+            <li>Mouse <a href="mouse03.html">3</a><a href="mouse03-javascript.html">3</a></li>
+            <li>Mouse <a href="mouse04.html">4</a><a href="mouse04-javascript.html">4</a></li>
+            <li>Mouse <a href="mouse05.html">5</a><a href="mouse05-javascript.html">5</a></li>
+            <li class="active">Mouse <a href="mouse06.html">6</a><a href="mouse06-javascript.html">6</a></li>
+            <li>Mouse <a href="mouse07.html">7</a><a href="mouse07-javascript.html">7</a></li>
+            <li>Mouse <a href="mouse08.html">8</a><a href="mouse08-javascript.html">8</a></li>
+            <li>Mouse <a href="mouse09.html">9</a><a href="mouse09-javascript.html">9</a></li>
+            <li>Mouse <a href="mouse10.html">10</a><a href="mouse10-javascript.html">10</a></li>
         </ul>
     </div>
 
     <div class="info bottom">
         <ul>
-            <li>clientX : <span class="clientX">0</span></li>
-            <li>clientY : <span class="clientY">0</span></li>
+            <li>mouseX : <span class="mouseX">0</span></li>
+            <li>mouseY : <span class="mouseY">0</span></li>
+            <li>-mouseX : <span class="mouseX2">0</span></li>
+            <li>-mouseY : <span class="mouseY2">0</span></li>
         </ul>
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/349" target="_blank" class="view">소스보기</a>
+        <a href="https://wtss.tistory.com/352" target="_blank">소스보기</a>
     </div>
-    <!-- info -->
-
+    <!-- //info -->
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
     <script>
-              // const word = document.querySelector(".word");
+        const word = document.querySelector(".word");
 
-        // const shadow = e => {
-        //     const { x, y } = e;
-        //     const gBCR = word.getBoundingClientRect();
-        //     const w = this;
-        //     const xM = (x - gBCR.left - gBCR.width / 2) / gBCR.width * 5;
-        //     const yM = (y - gBCR.top - gBCR.height / 2) / gBCR.height * 5;
+        const shadow = e => {
+            const { x, y } = e;
+            const gBCR = word.getBoundingClientRect();
+            const mouseX = (x - gBCR.left - gBCR.width / 2) / gBCR.width * 5;
+            const mouseY = (y - gBCR.top - gBCR.height / 2) / gBCR.height * 5;
 
-        //     transform(xM, yM);
-        // };
+            // console.log("mouseX1 : " + gBCR.height)
+            // console.log("mouseX2 : " + $(".word").height())
 
-        // const transform = (x, y) => {
-        //     word.style.textShadow = `${x}px ${-y}px 0px rgb(102, 249, 255, 0.7),
-        //                                  ${-x}px ${y}px 0px rgb(255, 35, 251, 0.7),
-        //                                  ${y}px ${-x}px 0px rgb(255, 255, 73, 0.7),
-        //                                  ${-y}px ${x}px 0px rgb(102, 249, 255, 0.7)`;
-        // };
+            word.style.textShadow = `${mouseX}px ${-mouseY}px 0px rgba(255, 165, 0, 0.4),
+                                     ${-mouseX}px ${mouseY}px 0px rgba(255, 35, 251, 0.4),
+                                     ${mouseY}px ${-mouseX}px 0px rgba(255, 255, 73, 0.4),
+                                     ${-mouseY}px ${mouseX}px 0px rgba(102, 249, 255, 0.4)`;
 
-        // window.addEventListener("mousemove", shadow);
-
-
-
-        window.addEventListener("mousemove", function (e) {
-            document.querySelectorAll(".word").forEach(elem => {
-                const { x, y } = e;
-                const rect = elem.getBoundingClientRect();
-                const mouseX = (x - rect.left - rect.width / 2) / rect.width * 5;
-                const mouseY = (y - rect.top - rect.height / 2) / rect.height * 5;
-
-                elem.style.textShadow = `${mouseX}px ${-mouseY}px 0px rgb(102, 249, 255, 0.7),
-                                                ${-mouseX}px ${mouseY}px 0px rgb(255, 35, 251, 0.7),
-                                                ${mouseY}px ${-mouseX}px 0px rgb(255, 255, 73, 0.7),
-                                                ${-mouseY}px ${mouseX}px 0px rgb(102, 249, 255, 0.7)`;
+            //출력용
+            document.addEventListener("mousemove", function (e){
+                document.querySelector(".mouseX").textContent = Math.round(mouseX);
+                document.querySelector(".mouseY").textContent = Math.round(mouseY);
+                document.querySelector(".mouseX2").textContent = Math.round(-mouseX);
+                document.querySelector(".mouseY2").textContent = Math.round(-mouseY);
             });
-        });
+        };
 
+        window.addEventListener("mousemove", shadow);
+
+        
+        // $(window).mousemove(function(e){
+        //     let x = e.pageX;    
+        //     let y = e.pageY;    
+        //     let mouseX = (x - $(".word").offset().left - $(".word").width() / 2) / $(".word").width() * 5;
+        //     let mouseY = (y - $(".word").offset().top - $(".word").height() / 2) / $(".word").height() * 5;
+        //     console.log("mouseX2 : " + mouseX)
+        //     console.log("mouseY2 : " + mouseY)
+
+        //     //$(".word").css({textShadow:"10px -20px 0px rgba(255, 165, 0, 0.4), -10px 20px 0px rgba(255, 35, 251, 0.4), 20px -10px 0px rgba(255, 255, 73, 0.4), -20px 10px 0px rgba(255, 255, 73, 0.4) "});
+        //     //$(".word").css({textShadow:""+ mouseX +"px -"+ mouseY +"px 0px rgba(255, 165, 0, 0.4), -"+ mouseX +"px "+ mouseY +"px 0px rgba(255, 35, 251, 0.4), "+ mouseY +"px -"+mouseX+"px 0px rgba(255, 255, 73, 0.4), -"+ mouseY +"px " + mouseX + "px 0px rgba(255, 255, 73, 0.4) "});
+        //     //$(".word").css({textShadow:""+ mouseX +"px -"+ mouseY +"px 0px rgba(255, 165, 0, 0.4), -"+ mouseX +"px "+ mouseY +"px 0px rgba(255, 35, 251, 0.4)"});
+            
+        //     gsap.to(".word",{duration: 0, textShadow: ""+ mouseX +"px -"+ mouseY +"px 0px rgba(255, 165, 0, 0.4), -"+ mouseX +"px "+ mouseY +"px 0px rgba(255, 35, 251, 0.4)"})
+        // });
     </script>
 </body>
 </html>
