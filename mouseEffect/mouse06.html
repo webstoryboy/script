@@ -168,14 +168,20 @@
         }
 
         .contents p {
-            max-width: 80vw;
+            max-width: 70vw;
             font-size: 3vw;
-            text-transform: uppercase;
-            color: #fff;
-            line-height: 1.6;
-            text-align: center;
-            word-break: break-word;
-            font-weight: normal;
+            text-align: justify;
+        }
+
+        .contents p:first-child {
+            font-size: 2vw;
+            line-height: 2;
+        }
+
+        .contents p em {
+            color: orange;
+            border-bottom: 2px dashed orange;
+            font-style: normal;
         }
 
         .contents p .word {
@@ -201,8 +207,8 @@
     <!-- main -->
     <main>
         <div class="contents">
-            <p>열심히 할수록 <strong>기회</strong>는 따른다.</p>
-            <p>운이 좋은 사람은 없다. 단지 운을 만들 뿐이다. </p>
+            <p>The way to get started is to quit talking and <em>begin</em> doing.</p>
+            <p>무언가를 시작하려면 말은 멈추고 <em>행동</em>해야 한다.</p>
             <p><strong class="word">★</strong></p>
         </div>
     </main>
