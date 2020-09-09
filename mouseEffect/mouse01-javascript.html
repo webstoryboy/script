@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moust Effect01 - javascript</title>
+    <title>Mouse Effect01 - javascript</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
@@ -193,7 +193,7 @@
 </head>
 <body>
     
-    <!-- contents -->
+    <!-- main -->
     <main>
         <div class="cursor"></div>
 
@@ -202,8 +202,8 @@
             <p>험준한 산을 오르기 위해선 먼저 <em>천천히</em> 걸어야 한다.</p>
         </div>
     </main>
+    <!-- //main -->
     
-
     <!-- info -->
     <div class="info left">
         <h1><a href="mouse00.html">Javascript Mouse Effect01</a></h1>
@@ -241,10 +241,11 @@
     <div class="info view">
         <a href="https://wtss.tistory.com/357" target="_blank" class="view">소스보기</a>
     </div>
+    <!-- //info -->
 
     <!-- script -->
     <script>
-        //javascript 출력용
+        //출력용
         window.addEventListener("mousemove", function (event) {
             document.querySelector(".clientX").innerHTML = event.clientX;
             document.querySelector(".clientY").innerHTML = event.clientY;
@@ -256,26 +257,42 @@
             document.querySelector(".screenY").innerHTML = event.screenY;
         });
 
-        //javascript 마우스 움직이기
-        window.addEventListener("mousemove", function (event) {
-            document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
-            document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
+        //마우스 움직이기
+        window.addEventListener("mousemove", function(event){
+            //document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
+            //document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
 
             let x = event.clientX - 25 + "px";
             let y = event.clientY - 25 + "px";
 
             document.querySelector(".cursor").style.cssText = "left:" + x + "; top:" + y;
 
-            // document.querySelector(".contents a").addEventListener("mouseenter", function(){});
-            // document.querySelector(".contents a").addEventListener("mouseleave", function(){});
+            //오버 효과
+            //$(".contents em").mouseover(function(){});
+            //$(".contents em").mouseout(function(){});
 
-            // document.querySelector(".contents a").addEventListener("mouseenter", () => {
+            //document.querySelector(".contents em").addEventListener("mouseenter", function(){});
+            //querySelector(".contents em").addEventListener("mouseleave", function(){});
+
+            // document.querySelector(".contents em").addEventListener("mouseenter", () => {
             //     document.querySelector(".cursor").classList.add("active");
             // });
-            // document.querySelector(".contents a").addEventListener("mouseleave", () => {
+            // document.querySelector(".contents em").addEventListener("mouseleave", () => {
             //     document.querySelector(".cursor").classList.remove("active");
             // });
+            
+            //다중 선택
+            // document.querySelector(".contents em").style.color = "#F00";
+            // document.querySelectorAll(".contents em").style.color = "#F00";
 
+            // let em = document.querySelectorAll(".contents em");
+            // for (var i=0; i<em.length; i++){
+            //     em[i].style.color = "red";
+            // } 
+
+            // document.querySelectorAll(".contents em").forEach(elem => { elem.style.color = "red" });
+
+            //마무리
             document.querySelectorAll(".contents em").forEach(elem => {
                 elem.addEventListener("mouseenter", () => {
                     document.querySelector(".cursor").classList.add("active");

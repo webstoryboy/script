@@ -68,6 +68,32 @@
                 </tr>
             </tbody>
         </table> 
+
+<pre class="line-numbers language-js"><code>//오버 효과
+document.querySelector(".contents em").addEventListener("mouseenter", function(){});
+document.querySelector(".contents em").addEventListener("mouseleave", function(){});
+
+document.querySelector(".contents em").addEventListener("mouseenter", () => {
+    document.querySelector(".cursor").classList.add("active");
+});
+document.querySelector(".contents em").addEventListener("mouseleave", () => {
+    document.querySelector(".cursor").classList.remove("active");
+});
+            
+//다중 선택
+document.querySelector(".contents em").style.color = "#F00";
+document.querySelectorAll(".contents em").style.color = "#F00";
+
+let em = document.querySelectorAll(".contents em");
+for (var i=0; i&lt;=em.length; i++){
+    em[i].style.color = "red";
+} 
+
+document.querySelectorAll(".contents em").forEach(elem => { elem.style.color = "red" });
+</code></pre>
+
+
+
     </div>
 
     <div class="code-preview">
@@ -87,7 +113,7 @@
     &lt;head&gt;
         &lt;meta charset="UTF-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Moust Effect01 - jQuery&lt;/title&gt;
+        &lt;title&gt;Mouse Effect01 - javascript&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
         
@@ -100,11 +126,11 @@
                 &lt;p&gt;험준한 산을 오르기 위해선 먼저 &lt;em&gt;천천히&lt;/em&gt; 걸어야 한다.&lt;/p&gt;
             &lt;/div&gt;
         &lt;/main&gt;
-        &lt;!-- main --&gt;
+        &lt;!-- //main --&gt;
         
         &lt;!-- info --&gt;
         &lt;div class="info left"&gt;
-            &lt;h1&gt;&lt;a href="mouse00.html"&gt;jQuery Mouse Effect01&lt;/a&gt;&lt;/h1&gt;
+            &lt;h1&gt;&lt;a href="mouse00.html"&gt;Javascript Mouse Effect01&lt;/a&gt;&lt;/h1&gt;
             &lt;p&gt;마우스 따라다니기&lt;/p&gt;
         &lt;/div&gt;
     
@@ -184,7 +210,7 @@ body::before {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(5, 36, 70, 0.9);
+    background: rgba(13, 28, 3, 0.9);
     z-index: -1;
 }
 
@@ -206,7 +232,7 @@ body::before {
     margin-bottom: 3px;
 }
 
-.info li.active a:first-child {
+.info li.active a:last-child {
     background: #fff;
     color: #000;
 }
@@ -310,7 +336,7 @@ body::before {
                 </div>
                 <!--//tab-cont2 -->
                 <div>
-                    <pre class="line-numbers language-js"><code>//javascript 출력용
+                    <pre class="line-numbers language-js"><code>//출력용
 window.addEventListener("mousemove", function (event) {
     document.querySelector(".clientX").innerHTML = event.clientX;
     document.querySelector(".clientY").innerHTML = event.clientY;
@@ -322,31 +348,47 @@ window.addEventListener("mousemove", function (event) {
     document.querySelector(".screenY").innerHTML = event.screenY;
 });
 
-//javascript 마우스 움직이기
-window.addEventListener("mousemove", function (event) {
-    document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
-    document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
+//마우스 움직이기
+window.addEventListener("mousemove", function(event){
+    //document.querySelector(".cursor").style.left = event.clientX - 25 + "px";
+    //document.querySelector(".cursor").style.top = event.clientY - 25 + "px";
 
     let x = event.clientX - 25 + "px";
     let y = event.clientY - 25 + "px";
 
     document.querySelector(".cursor").style.cssText = "left:" + x + "; top:" + y;
 
-    // document.querySelector(".contents a").addEventListener("mouseenter", function(){});
-    // document.querySelector(".contents a").addEventListener("mouseleave", function(){});
+    //오버 효과
+    //$(".contents em").mouseover(function(){});
+    //$(".contents em").mouseout(function(){});
 
-    // document.querySelector(".contents a").addEventListener("mouseenter", () => {
+    //document.querySelector(".contents em").addEventListener("mouseenter", function(){});
+    //querySelector(".contents em").addEventListener("mouseleave", function(){});
+
+    // document.querySelector(".contents em").addEventListener("mouseenter", () =&gt; {
     //     document.querySelector(".cursor").classList.add("active");
     // });
-    // document.querySelector(".contents a").addEventListener("mouseleave", () => {
+    // document.querySelector(".contents em").addEventListener("mouseleave", () =&gt; {
     //     document.querySelector(".cursor").classList.remove("active");
     // });
+    
+    //다중 선택
+    // document.querySelector(".contents em").style.color = "#F00";
+    // document.querySelectorAll(".contents em").style.color = "#F00";
 
-    document.querySelectorAll(".contents em").forEach(elem => {
-        elem.addEventListener("mouseenter", () => {
+    // let em = document.querySelectorAll(".contents em");
+    // for (var i=0; i&lt;em.length; i++){
+    //     em[i].style.color = "red";
+    // } 
+
+    // document.querySelectorAll(".contents em").forEach(elem =&gt; { elem.style.color = "red" });
+
+    //마무리
+    document.querySelectorAll(".contents em").forEach(elem =&gt; {
+        elem.addEventListener("mouseenter", () =&gt; {
             document.querySelector(".cursor").classList.add("active");
         });
-        elem.addEventListener("mouseleave", () => {
+        elem.addEventListener("mouseleave", () =&gt; {
             document.querySelector(".cursor").classList.remove("active");
         });
     });

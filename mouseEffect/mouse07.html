@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moust Effect07 - jQuery</title>
+    <title>Mouse Effect07 - jQuery</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
@@ -246,6 +246,9 @@
         let width = cursor.offsetWidth;
         let height = cursor.offsetHeight;
         let rect = cursor.getBoundingClientRect();
+
+        let width = $(".cursor").outerWidth();
+        let height = $(".cursor").outerHeight();
 
         console.log(width)
         console.log($(".cursor").outerWidth())
