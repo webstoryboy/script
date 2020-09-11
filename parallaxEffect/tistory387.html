@@ -126,21 +126,6 @@
             &lt;p&gt;패럴랙스 스크로링 효과&lt;/p&gt;
         &lt;/div&gt;
     
-        &lt;div class="info right"&gt;
-            &lt;ul&gt;
-                &lt;li class="active"&gt;Parallax &lt;a href="parallax01.html"&gt;1&lt;/a&gt;&lt;a href="parallax01-javascript.html"&gt;1&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax02.html"&gt;2&lt;/a&gt;&lt;a href="parallax02-javascript.html"&gt;2&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax03.html"&gt;3&lt;/a&gt;&lt;a href="parallax03-javascript.html"&gt;3&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax04.html"&gt;4&lt;/a&gt;&lt;a href="parallax04-javascript.html"&gt;4&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax05.html"&gt;5&lt;/a&gt;&lt;a href="parallax05-javascript.html"&gt;5&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax06.html"&gt;6&lt;/a&gt;&lt;a href="parallax06-javascript.html"&gt;6&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax07.html"&gt;7&lt;/a&gt;&lt;a href="parallax07-javascript.html"&gt;7&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax08.html"&gt;8&lt;/a&gt;&lt;a href="parallax08-javascript.html"&gt;8&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax09.html"&gt;9&lt;/a&gt;&lt;a href="parallax09-javascript.html"&gt;9&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;Parallax &lt;a href="parallax10.html"&gt;10&lt;/a&gt;&lt;a href="parallax10-javascript.html"&gt;10&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/div&gt;
-    
         &lt;div class="info bottom"&gt;
             &lt;ul&gt;
                 &lt;li&gt;scrollTop() : &lt;span class="scrollTop"&gt;0&lt;/span&gt;px&lt;/li&gt;
@@ -154,10 +139,6 @@
                 &lt;li&gt;#section7 : &lt;span class="s8OT"&gt;0&lt;/span&gt;px&lt;/li&gt;
                 &lt;li&gt;#section7 : &lt;span class="s9OT"&gt;0&lt;/span&gt;px&lt;/li&gt;
             &lt;/ul&gt;
-        &lt;/div&gt;
-    
-        &lt;div class="info view"&gt;
-            &lt;a href="https://wtss.tistory.com/387" target="_blank" class="view"&gt;소스보기&lt;/a&gt;
         &lt;/div&gt;
         &lt;!-- //info --&gt;
     
@@ -509,27 +490,28 @@ body {
     background-image: url(../assets/img/su01.jpg);
 }
 
+/* 한번에 나타나기 */
 /* .contents &gt; section {
     opacity: 0;
     transform: translateY(200px);
-    transition: all 1.3s cubic-bezier(0, 0.74, 0.25, 1);
+    transition: all 1s;
 }
 
 .contents &gt; section.show {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
 } */
 
-.contents &gt; section .content-item-num     {opacity: 0; transform: translateY(200px); transition: all 1.3s 0.1s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-title   {opacity: 0; transform: translateX(-200px); transition: all 1.3s 0.3s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-imgWrap {opacity: 0; transform: translateY(200px); transition: all 1.3s 0.6s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1.3s 0.9s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1.3s 0.9s cubic-bezier(0, 0.74, 0.25, 1);}
+/* 개별적으로 나타나기 */
+.contents &gt; section .content-item-num     {opacity: 0; transform: translateY(200px); transition: all 1s 0.1s cubic-bezier(0, 0.51, 0.16, 1.1);}
+.contents &gt; section .content-item-title   {opacity: 0; transform: translateX(200px); transition: all 1s 0.3s cubic-bezier(0, 0.51, 0.16, 1.1);}
+.contents &gt; section .content-item-imgWrap {opacity: 0; transform: translateY(200px) rotate(30deg) skew(20deg); transition: all 1s 0.6s cubic-bezier(0, 0.51, 0.16, 1.1);}
+.contents &gt; section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1s 0.9s cubic-bezier(0, 0.51, 0.16, 1.1);}
 
-.contents &gt; section.show .content-item-num     {opacity: .07; transform: translateY(0);}
-.contents &gt; section.show .content-item-title   {opacity: 1;   transform: translateX(0);}
-.contents &gt; section.show .content-item-imgWrap {opacity: 1;   transform: translateY(0);}
-.contents &gt; section.show .content-item-desc    {opacity: 1;   transform: translateX(0);}
+.contents &gt; section.show .content-item-num     {transform: translateY(0); opacity: .07;}
+.contents &gt; section.show .content-item-title   {transform: translateX(0); opacity: 1;}
+.contents &gt; section.show .content-item-imgWrap {transform: translateY(0) rotate(0) skew(0deg); opacity: 1;}
+.contents &gt; section.show .content-item-desc    {transform: translateX(0); opacity: 1;}
 </code></pre>
                 </div>
                 <!--//tab-cont2 -->
@@ -537,70 +519,120 @@ body {
 <pre class="line-numbers xml"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-    $(window).scroll(function () {
+    $(window).scroll(function(){
         const scrollTop = $(window).scrollTop() + $(window).height();
-        //console.log($(window).height()/2)
-        //console.log(scrollTop)
-        $(".scrollTop").text(scrollTop);
 
-        // $(".s1OT").text( parseInt( $("#section1").offset().top ));
-        // $(".s2OT").text( parseInt( $("#section2").offset().top ));
-        // $(".s3OT").text( parseInt( $("#section3").offset().top ));
-        // $(".s4OT").text( parseInt( $("#section4").offset().top ));
-        // $(".s5OT").text( parseInt( $("#section5").offset().top ));
-        // $(".s6OT").text( parseInt( $("#section6").offset().top ));
-        // $(".s7OT").text( parseInt( $("#section7").offset().top ));
-        // $(".s8OT").text( parseInt( $("#section8").offset().top ));
-        // $(".s9OT").text( parseInt( $("#section9").offset().top ));
+        //console.log(parseInt(scrotllTop));
 
-        // if( scrollTop &gt; parseInt( $("#section1").offset().top )){
-        //     $("#section1").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section2").offset().top )){
-        //     $("#section2").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section3").offset().top )){
-        //     $("#section3").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section4").offset().top )){
-        //     $("#section4").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section5").offset().top )){
-        //     $("#section5").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section6").offset().top )){
-        //     $("#section6").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section7").offset().top )){
-        //     $("#section7").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section8").offset().top )){
-        //     $("#section8").addClass("show");
-        // }
-        // if( scrollTop &gt; parseInt( $("#section9").offset().top )){
-        //     $("#section9").addClass("show");
-        // }
+        //출력용
+        $(".scrollTop").text(parseInt(scrollTop));
+        $(".s1OT").text(parseInt( $("#section1").offset().top ));
+        $(".s2OT").text(parseInt( $("#section2").offset().top ));
+        $(".s3OT").text(parseInt( $("#section3").offset().top ));
+        $(".s4OT").text(parseInt( $("#section4").offset().top ));
+        $(".s5OT").text(parseInt( $("#section5").offset().top ));
+        $(".s6OT").text(parseInt( $("#section6").offset().top ));
+        $(".s7OT").text(parseInt( $("#section7").offset().top ));
+        $(".s8OT").text(parseInt( $("#section8").offset().top ));
+        $(".s9OT").text(parseInt( $("#section9").offset().top ));
 
-        //한번에(infor)
-        for (let i = 1; i &lt;= 9; i++) {
-            $(".s" + i + "OT").text(parseInt($("#section" + i).offset().top));
-
-            if (scrollTop &gt; parseInt($("#section" + i).offset().top)) {
-                $(".s" + i + "OT").css("color", "red");
-            } else {
-                $(".s" + i + "OT").css("color", "white");
-            }
+        //출력용 - 레드
+        if( scrollTop &gt;  $("#section1").offset().top ){
+            $(".s1OT").css("color","red");
+        } else {
+            $(".s1OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section2").offset().top ){
+            $(".s2OT").css("color","red");
+        } else {
+            $(".s2OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section3").offset().top ){
+            $(".s3OT").css("color","red");
+        } else {
+            $(".s3OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section4").offset().top ){
+            $(".s4OT").css("color","red");
+        } else {
+            $(".s4OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section5").offset().top ){
+            $(".s5OT").css("color","red");
+        } else {
+            $(".s5OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section6").offset().top ){
+            $(".s6OT").css("color","red");
+        } else {
+            $(".s6OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section7").offset().top ){
+            $(".s7OT").css("color","red");
+        } else {
+            $(".s7OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section8").offset().top ){
+            $(".s8OT").css("color","red");
+        } else {
+            $(".s8OT").css("color","white");
+        }
+        if( scrollTop &gt;  $("#section9").offset().top ){
+            $(".s9OT").css("color","red");
+        } else {
+            $(".s9OT").css("color","white");
         }
 
+        //나타나기
+        if( scrollTop &gt;  $("#section1").offset().top ){
+            $("#section1").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section2").offset().top ){
+            $("#section2").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section3").offset().top ){
+            $("#section3").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section4").offset().top ){
+            $("#section4").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section5").offset().top ){
+            $("#section5").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section6").offset().top ){
+            $("#section6").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section7").offset().top ){
+            $("#section7").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section8").offset().top ){
+            $("#section8").addClass("show");
+        }
+        if( scrollTop &gt;  $("#section9").offset().top ){
+            $("#section9").addClass("show");
+        }
+
+        //한번에(출력용)
+        // for (let i = 1; i &lt;= 9; i++) {
+        //     $(".s" + i + "OT").text(parseInt($("#section" + i).offset().top));
+
+        //     if (scrollTop &gt; parseInt($("#section" + i).offset().top)) {
+        //         $(".s" + i + "OT").css("color", "red");
+        //     } else {
+        //         $(".s" + i + "OT").css("color", "white");
+        //     }
+        // }
+
         //한번에
-        $(".content-item").each(function () {
-            if (scrollTop &gt; $(this).offset().top) {
-                $(this).addClass("show");
-            } else {
-                $(this).removeClass("show");
-            }
-        });
-    });</code></pre>
+        // $(".content-item").each(function () {
+        //     if (scrollTop &gt; $(this).offset().top) {
+        //         $(this).addClass("show");
+        //     } else {
+        //         $(this).removeClass("show");
+        //     }
+        // });
+    });
+&lt;/script&gt;</code></pre>
                 </div>
                 <!--//tab-cont3 -->
             </div>
