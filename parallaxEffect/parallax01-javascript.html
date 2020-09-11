@@ -284,27 +284,35 @@
             background-image: url(../assets/img/sc09.jpg);
         }
 
+        /* 한번에 나타나기 */
         /* .contents > section {
             opacity: 0;
-            transform: translateY(200px);
-            transition: all 1.3s cubic-bezier(0, 0.74, 0.25, 1);
+            transform: translateX(-200px);
+            transition: all 1s;
+        }
+
+        .contents > section:nth-child(even) {
+            transform: translateX(200px);
         }
 
         .contents > section.show {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         } */
 
-        .contents > section .content-item-num     {opacity: 0; transform: translateY(200px); transition: all 1.3s 0.1s cubic-bezier(0, 0.74, 0.25, 1);}
-        .contents > section .content-item-title   {opacity: 0; transform: translateX(-200px); transition: all 1.3s 0.3s cubic-bezier(0, 0.74, 0.25, 1);}
-        .contents > section .content-item-imgWrap {opacity: 0; transform: translateY(200px); transition: all 1.3s 0.6s cubic-bezier(0, 0.74, 0.25, 1);}
-        .contents > section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1.3s 0.9s cubic-bezier(0, 0.74, 0.25, 1);}
-        .contents > section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1.3s 0.9s cubic-bezier(0, 0.74, 0.25, 1);}
+        /* 개별적으로 나타나기 */
+        .contents > section .content-item-num     {opacity: 0; transform: translateY(200px); transition: all 1s .1s cubic-bezier(0, 0.87, 0.26, 1.04);}
+        .contents > section .content-item-title   {opacity: 0; transform: translateX(200px); transition: all 1s .3s cubic-bezier(0, 0.87, 0.26, 1.04);}
+        .contents > section .content-item-imgWrap {opacity: 0; transform: translateY(200px); transition: all 1s .6s cubic-bezier(0, 0.87, 0.26, 1.04);}
+        .contents > section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1s .9s cubic-bezier(0, 0.87, 0.26, 1.04);}
 
-        .contents > section.show .content-item-num     {opacity: .07; transform: translateY(0);}
-        .contents > section.show .content-item-title   {opacity: 1;   transform: translateX(0);}
-        .contents > section.show .content-item-imgWrap {opacity: 1;   transform: translateY(0);}
-        .contents > section.show .content-item-desc    {opacity: 1;   transform: translateX(0);}
+        .contents > section:nth-child(odd) .content-item-title {transform: translateX(-200px);}
+        .contents > section:nth-child(odd) .content-item-desc {transform: translateX(-200px);}
+
+        .contents > section.show .content-item-num     {transform: translateY(0); opacity: .07;}
+        .contents > section.show .content-item-title   {transform: translateX(0); opacity: 1;}
+        .contents > section.show .content-item-imgWrap {transform: translateY(0); opacity: 1;}
+        .contents > section.show .content-item-desc    {transform: translateY(0); opacity: 1;}
     </style>
 </head>
 <body>
@@ -433,139 +441,138 @@
     <!-- //main -->
 
     <!-- script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
     <script>
         window.addEventListener("scroll", () => {
-            let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop) + screen.height / 2;
-            console.log("1:" + screen.height / 2)
-            console.log("2:" + document.documentElement.scrollTop)
-            console.log("3:" + window.pageYOffset)
+            let pageYOffset = window.pageYOffset + screen.height/2;
 
-            document.querySelector(".scrollTop").textContent = parseInt(pageYOffset);
+            //console.log(parseInt(pageYOffset));
 
-            // document.querySelector(".s1OT").textContent = document.getElementById("section1").offsetTop;
-            // document.querySelector(".s2OT").textContent = document.getElementById("section2").offsetTop;
-            // document.querySelector(".s3OT").textContent = document.getElementById("section3").offsetTop;
-            // document.querySelector(".s4OT").textContent = document.getElementById("section4").offsetTop;
-            // document.querySelector(".s5OT").textContent = document.getElementById("section5").offsetTop;
-            // document.querySelector(".s6OT").textContent = document.getElementById("section6").offsetTop;
-            // document.querySelector(".s7OT").textContent = document.getElementById("section7").offsetTop;
-            // document.querySelector(".s8OT").textContent = document.getElementById("section8").offsetTop;
-            // document.querySelector(".s9OT").textContent = document.getElementById("section9").offsetTop;
+            //출력용
+            document.querySelector(".pageYOffset").textContent = parseInt(pageYOffset);
+            document.querySelector(".s1OT").textContent = document.getElementById("section1").offsetTop;
+            document.querySelector(".s2OT").textContent = document.getElementById("section2").offsetTop;
+            document.querySelector(".s3OT").textContent = document.getElementById("section3").offsetTop;
+            document.querySelector(".s4OT").textContent = document.getElementById("section4").offsetTop;
+            document.querySelector(".s5OT").textContent = document.getElementById("section5").offsetTop;
+            document.querySelector(".s6OT").textContent = document.getElementById("section6").offsetTop;
+            document.querySelector(".s7OT").textContent = document.getElementById("section7").offsetTop;
+            document.querySelector(".s8OT").textContent = document.getElementById("section8").offsetTop;
+            document.querySelector(".s9OT").textContent = document.getElementById("section9").offsetTop;
+        
+            //출력용 - 레드용
+            if ( pageYOffset > document.getElementById("section1").offsetTop ){
+                document.querySelector(".s1OT").style.color = "red";
+            } else {
+                document.querySelector(".s1OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section2").offsetTop ){
+                document.querySelector(".s2OT").style.color = "red";
+            } else {
+                document.querySelector(".s2OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section3").offsetTop ){
+                document.querySelector(".s3OT").style.color = "red";
+            } else {
+                document.querySelector(".s3OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section4").offsetTop ){
+                document.querySelector(".s4OT").style.color = "red";
+            } else {
+                document.querySelector(".s4OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section5").offsetTop ){
+                document.querySelector(".s5OT").style.color = "red";
+            } else {
+                document.querySelector(".s5OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section6").offsetTop ){
+                document.querySelector(".s6OT").style.color = "red";
+            } else {
+                document.querySelector(".s6OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section7").offsetTop ){
+                document.querySelector(".s7OT").style.color = "red";
+            } else {
+                document.querySelector(".s7OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section8").offsetTop ){
+                document.querySelector(".s8OT").style.color = "red";
+            } else {
+                document.querySelector(".s8OT").style.color = "black";
+            }
+            if ( pageYOffset > document.getElementById("section9").offsetTop ){
+                document.querySelector(".s9OT").style.color = "red";
+            } else {
+                document.querySelector(".s9OT").style.color = "black";
+            }
 
-            // if( pageYOffset > document.getElementById("section1").offsetTop ){
-            //     document.querySelector(".s1OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s1OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section2").offsetTop ){
-            //     document.querySelector(".s2OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s2OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section3").offsetTop ){
-            //     document.querySelector(".s3OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s3OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section4").offsetTop ){
-            //     document.querySelector(".s4OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s4OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section5").offsetTop ){
-            //     document.querySelector(".s5OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s5OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section6").offsetTop ){
-            //     document.querySelector(".s6OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s6OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section7").offsetTop ){
-            //     document.querySelector(".s7OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s7OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section8").offsetTop ){
-            //     document.querySelector(".s8OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s8OT").style.color = "white";
-            // }
-            // if( pageYOffset > document.getElementById("section9").offsetTop ){
-            //     document.querySelector(".s9OT").style.color = "red";
-            // } else {
-            //     document.querySelector(".s9OT").style.color = "white";
-            // }
-
-            // if( pageYOffset > document.getElementById("section1").offsetTop ){
-            //     document.getElementById("section1").classList.add("show");
-            // } else {
-            //     document.getElementById("section1").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section2").offsetTop ){
-            //     document.getElementById("section2").classList.add("show");
-            // } else {
-            //     document.getElementById("section2").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section3").offsetTop ){
-            //     document.getElementById("section3").classList.add("show");
-            // } else {
-            //     document.getElementById("section3").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section4").offsetTop ){
-            //     document.getElementById("section4").classList.add("show");
-            // } else {
-            //     document.getElementById("section4").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section5").offsetTop ){
-            //     document.getElementById("section5").classList.add("show");
-            // } else {
-            //     document.getElementById("section5").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section6").offsetTop ){
-            //     document.getElementById("section6").classList.add("show");
-            // } else {
-            //     document.getElementById("section6").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section7").offsetTop ){
-            //     document.getElementById("section7").classList.add("show");
-            // } else {
-            //     document.getElementById("section7").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section8").offsetTop ){
-            //     document.getElementById("section8").classList.add("show");
-            // } else {
-            //     document.getElementById("section8").classList.remove("show");
-            // }
-            // if( pageYOffset > document.getElementById("section9").offsetTop ){
-            //     document.getElementById("section9").classList.add("show");
-            // } else {
-            //     document.getElementById("section9").classList.remove("show");
-            // }
-
-            //한번에
-            for (let i = 1; i <= 9; i++) {
-                document.querySelector(".s" + i + "OT").textContent = document.getElementById("section" + i).offsetTop;
-
-                if (pageYOffset > document.getElementById("section" + i).offsetTop) {
-                    document.querySelector(".s" + i + "OT").style.color = "red";
-                } else {
-                    document.querySelector(".s" + i + "OT").style.color = "black";
-                }
+            //나타나기
+            if( pageYOffset > document.getElementById("section1").offsetTop ){
+                document.getElementById("section1").classList.add("show");
+            } else {
+                document.getElementById("section1").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section2").offsetTop ){
+                document.getElementById("section2").classList.add("show");
+            } else {
+                document.getElementById("section2").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section3").offsetTop ){
+                document.getElementById("section3").classList.add("show");
+            } else {
+                document.getElementById("section3").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section4").offsetTop ){
+                document.getElementById("section4").classList.add("show");
+            } else {
+                document.getElementById("section4").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section5").offsetTop ){
+                document.getElementById("section5").classList.add("show");
+            } else {
+                document.getElementById("section5").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section6").offsetTop ){
+                document.getElementById("section6").classList.add("show");
+            } else {
+                document.getElementById("section6").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section7").offsetTop ){
+                document.getElementById("section7").classList.add("show");
+            } else {
+                document.getElementById("section7").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section8").offsetTop ){
+                document.getElementById("section8").classList.add("show");
+            } else {
+                document.getElementById("section8").classList.remove("show");
+            }
+            if( pageYOffset > document.getElementById("section9").offsetTop ){
+                document.getElementById("section9").classList.add("show");
+            } else {
+                document.getElementById("section9").classList.remove("show");
             }
 
             //한번에
-            document.querySelectorAll(".content-item").forEach(elem => {
-                console.log(elem.offsetTop);
-                if (pageYOffset > elem.offsetTop) {
-                    elem.classList.add("show");
-                } else {
-                    elem.classList.remove("show");
-                }
-            });
+            // for (let i = 1; i <= 9; i++) {
+            //     document.querySelector(".s" + i + "OT").textContent = document.getElementById("section" + i).offsetTop;
+
+            //     if (pageYOffset > document.getElementById("section" + i).offsetTop) {
+            //         document.querySelector(".s" + i + "OT").style.color = "red";
+            //     } else {
+            //         document.querySelector(".s" + i + "OT").style.color = "black";
+            //     }
+            // }
+
+            //한번에
+            // document.querySelectorAll(".content-item").forEach(elem => {
+            //     console.log(elem.offsetTop);
+            //     if (pageYOffset > elem.offsetTop) {
+            //         elem.classList.add("show");
+            //     } else {
+            //         elem.classList.remove("show");
+            //     }
+            // });
         });
     </script>
 </body>

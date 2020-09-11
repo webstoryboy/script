@@ -26,70 +26,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.scrollTop()</span></code></td>
-                    <td>.scrollTop() 메서드는 선택한 요소의 세로 스크롤 값을 설정하거나 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/129">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.scrollLeft()</span></code></td>
-                    <td>.addClass() 메서드는 선택한 요소의 가로 스크롤 값을 설정하거나 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/128" class="color-view">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.offset()</span></code></td>
-                    <td>.addClass() 메서드는 선택한 요소의 위치 좌표 값(문서 기준)을 설정하거나 반환합니다.</td>
-                    <td><a href="https://webzz.tistory.com/125" class="color-view">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.width()</span></code></td>
-                    <td>.width() 메서드는 선택한 요소의 가로(패딩/마진/보더 불포함)를 설정합니다.</td>
-                    <td><a href="https://webzz.tistory.com/123">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.height()</span></code></td>
-                    <td>.height() 메서드는 선택한 요소의 높이(패딩/마진/보더 불포함)를 설정합니다.</td>
-                    <td><a href="https://webzz.tistory.com/118">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.text()</span></code></td>
-                    <td>.text() 메서드는 선택한 요소에 텍스트를 가져오거나 변경합니다.</td>
-                    <td><a href="https://webzz.tistory.com/149">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.addClass()</span></code></td>
-                    <td>.addClass() 메서드는 선택한 요소에 클래스를 추가하는 메서드입니다.</td>
-                    <td><a href="https://webzz.tistory.com/112" class="color-view">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.removeClass()</span></code></td>
-                    <td>.removeClass() 메서드는 선택한 요소에 클래스를 삭제하는 메서드입니다.</td>
-                    <td><a href="https://webzz.tistory.com/115">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.css()</span></code></td>
-                    <td>.css() 메서드는 선택한 요소에 CSS 속성 값을 설정합니다.</td>
-                    <td><a href="https://webzz.tistory.com/113">View</a></td>
-                </tr>
-                <tr>
-                    <td><code class="hljs javascript"><span class="hljs-built_in">.each()</span></code></td>
-                    <td>.hover() 메서드는 선택한 요소에 각각 함수를 실행합니다.</td>
-                    <td><a href="https://webzz.tistory.com/102">View</a></td>
-                </tr>
-            </tbody>
-        </table> 
-        <table>
-            <thead>
-                <tr>
-                    <td>Value</td>
-                    <td>Description</td>
-                    <td>View</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
                     <td><code class="hljs javascript"><span class="hljs-built_in">parseInt()</span></code></td>
                     <td>문자형 데이터를 정수형 데이터로 바꿉니다.</td>
                     <td><a href="https://webzz.tistory.com/73" class="color-view">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">pageXOffset</span></code></td>
+                    <td>브라우저의 문서 위치(스크롤된 위치)의 x좌표를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/81" class="color-view">View</a></td>
+                </tr>
+                <tr>
+                    <td><code class="hljs javascript"><span class="hljs-built_in">pageYOffset</span></code></td>
+                    <td>브라우저의 문서 위치(스크롤된 위치)의 y좌표를 반환합니다.</td>
+                    <td><a href="https://webzz.tistory.com/81" class="color-view">View</a></td>
                 </tr>
             </tbody>
         </table> 
@@ -500,164 +449,171 @@ body {
     background-image: url(../assets/img/su01.jpg);
 }
 
+/* 한번에 나타나기 */
 /* .contents &gt; section {
     opacity: 0;
-    transform: translateY(200px);
-    transition: all 1.3s cubic-bezier(0, 0.74, 0.25, 1);
+    transform: translateX(-200px);
+    transition: all 1s;
+}
+
+.contents &gt; section:nth-child(even) {
+    transform: translateX(200px);
 }
 
 .contents &gt; section.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 } */
 
-.contents &gt; section .content-item-num     {opacity: 0; transform: translateY(200px); transition: all 1.3s 0.1s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-title   {opacity: 0; transform: translateX(-200px); transition: all 1.3s 0.3s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-imgWrap {opacity: 0; transform: translateY(200px); transition: all 1.3s 0.6s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1.3s 0.9s cubic-bezier(0, 0.74, 0.25, 1);}
-.contents &gt; section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1.3s 0.9s cubic-bezier(0, 0.74, 0.25, 1);}
+/* 개별적으로 나타나기 */
+.contents &gt; section .content-item-num     {opacity: 0; transform: translateY(200px); transition: all 1s .1s cubic-bezier(0, 0.87, 0.26, 1.04);}
+.contents &gt; section .content-item-title   {opacity: 0; transform: translateX(200px); transition: all 1s .3s cubic-bezier(0, 0.87, 0.26, 1.04);}
+.contents &gt; section .content-item-imgWrap {opacity: 0; transform: translateY(200px); transition: all 1s .6s cubic-bezier(0, 0.87, 0.26, 1.04);}
+.contents &gt; section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1s .9s cubic-bezier(0, 0.87, 0.26, 1.04);}
 
-.contents &gt; section.show .content-item-num     {opacity: .07; transform: translateY(0);}
-.contents &gt; section.show .content-item-title   {opacity: 1;   transform: translateX(0);}
-.contents &gt; section.show .content-item-imgWrap {opacity: 1;   transform: translateY(0);}
-.contents &gt; section.show .content-item-desc    {opacity: 1;   transform: translateX(0);}
+.contents &gt; section:nth-child(odd) .content-item-title {transform: translateX(-200px);}
+.contents &gt; section:nth-child(odd) .content-item-desc {transform: translateX(-200px);}
+
+.contents &gt; section.show .content-item-num     {transform: translateY(0); opacity: .07;}
+.contents &gt; section.show .content-item-title   {transform: translateX(0); opacity: 1;}
+.contents &gt; section.show .content-item-imgWrap {transform: translateY(0); opacity: 1;}
+.contents &gt; section.show .content-item-desc    {transform: translateY(0); opacity: 1;}
 </code></pre>
                 </div>
                 <!--//tab-cont2 -->
                 <div>
-<pre class="line-numbers xml"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
+<pre class="line-numbers xml"><code>&lt;script&gt;
     window.addEventListener("scroll", () =&gt; {
-        let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop) + screen.height / 2;
-        console.log("1:" + screen.height / 2)
-        console.log("2:" + document.documentElement.scrollTop)
-        console.log("3:" + window.pageYOffset)
+        let pageYOffset = window.pageYOffset + screen.height/2;
 
-        document.querySelector(".scrollTop").textContent = pageYOffset;
+        //console.log(parseInt(pageYOffset));
 
-        // document.querySelector(".s1OT").textContent = document.getElementById("section1").offsetTop;
-        // document.querySelector(".s2OT").textContent = document.getElementById("section2").offsetTop;
-        // document.querySelector(".s3OT").textContent = document.getElementById("section3").offsetTop;
-        // document.querySelector(".s4OT").textContent = document.getElementById("section4").offsetTop;
-        // document.querySelector(".s5OT").textContent = document.getElementById("section5").offsetTop;
-        // document.querySelector(".s6OT").textContent = document.getElementById("section6").offsetTop;
-        // document.querySelector(".s7OT").textContent = document.getElementById("section7").offsetTop;
-        // document.querySelector(".s8OT").textContent = document.getElementById("section8").offsetTop;
-        // document.querySelector(".s9OT").textContent = document.getElementById("section9").offsetTop;
+        //출력용
+        document.querySelector(".pageYOffset").textContent = parseInt(pageYOffset);
+        document.querySelector(".s1OT").textContent = document.getElementById("section1").offsetTop;
+        document.querySelector(".s2OT").textContent = document.getElementById("section2").offsetTop;
+        document.querySelector(".s3OT").textContent = document.getElementById("section3").offsetTop;
+        document.querySelector(".s4OT").textContent = document.getElementById("section4").offsetTop;
+        document.querySelector(".s5OT").textContent = document.getElementById("section5").offsetTop;
+        document.querySelector(".s6OT").textContent = document.getElementById("section6").offsetTop;
+        document.querySelector(".s7OT").textContent = document.getElementById("section7").offsetTop;
+        document.querySelector(".s8OT").textContent = document.getElementById("section8").offsetTop;
+        document.querySelector(".s9OT").textContent = document.getElementById("section9").offsetTop;
+    
+        //출력용 - 레드용
+        if ( pageYOffset &gt; document.getElementById("section1").offsetTop ){
+            document.querySelector(".s1OT").style.color = "red";
+        } else {
+            document.querySelector(".s1OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section2").offsetTop ){
+            document.querySelector(".s2OT").style.color = "red";
+        } else {
+            document.querySelector(".s2OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section3").offsetTop ){
+            document.querySelector(".s3OT").style.color = "red";
+        } else {
+            document.querySelector(".s3OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section4").offsetTop ){
+            document.querySelector(".s4OT").style.color = "red";
+        } else {
+            document.querySelector(".s4OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section5").offsetTop ){
+            document.querySelector(".s5OT").style.color = "red";
+        } else {
+            document.querySelector(".s5OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section6").offsetTop ){
+            document.querySelector(".s6OT").style.color = "red";
+        } else {
+            document.querySelector(".s6OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section7").offsetTop ){
+            document.querySelector(".s7OT").style.color = "red";
+        } else {
+            document.querySelector(".s7OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section8").offsetTop ){
+            document.querySelector(".s8OT").style.color = "red";
+        } else {
+            document.querySelector(".s8OT").style.color = "black";
+        }
+        if ( pageYOffset &gt; document.getElementById("section9").offsetTop ){
+            document.querySelector(".s9OT").style.color = "red";
+        } else {
+            document.querySelector(".s9OT").style.color = "black";
+        }
 
-        // if( pageYOffset &gt; document.getElementById("section1").offsetTop ){
-        //     document.querySelector(".s1OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s1OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section2").offsetTop ){
-        //     document.querySelector(".s2OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s2OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section3").offsetTop ){
-        //     document.querySelector(".s3OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s3OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section4").offsetTop ){
-        //     document.querySelector(".s4OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s4OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section5").offsetTop ){
-        //     document.querySelector(".s5OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s5OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section6").offsetTop ){
-        //     document.querySelector(".s6OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s6OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section7").offsetTop ){
-        //     document.querySelector(".s7OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s7OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section8").offsetTop ){
-        //     document.querySelector(".s8OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s8OT").style.color = "white";
-        // }
-        // if( pageYOffset &gt; document.getElementById("section9").offsetTop ){
-        //     document.querySelector(".s9OT").style.color = "red";
-        // } else {
-        //     document.querySelector(".s9OT").style.color = "white";
-        // }
-
-        // if( pageYOffset &gt; document.getElementById("section1").offsetTop ){
-        //     document.getElementById("section1").classList.add("show");
-        // } else {
-        //     document.getElementById("section1").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section2").offsetTop ){
-        //     document.getElementById("section2").classList.add("show");
-        // } else {
-        //     document.getElementById("section2").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section3").offsetTop ){
-        //     document.getElementById("section3").classList.add("show");
-        // } else {
-        //     document.getElementById("section3").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section4").offsetTop ){
-        //     document.getElementById("section4").classList.add("show");
-        // } else {
-        //     document.getElementById("section4").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section5").offsetTop ){
-        //     document.getElementById("section5").classList.add("show");
-        // } else {
-        //     document.getElementById("section5").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section6").offsetTop ){
-        //     document.getElementById("section6").classList.add("show");
-        // } else {
-        //     document.getElementById("section6").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section7").offsetTop ){
-        //     document.getElementById("section7").classList.add("show");
-        // } else {
-        //     document.getElementById("section7").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section8").offsetTop ){
-        //     document.getElementById("section8").classList.add("show");
-        // } else {
-        //     document.getElementById("section8").classList.remove("show");
-        // }
-        // if( pageYOffset &gt; document.getElementById("section9").offsetTop ){
-        //     document.getElementById("section9").classList.add("show");
-        // } else {
-        //     document.getElementById("section9").classList.remove("show");
-        // }
-
-        //한번에
-        for (let i = 1; i &lt;= 9; i++) {
-            document.querySelector(".s" + i + "OT").textContent = document.getElementById("section" + i).offsetTop;
-
-            if (pageYOffset &gt; document.getElementById("section" + i).offsetTop) {
-                document.querySelector(".s" + i + "OT").style.color = "red";
-            } else {
-                document.querySelector(".s" + i + "OT").style.color = "black";
-            }
+        //나타나기
+        if( pageYOffset &gt; document.getElementById("section1").offsetTop ){
+            document.getElementById("section1").classList.add("show");
+        } else {
+            document.getElementById("section1").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section2").offsetTop ){
+            document.getElementById("section2").classList.add("show");
+        } else {
+            document.getElementById("section2").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section3").offsetTop ){
+            document.getElementById("section3").classList.add("show");
+        } else {
+            document.getElementById("section3").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section4").offsetTop ){
+            document.getElementById("section4").classList.add("show");
+        } else {
+            document.getElementById("section4").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section5").offsetTop ){
+            document.getElementById("section5").classList.add("show");
+        } else {
+            document.getElementById("section5").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section6").offsetTop ){
+            document.getElementById("section6").classList.add("show");
+        } else {
+            document.getElementById("section6").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section7").offsetTop ){
+            document.getElementById("section7").classList.add("show");
+        } else {
+            document.getElementById("section7").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section8").offsetTop ){
+            document.getElementById("section8").classList.add("show");
+        } else {
+            document.getElementById("section8").classList.remove("show");
+        }
+        if( pageYOffset &gt; document.getElementById("section9").offsetTop ){
+            document.getElementById("section9").classList.add("show");
+        } else {
+            document.getElementById("section9").classList.remove("show");
         }
 
         //한번에
-        document.querySelectorAll(".content-item").forEach(elem =&gt; {
-            console.log(elem.offsetTop);
-            if (pageYOffset &gt; elem.offsetTop) {
-                elem.classList.add("show");
-            } else {
-                elem.classList.remove("show");
-            }
-        });
+        // for (let i = 1; i &lt;= 9; i++) {
+        //     document.querySelector(".s" + i + "OT").textContent = document.getElementById("section" + i).offsetTop;
+
+        //     if (pageYOffset &gt; document.getElementById("section" + i).offsetTop) {
+        //         document.querySelector(".s" + i + "OT").style.color = "red";
+        //     } else {
+        //         document.querySelector(".s" + i + "OT").style.color = "black";
+        //     }
+        // }
+
+        //한번에
+        // document.querySelectorAll(".content-item").forEach(elem =&gt; {
+        //     console.log(elem.offsetTop);
+        //     if (pageYOffset &gt; elem.offsetTop) {
+        //         elem.classList.add("show");
+        //     } else {
+        //         elem.classList.remove("show");
+        //     }
+        // });
     });
 &lt;/script&gt;</code></pre>
                 </div>
