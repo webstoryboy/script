@@ -144,15 +144,15 @@
     &lt;head&gt;
         &lt;meta charset="UTF-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Moust Effect06 - jQuery&lt;/title&gt;
+        &lt;title&gt;Mouse Effect06 - jQuery&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
         
         &lt;!-- main --&gt;
         &lt;main&gt;
             &lt;div class="contents"&gt;
-                &lt;p&gt;열심히 할수록 &lt;strong&gt;기회&lt;/strong&gt;는 따른다.&lt;/p&gt;
-                &lt;p&gt;운이 좋은 사람은 없다. 단지 운을 만들 뿐이다. &lt;/p&gt;
+                &lt;p&gt;The way to get started is to quit talking and &lt;em&gt;begin&lt;/em&gt; doing.&lt;/p&gt;
+                &lt;p&gt;무언가를 시작하려면 말은 멈추고 &lt;em&gt;행동&lt;/em&gt;해야 한다.&lt;/p&gt;
                 &lt;p&gt;&lt;strong class="word"&gt;★&lt;/strong&gt;&lt;/p&gt;
             &lt;/div&gt;
         &lt;/main&gt;
@@ -173,7 +173,7 @@
             &lt;/ul&gt;
         &lt;/div&gt;
         &lt;!-- //info --&gt;
-    
+
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
                 </div>
@@ -338,14 +338,20 @@ body::before {
 }
 
 .contents p {
-    max-width: 80vw;
+    max-width: 70vw;
     font-size: 3vw;
-    text-transform: uppercase;
-    color: #fff;
-    line-height: 1.6;
-    text-align: center;
-    word-break: break-word;
-    font-weight: normal;
+    text-align: justify;
+}
+
+.contents p:first-child {
+    font-size: 2vw;
+    line-height: 2;
+}
+
+.contents p em {
+    color: orange;
+    border-bottom: 2px dashed orange;
+    font-style: normal;
 }
 
 .contents p .word {
@@ -367,8 +373,9 @@ body::before {
                 </div>
                 <!--//tab-cont2 -->
                 <div>
-<pre class="line-numbers xml"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
+<pre class="line-numbers xml"><code>&lt;!-- script --&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     const word = document.querySelector(".word");
 
@@ -394,7 +401,6 @@ body::before {
             document.querySelector(".mouseY2").textContent = Math.round(-mouseY);
         });
     };
-
     window.addEventListener("mousemove", shadow);
 
     
