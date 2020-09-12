@@ -253,47 +253,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        const word = document.querySelector(".word");
-
-        const shadow = e => {
-            const { x, y } = e; 
-            const gBCR = word.getBoundingClientRect();
-            const mouseX = (x - gBCR.left - gBCR.width / 2) / gBCR.width * 5;
-            const mouseY = (y - gBCR.top - gBCR.height / 2) / gBCR.height * 5;
-
-            // console.log("mouseX1 : " + gBCR.height)
-            // console.log("mouseX2 : " + $(".word").height())
-
-            word.style.textShadow = `${mouseX}px ${-mouseY}px 0px rgba(255, 165, 0, 0.4),
-                                     ${-mouseX}px ${mouseY}px 0px rgba(255, 35, 251, 0.4),
-                                     ${mouseY}px ${-mouseX}px 0px rgba(255, 255, 73, 0.4),
-                                     ${-mouseY}px ${mouseX}px 0px rgba(102, 249, 255, 0.4)`;
-
-            //출력용
-            document.addEventListener("mousemove", function (e){
-                document.querySelector(".mouseX").textContent = Math.round(mouseX);
-                document.querySelector(".mouseY").textContent = Math.round(mouseY);
-                document.querySelector(".mouseX2").textContent = Math.round(-mouseX);
-                document.querySelector(".mouseY2").textContent = Math.round(-mouseY);
-            });
-        };
-
-        window.addEventListener("mousemove", shadow);
-
-        
         $(window).mousemove(function(e){
-            let x = e.pageX;    
-            let y = e.pageY;    
-            let mouseX = (x - $(".word").offset().left - $(".word").width() / 2) / $(".word").width() * 5;
-            let mouseY = (y - $(".word").offset().top - $(".word").height() / 2) / $(".word").height() * 5;
-            console.log("mouseX2 : " + mouseX)
-            console.log("mouseY2 : " + mouseY)
+            let x = e.pageX;
+            let y = e.pageY;
+            let mouseX = (x - $(".word").offset().left - $(".word").width()/2 ) / $(".word").width() * 5;
+            let mouseY = (y - $(".word").offset().top - $(".word").height()/2 ) / $(".word").height() * 5;
 
-            //$(".word").css({textShadow:"10px -20px 0px rgba(255, 165, 0, 0.4), -10px 20px 0px rgba(255, 35, 251, 0.4), 20px -10px 0px rgba(255, 255, 73, 0.4), -20px 10px 0px rgba(255, 255, 73, 0.4) "});
-            //$(".word").css({textShadow:""+ mouseX +"px -"+ mouseY +"px 0px rgba(255, 165, 0, 0.4), -"+ mouseX +"px "+ mouseY +"px 0px rgba(255, 35, 251, 0.4), "+ mouseY +"px -"+mouseX+"px 0px rgba(255, 255, 73, 0.4), -"+ mouseY +"px " + mouseX + "px 0px rgba(255, 255, 73, 0.4) "});
-            //$(".word").css({textShadow:""+ mouseX +"px -"+ mouseY +"px 0px rgba(255, 165, 0, 0.4), -"+ mouseX +"px "+ mouseY +"px 0px rgba(255, 35, 251, 0.4)"});
+            //$(".word").css({textShadow:"10px -20px 0px rgba(255, 165, 9, 0.4), -10px 20px 0px rgba(255, 35, 251, 0.4), 20px -10px 0px rgba(255, 255, 73, 0.4), -20px 10px 0px rgba(102, 249, 255, 0.4)"});
+            $(".word").css({textShadow:""+mouseX+"px -"+mouseY+"px 0px rgba(255, 165, 9, 0.4), -"+mouseX+"px "+mouseY+"px 0px rgba(255, 35, 251, 0.4), "+mouseY+"px -"+mouseX+"px 0px rgba(255, 255, 73, 0.4), -"+mouseY+"px "+mouseX+"px 0px rgba(102, 249, 255, 0.4)"});
             
-            gsap.to(".word",{duration: 0, textShadow: ""+ mouseX +"px -"+ mouseY +"px 0px rgba(255, 165, 0, 0.4), -"+ mouseX +"px "+ mouseY +"px 0px rgba(255, 35, 251, 0.4)"})
+            //출력용
+            $(".mouseX").text(parseInt(mouseX));
+            $(".mouseY").text(parseInt(mouseY));
+            $(".mouseX2").text(parseInt(-mouseX));
+            $(".mouseY2").text(parseInt(-mouseY));
         });
     </script>
 </body>
