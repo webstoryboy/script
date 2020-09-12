@@ -297,48 +297,34 @@ body::before {
                 </div>
                 <!--//tab-cont2 -->
                 <div>
-                    <pre class="line-numbers xml"><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
+                    <pre class="line-numbers xml"><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-    //Javascript + GSAP
     const cursor = document.querySelector(".cursor");
 
     //움직임 효과
-    document.addEventListener("mousemove", function (e){
-        gsap.to(".cursor", {duration: .5, left: e.pageX - 5, top: e.pageY - 5});
+    document.addEventListener("mousemove", function(e){
+        gsap.to(cursor, {duration: .5, left: e.pageX - 5, top: e.pageY - 5 });
     });
 
-    document.querySelectorAll(".contents em").forEach(elem =&gt; {
-        elem.addEventListener("mouseenter", () =&gt; {
+    //오버 효과
+    document.querySelectorAll(".contents em").forEach(elem => {
+        elem.addEventListener("mouseenter", () => {
             document.querySelector(".cursor").classList.add("active");
         });
-        elem.addEventListener("mouseleave", () =&gt; {
+        elem.addEventListener("mouseleave", () => {
             document.querySelector(".cursor").classList.remove("active");
         });
     });
 
     //출력용
-    // $(".info.bottom li").click(function(e){  
-    //     const text = $(this).text();
-    //     $(".info.bottom li").removeClass();
-    //     $(this).addClass("active");
-    //     $(".cursor").css("mix-blend-mode",text);
-    // });
-
-    //하나 적용
-    // document.querySelector(".aaa").addEventListener("click",function(){
-    //     const text = this.innerHTML;
-    //     alert(text);
-    // });
-
-    //여러개 적용
-    document.querySelectorAll(".info.bottom li").forEach(box =&gt; {
-        box.addEventListener("click", function(){
-            const text = this.innerHTML;
-            document.querySelectorAll(".info.bottom li").forEach(li =&gt; {
+    document.querySelectorAll(".info.bottom li").forEach(info => {
+        info.addEventListener("click", function(){
+            const text = this.textContent || this.innerHTML;
+            document.querySelector(".cursor").style.mixBlendMode = text;
+            document.querySelectorAll(".info.bottom li").forEach(li => {
                 li.classList.remove("active");
                 this.classList.add("active");
-                document.querySelector(".cursor").style.mixBlendMode = text;
-            })
+            });
         });
     });
 &lt;/script&gt;</code></pre>

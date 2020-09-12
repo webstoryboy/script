@@ -259,8 +259,8 @@
 
         //움직임 효과
         document.addEventListener("mousemove", function (e){
-            gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY - 5 });
-            gsap.to(follower, 0.8, {left: e.pageX - 15 , top: e.pageY  - 15});
+            gsap.to(cursor, {duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
+            gsap.to(follower, {duration: 0.8, left: e.pageX - 15, top: e.pageY - 15 });
         });
 
         //오버 효과

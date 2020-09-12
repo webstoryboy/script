@@ -287,7 +287,7 @@ body::before {
                 </div>
                 <!--//tab-cont2 -->
                 <div>
-                    <pre class="line-numbers xml"><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"&gt;&lt;/script&gt;
+                    <pre class="line-numbers xml"><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     //Javascript + GSAP
     const cursor = document.querySelector(".cursor");
@@ -295,8 +295,8 @@ body::before {
 
     //움직임 효과
     document.addEventListener("mousemove", function (e){
-        gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY - 5 });
-        gsap.to(follower, 0.8, {left: e.pageX - 15 , top: e.pageY  - 15});
+        gsap.to(cursor, {duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
+        gsap.to(follower, {duration: 0.8, left: e.pageX - 15, top: e.pageY - 15 });
     });
 
     //오버 효과

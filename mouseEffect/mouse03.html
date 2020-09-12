@@ -262,21 +262,18 @@
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        //jQuery + GSAP
-        const cursor = $(".cursor");
-
         //움직임 효과
         $(document).mousemove(function(e){
-            gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY - 5 });
+            gsap.to(".cursor", {duration: 0.4, left: e.pageX - 5, top: e.pageY - 5 });
         });
 
         //오버 효과
         $(".contents em").hover(function(){
-            cursor.addClass("active");
+            $(".cursor").addClass("active");
         }, function(){
-            cursor.removeClass("active");
+            $(".cursor").removeClass("active");
         });
 
         //출력용

@@ -286,7 +286,7 @@
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
         let x = 0;
         let y = 0;
@@ -294,12 +294,10 @@
         $(".move-image").mousemove(function(e){
             gsap.to(".cursor", {duration: .2, left: e.pageX - 10, top: e.pageY - 10});
 
-            //좌표값 중앙을 0으로 초기화
-            //x = 컨텐츠 박스의 width()/2 + 왼쪽의 여백값
-            //y = 컨텐츠 박스의 height()/2 + 윗쪽의 여백값
-
-            // let x =  $(".move-image").width()/2;
-            // let y =  $(".move-image").position().left;
+            //좌표값을 중앙으로 설정
+            //$(".move-image").width()/2; 컨텐츠 박스의 반지름
+            //$(".move-image").position().left; 컨텐츠 박스의 왼쪽 포지션 값
+            
             x =  e.clientX - ($(".move-image").width()/2 + $(".move-image").position().left);
             y =  e.clientY - ($(".move-image").height()/2 + $(".move-image").position().top);
 

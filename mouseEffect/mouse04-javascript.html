@@ -270,7 +270,7 @@
     <!-- //info -->
 
     <!-- script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
         let x = 0,
             y = 0,
@@ -299,11 +299,11 @@
             fmouseY += (angleY - fmouseY) * 1/10;
 
             //커서 
-            gsap.to(".cursor", 0.3, {left: x, top: y });
+            gsap.to(".cursor", { duration: 0.3, left: x, top: y });
             
             //움직임
             let move = document.querySelector(".move-image");
-            move.style.transform = "translate(-50%, -50%) perspective(600px) rotateX("+fmouseY+"deg) rotateY("+ -fmouseX+"deg)"
+            move.style.transform = "translate(-50%, -50%) perspective(600px) rotateX("+ fmouseY +"deg) rotateY("+ -fmouseX +"deg)";
         });
 
         //출력용

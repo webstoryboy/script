@@ -274,8 +274,7 @@
     <!-- //info -->
 
     <!-- script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
         let x = 0;
         let y = 0;
@@ -292,16 +291,14 @@
         });
 
         moveImg.addEventListener("mouseleave", function(){
-            this.style.setProperty("--x", 0)
-            this.style.setProperty("--y", 0)
+            this.style.setProperty("--x", 0);
+            this.style.setProperty("--y", 0);
         });
 
         //출력용
         document.addEventListener("mousemove", function (e){
             document.querySelector(".clientX").textContent = e.clientX;
             document.querySelector(".clientY").textContent = e.clientY;
-            document.querySelector(".mouseX").textContent = Math.floor(x)+"px";
-            document.querySelector(".mouseY").textContent = Math.floor(y)+"px";
         });
     </script>
 </body>
