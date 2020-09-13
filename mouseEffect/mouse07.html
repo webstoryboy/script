@@ -56,7 +56,7 @@
             font-size: 16px;
             line-height: 1.5;
             font-family: 'NEXON Lv1 Gothic OTF';
-            /* cursor: none; */
+            cursor: none;
         }
 
         body::before {
@@ -238,29 +238,14 @@
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        const cursor = document.querySelector(".cursor");
-
-        //원의 크기를 구해서 반지름 값을 변수화
-        let width = cursor.offsetWidth;
-        let height = cursor.offsetHeight;
-        let rect = cursor.getBoundingClientRect();
-
-        let width = $(".cursor").outerWidth();
-        let height = $(".cursor").outerHeight();
-
-        console.log(width)
-        console.log($(".cursor").outerWidth())
-
-        // document.addEventListener("mousemove", function (e){
-        //     gsap.to(cursor, 0.3, {left: e.pageX - rect.width/2, top: e.pageY - rect.height/2 });
-        // });
+        let width = $(".cursor").outerWidth()/2;
+        let height = $(".cursor").outerHeight()/2;
 
         $(window).mousemove(function(e){
-            gsap.to(cursor, 0.3, {left: e.pageX - rect.width/2, top: e.pageY - rect.height/2 });
+            gsap.to(".cursor", 0.3, { left: e.pageX - width, top: e.pageY - height });
         });
-
     </script>
 </body>
 </html>
