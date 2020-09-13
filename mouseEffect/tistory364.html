@@ -158,8 +158,8 @@
             &lt;ul&gt;
                 &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;&lt;/li&gt;
                 &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;postionSlow : &lt;span class="postionSlow"&gt;0&lt;/span&gt;&lt;/li&gt;
-                &lt;li&gt;postionFast : &lt;span class="postionFast"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;positionSlow : &lt;span class="positionSlow"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;positionFast : &lt;span class="positionFast"&gt;0&lt;/span&gt;&lt;/li&gt;
             &lt;/ul&gt;
         &lt;/div&gt;
         &lt;!-- //info --&gt;
@@ -366,30 +366,32 @@ body::before {
                 <!--//tab-cont2 -->
                 <div>
 <pre class="line-numbers xml"><code>&lt;!-- script --&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
     const spanSlow = document.querySelectorAll(".spanSlow");
     const spanFast = document.querySelectorAll(".spanFast");
 
-    window.addEventListener("mousemove", mouseMove);
+    const mouseMove = e => {
+        let positionSlow = (e.pageX - (window.innerWidth/2)) * 0.1;
+        let positionFast = (e.pageX - (window.innerWidth/2)) * 0.2;
 
-    function mouseMove(e){
-        let postionSlow = (e.pageX - (window.innerWidth / 2)) * 0.1;
-        let postionFast = (e.pageX - (window.innerWidth / 2)) * 0.2;
-        
-        spanSlow.forEach(elem =&gt; {
-            elem.style.transform = `translate(${postionSlow}px)`;
+        //spanSlow.style.transform = `translateX(${positionSlow}px)`;
+        //spanFast.style.transform = `translateX(${positionFast}px)`;
+
+        spanSlow.forEach(elem => {
+            elem.style.transform = `translateX(${positionSlow}px)`;
         });
-        spanFast.forEach(elem =&gt; {
-            elem.style.transform = `translate(${-postionFast}px)`;
+        spanFast.forEach(elem => {
+            elem.style.transform = `translateX(${positionFast}px)`;
         });
 
         //출력용
         document.querySelector(".pageX").textContent = e.pageX;
         document.querySelector(".pageY").textContent = e.pageY;
-        document.querySelector(".postionSlow").textContent = parseInt(postionSlow);
-        document.querySelector(".postionFast").textContent = parseInt(postionFast);
+        document.querySelector(".positionSlow").textContent = parseInt(positionSlow);
+        document.querySelector(".positionFast").textContent = parseInt(positionFast);
     }
+
+    window.addEventListener("mousemove", mouseMove);
 &lt;/script&gt;</code></pre>
                 </div>
                 <!--//tab-cont3 -->
