@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Effect01 - Javascript</title>
-    <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
-	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
-    <meta name="author" content="webstoryboy">
 
     <!-- webfonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
-
+    
     <style>
         /* reset */
         @font-face {
@@ -19,7 +16,7 @@
             font-weight: normal;
             font-style: normal;
         }
-             
+                
         *, *::before, *::after {
             box-sizing: border-box; 
             margin: 0;
@@ -137,7 +134,7 @@
             --color-title: #fff;
             --color-sub: #fff;
             --color-link: #000;
-            --color-bg: #ccc;
+            --color-bg: rgb(206, 206, 206);
             --font-family: 'Lato','Chosunilbo_myungjo';
             --aspect-ratio: 33/17;
             --image-width-max: 500px;
@@ -145,6 +142,10 @@
             background-color: var(--color-bg);
             font-family: var(--font-family);
             color: var(--color-title);
+        }
+
+        @media (min-width: 1400px){
+            body {--image-width-max: 650px;}
         }
 
         #wrap h1 {
@@ -170,9 +171,9 @@
 
         .content-item {
             position: relative;
-            /* --image-width: calc(var(--image-width-max) * var(--aspect-ratio));
-            width: var(--image-width); */
-            width: 1000px;
+            --image-width: calc(var(--image-width-max) * var(--aspect-ratio));
+            width: var(--image-width);
+            /* width: 1000px; */
             max-width: 90vw;
             margin: 60vh 0 60vh;
         }
@@ -281,7 +282,7 @@
         }
 
         #section9 .content-item-img {
-            background-image: url(../assets/img/sc09.jpg);
+            background-image: url(../assets/img/sc01.jpg);
         }
 
         /* 한번에 나타나기 */
@@ -316,31 +317,16 @@
     </style>
 </head>
 <body>
-
+    
     <!-- info -->
     <div class="info left">
         <h1><a href="parallax00.html">Javascript Parallax Effect01</a></h1>
         <p>패럴랙스 스크로링 효과</p>
     </div>
 
-    <div class="info right">
-        <ul>
-            <li class="active">Parallax <a href="parallax01.html">1</a><a href="parallax01-javascript.html">1</a></li>
-            <li>Parallax <a href="parallax02.html">2</a><a href="parallax02-javascript.html">2</a></li>
-            <li>Parallax <a href="parallax03.html">3</a><a href="parallax03-javascript.html">3</a></li>
-            <li>Parallax <a href="parallax04.html">4</a><a href="parallax04-javascript.html">4</a></li>
-            <li>Parallax <a href="parallax05.html">5</a><a href="parallax05-javascript.html">5</a></li>
-            <li>Parallax <a href="parallax06.html">6</a><a href="parallax06-javascript.html">6</a></li>
-            <li>Parallax <a href="parallax07.html">7</a><a href="parallax07-javascript.html">7</a></li>
-            <li>Parallax <a href="parallax08.html">8</a><a href="parallax08-javascript.html">8</a></li>
-            <li>Parallax <a href="parallax09.html">9</a><a href="parallax09-javascript.html">9</a></li>
-            <li>Parallax <a href="parallax10.html">10</a><a href="parallax10-javascript.html">10</a></li>
-        </ul>
-    </div>
-
     <div class="info bottom">
         <ul>
-            <li>scrollTop() : <span class="scrollTop">0</span>px</li>
+            <li>pageYOffset : <span class="pageYOffset">0</span>px</li>
             <li>#section1 : <span class="s1OT">0</span>px</li>
             <li>#section2 : <span class="s2OT">0</span>px</li>
             <li>#section3 : <span class="s3OT">0</span>px</li>
@@ -351,10 +337,6 @@
             <li>#section7 : <span class="s8OT">0</span>px</li>
             <li>#section7 : <span class="s9OT">0</span>px</li>
         </ul>
-    </div>
-
-    <div class="info view">
-        <a href="https://wtss.tistory.com/397" target="_blank" class="view">소스보기</a>
     </div>
     <!-- //info -->
 
@@ -440,7 +422,6 @@
     </main>
     <!-- //main -->
 
-    <!-- script -->
     <script>
         window.addEventListener("scroll", () => {
             let pageYOffset = window.pageYOffset + screen.height/2;
