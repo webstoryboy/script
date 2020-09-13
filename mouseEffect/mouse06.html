@@ -56,7 +56,7 @@
             font-size: 16px;
             line-height: 1.5;
             font-family: 'NEXON Lv1 Gothic OTF';
-            cursor: none;
+            /* cursor: none; */
         }
 
         body::before {
@@ -260,7 +260,8 @@
             let mouseY = (y - $(".word").offset().top - $(".word").height()/2 ) / $(".word").height() * 5;
 
             //$(".word").css({textShadow:"10px -20px 0px rgba(255, 165, 9, 0.4), -10px 20px 0px rgba(255, 35, 251, 0.4), 20px -10px 0px rgba(255, 255, 73, 0.4), -20px 10px 0px rgba(102, 249, 255, 0.4)"});
-            $(".word").css({textShadow:""+mouseX+"px -"+mouseY+"px 0px rgba(255, 165, 9, 0.4), -"+mouseX+"px "+mouseY+"px 0px rgba(255, 35, 251, 0.4), "+mouseY+"px -"+mouseX+"px 0px rgba(255, 255, 73, 0.4), -"+mouseY+"px "+mouseX+"px 0px rgba(102, 249, 255, 0.4)"});
+            $(".word").css({textShadow:""+mouseX+"px -"+mouseY+"px 0px rgba(255, 165, 9, 0.4), -"+mouseX+"px "+mouseY+"px 0px rgba(255, 35, 251, 0.4)"});
+            //$(".word").css({textShadow:""+mouseX+"px -"+mouseY+"px 0px rgba(255, 165, 9, 0.4), -"+mouseX+"px "+mouseY+"px 0px rgba(255, 35, 251, 0.4), "+mouseY+"px -"+mouseX+"px 0px rgba(255, 255, 73, 0.4), -"+mouseY+"px "+mouseX+"px 0px rgba(102, 249, 255, 0.4)"});
             
             //출력용
             $(".mouseX").text(parseInt(mouseX));

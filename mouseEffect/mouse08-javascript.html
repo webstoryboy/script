@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moust Effect08 - jQuery</title>
+    <title>Moust Effect08 - Javascript</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
@@ -66,7 +66,7 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(5, 36, 70, 0.9);
+            background: rgba(13, 28, 3, 0.9);
             z-index: -1;
         }
 
@@ -88,7 +88,7 @@
             margin-bottom: 3px;
         }
 
-        .info li.active a:first-child {
+        .info li.active a:last-child {
             background: #fff;
             color: #000;
         }
@@ -189,7 +189,7 @@
             text-align: center; 
             transform: translate(-50vw);
         }
-
+        
         .textWrap span {
             display: inline-block; 
             font-size: 4vw; 
@@ -301,32 +301,34 @@
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/354" target="_blank" class="view">소스보기</a>
+        <a href="https://wtss.tistory.com/364" target="_blank" class="view">소스보기</a>
     </div>
-    <!-- info -->
-
+    <!-- //info -->
 
     <!-- script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script>    
-        $(window).on("mousemove", mouseMove);
+    <script>
+        const spanSlow = document.querySelectorAll(".spanSlow");
+        const spanFast = document.querySelectorAll(".spanFast");
+
+        window.addEventListener("mousemove", mouseMove);
 
         function mouseMove(e){
-            let postionSlow = (e.pageX - ($(window).width() / 2)) * 0.1;
-            let postionFast = (e.pageX - ($(window).width() / 2)) * 0.2;
-
-            //$(".spanSlow").css({"transform":"translateX("+ postionSlow +"px)"});
-            //$(".spanFast").css({"transform":"translateX("+ -postionFast +"px)"});
-
-            gsap.to(".spanSlow", { duration: 0.4, x: postionSlow });
-            gsap.to(".spanFast", { duration: 0.4, x: -postionFast });
+            let postionSlow = (e.pageX - (window.innerWidth / 2)) * 0.1;
+            let postionFast = (e.pageX - (window.innerWidth / 2)) * 0.2;
+            
+            spanSlow.forEach(elem => {
+                elem.style.transform = `translate(${postionSlow}px)`;
+            });
+            spanFast.forEach(elem => {
+                elem.style.transform = `translate(${-postionFast}px)`;
+            });
 
             //출력용
-            $(".pageX").text(e.pageX);
-            $(".pageY").text(e.pageY);
-            $(".postionSlow").text(parseInt(postionSlow));
-            $(".postionFast").text(parseInt(postionFast));        
+            document.querySelector(".pageX").textContent = e.pageX;
+            document.querySelector(".pageY").textContent = e.pageY;
+            document.querySelector(".postionSlow").textContent = parseInt(postionSlow);
+            document.querySelector(".postionFast").textContent = parseInt(postionFast);
         }
     </script>
 </body>

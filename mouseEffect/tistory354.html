@@ -13,7 +13,7 @@
         <br />
 
         <p class="bubble warning">샘플 소스는 여기서 확인 할 수 있습니다. </p>
-        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/mouseEffect/mouse07.html">바로가기</a></p>
+        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/mouseEffect/mouse08.html">바로가기</a></p>
     </div>
     <div class="code-reference">
         <h2>Code Reference</h2>
@@ -143,7 +143,7 @@
     &lt;head&gt;
         &lt;meta charset="UTF-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        &lt;title&gt;Mouse Effect07 - jQuery&lt;/title&gt;
+        &lt;title&gt;Moust Effect08 - jQuery&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
         
@@ -152,16 +152,78 @@
             &lt;div class="cursor"&gt;&lt;/div&gt;
     
             &lt;div class="contents"&gt;
-                &lt;p&gt;I dream my painting and I paint my dream.&lt;/p&gt;
-                &lt;p&gt;나는 나의 그림을 &lt;em&gt;꿈&lt;/em&gt;꾸고, 내 &lt;em&gt;꿈&lt;/em&gt;을 그린다.&lt;/p&gt;
+                &lt;div class="move-image"&gt;
+                    &lt;div class="textWrap"&gt;
+                        &lt;div class="line"&gt;
+                            &lt;div class="left"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanSlow"&gt;Pain past&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="right"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanSlow"&gt;Pain past&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="line"&gt;
+                            &lt;div class="left"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanFast"&gt;is pleasure.&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="right"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanFast"&gt;is pleasure.&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="line"&gt;
+                            &lt;div class="left"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanSlow"&gt;지나간 고통은&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="right"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanSlow"&gt;지나간 고통은&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="line"&gt;
+                            &lt;div class="left"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanFast"&gt;쾌락이다.&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="right"&gt;
+                                &lt;div class="spanWrap"&gt;
+                                    &lt;span class="spanFast"&gt;쾌락이다.&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="imgWrap"&gt;
+                        &lt;img src="../assets/img/sc11@2.jpg" alt="이미지"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/main&gt;
         &lt;!-- //main --&gt;
     
         &lt;!-- info --&gt;
         &lt;div class="info left"&gt;
-            &lt;h1&gt;&lt;a href="mouse00.html"&gt;jQuery Mouse Effect07&lt;/a&gt;&lt;/h1&gt;
+            &lt;h1&gt;&lt;a href="mouse00.html"&gt;jQuery Mouse Effect08&lt;/a&gt;&lt;/h1&gt;
             &lt;p&gt;마우스 방향에 따라 움직이기&lt;/p&gt;
+        &lt;/div&gt;
+    
+        &lt;div class="info bottom"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;pageX : &lt;span class="pageX"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;pageY : &lt;span class="pageY"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;postionSlow : &lt;span class="postionSlow"&gt;0&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;postionFast : &lt;span class="postionFast"&gt;0&lt;/span&gt;&lt;/li&gt;
+            &lt;/ul&gt;
         &lt;/div&gt;
         &lt;!-- info --&gt;
     
@@ -208,7 +270,7 @@ li {
 }
 
 body {
-    background: url(../assets/img/sc08@2.jpg) no-repeat center center;
+    background: url(../assets/img/sc11@3.jpg) no-repeat center center;
     background-size: cover;
     color: #fff;
     height: 100vh;
@@ -217,7 +279,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     font-family: 'NEXON Lv1 Gothic OTF';
-    cursor: none;
+    /* cursor: none; */
 }
 
 body::before {
@@ -227,7 +289,7 @@ body::before {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(5, 36, 70, .9);
+    background: rgba(5, 36, 70, 0.9);
     z-index: -1;
 }
 
@@ -317,44 +379,51 @@ body::before {
 }
 
 /* main */
-.cursor {
+.textWrap {
     position: absolute; 
-    width: 200px; height: 200px;
-    border-radius: 50%;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.textWrap .line {
+    width: 100%; display: flex;
+}
+
+.textWrap .line .left {
+    width: 50vw; 
+    color: gold; 
+    transform: skew(0deg, -15deg); 
+    overflow: hidden;
+}
+
+.textWrap .line .left .spanWrap {
+    width: 100vw; 
+    text-align: center;
+}
+
+.textWrap .line .right {
+    width: 50vw; 
+    transform: skew(0deg, 15deg); 
+    overflow: hidden;
+}
+
+.textWrap .line .right .spanWrap {
+    width: 100vw; 
+    text-align: center; 
+    transform: translate(-50vw);
+}
+
+.textWrap span {
+    display: inline-block; 
+    font-size: 4vw; 
+    font-weight: bold;
+}
+
+.imgWrap {
+    position: absolute; 
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
     z-index: -1;
-    user-select: none;
-    pointer-events: none;
-    background: url(../assets/img/sc08@2.jpg) center center fixed;
-    background-size: cover;
-    border: 5px solid #fff;
-    overflow: hidden;
-}
-
-.contents {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.contents p {
-    max-width: 70vw;
-    font-size: 3vw;
-    text-align: justify;
-}
-
-.contents p:first-child {
-    font-size: 2vw;
-    line-height: 2;
-}
-
-.contents p em {
-    color: orange;
-    border-bottom: 2px dashed orange;
-    font-style: normal;
 }</code></pre>
                 </div>
                 <!--//tab-cont2 -->
@@ -362,13 +431,25 @@ body::before {
 <pre class="line-numbers xml"><code>&lt;!-- script --&gt;
 &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    const width = $(".cursor").outerWidth()/2;
-    const height = $(".cursor").outerHeight()/2;
+&lt;script&gt;    
+    $(window).on("mousemove", mouseMove);
 
-    $(window).mousemove(function(e){
-        gsap.to(".cursor", { duration: 0.5, left: e.pageX - width, top: e.pageY - height });
-    });
+    function mouseMove(e){
+        let postionSlow = (e.pageX - ($(window).width() / 2)) * 0.1;
+        let postionFast = (e.pageX - ($(window).width() / 2)) * 0.2;
+
+        //$(".spanSlow").css({"transform":"translateX("+ postionSlow +"px)"});
+        //$(".spanFast").css({"transform":"translateX("+ -postionFast +"px)"});
+
+        gsap.to(".spanSlow", { duration: 0.4, x: postionSlow });
+        gsap.to(".spanFast", { duration: 0.4, x: -postionFast });
+
+        //출력용
+        $(".pageX").text(e.pageX);
+        $(".pageY").text(e.pageY);
+        $(".postionSlow").text(parseInt(postionSlow));
+        $(".postionFast").text(parseInt(postionFast));        
+    }
 &lt;/script&gt;</code></pre>
                 </div>
                 <!--//tab-cont3 -->

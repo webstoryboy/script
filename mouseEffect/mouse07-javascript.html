@@ -237,15 +237,15 @@
     <!-- //info -->
 
     <!-- script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
         const cursor = document.querySelector(".cursor");
-        const width = cursor.offsetWidth;
-        const height = cursor.offsetHeight;
-        const rect = cursor.getBoundingClientRect();
+        const circle = cursor.getBoundingClientRect();
+        // const width = cursor.offsetWidth;
+        // const height = cursor.offsetHeight;
 
-        const follow = e => {
-            gsap.to(cursor, 0.3, {left: e.pageX - rect.width/2, top: e.pageY - rect.height/2 });
+        function follow(e){
+            gsap.to(cursor, {duration: .3, left: e.pageX - circle.width/2, top: e.pageY - circle.height/2});
         }
 
         document.addEventListener("mousemove", follow);
