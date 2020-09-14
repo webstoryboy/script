@@ -130,7 +130,7 @@
             --color-bg: #111;
             --font-family: 'Lato','Chosunilbo_myungjo';
             --aspect-ratio: 33/17;
-            --image-width-max: 650px;
+            --image-width-max: 500px;
 
             background-color: var(--color-bg);
             font-family: var(--font-family);
@@ -215,9 +215,9 @@
             width: var(--width);
             --overflow: 60px;
             position: absolute;
-            top: calc(-3 * var(--overflow));
+            top: calc(-1 * var(--overflow));
             height: calc(100% + (3 * var(--overflow)));
-            background-size: 130%;
+            background-size: cover;
             background-position: 50% 0;
         }
 
@@ -400,9 +400,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
         $(window).scroll(function () {
-            let scrollTop = $(window).scrollTop() + $(window).height() * 0.6;
-
-            $(".scrollTop").text(scrollTop);
+            let scrollTop = $(window).scrollTop();
 
             // let offset1 = (scrollTop - $("#section1").offset().top)
             // let offset2 = (scrollTop - $("#section2").offset().top)
@@ -424,21 +422,24 @@
             // $("#section8 .content-item-desc").css({ transform: "translateX("+ offset8+"px)" });
             // $("#section9 .content-item-desc").css({ transform: "translateX("+ offset9+"px)" });
 
+            //한번에(for문)
             // for(let i=1; i<=9; i++){
             //     let offset = (scrollTop - $("#section"+i).offset().top)
             //     $("#section"+i+" .content-item-desc").css({transform : "translateX("+offset+"px)"});
             // }
-
+            
+            //한번에(each)
             $(".content-item").each(function () {
                 let offset1 = (scrollTop - $(this).offset().top) * 0.1;
                 let offset2 = (scrollTop - $(this).offset().top) * 0.2;
-                let offset3 = (scrollTop - $(this).offset().top) * 0.3;
-                let offset4 = (scrollTop - $(this).offset().top) * 0.4;
 
                 $(this).find(".content-item-desc").css({ "transform": "translateY(" + -offset2 + "px)" });
                 $(this).find(".content-item-num").css({ "transform": "translateY(" + offset1 + "px)" });
                 $(this).find(".content-item-img").css({ "transform": "translateY(" + offset2 + "px)" });
             });
+
+            //출력용
+            $(".scrollTop").text(parseInt(scrollTop));
         });
     </script>
 </body>
