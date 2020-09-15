@@ -415,62 +415,43 @@
     <!-- //main -->
 
     <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        // $(window).scroll(function () {
-        //     let scrollTop = $(window).scrollTop() + $(window).height() * 0.6;
-
-        //     $(".scrollTop").text(scrollTop);
-
-        //     // let offset1 = (scrollTop - $("#section1").offset().top)
-        //     // let offset2 = (scrollTop - $("#section2").offset().top)
-        //     // let offset3 = (scrollTop - $("#section3").offset().top)
-        //     // let offset4 = (scrollTop - $("#section4").offset().top)
-        //     // let offset5 = (scrollTop - $("#section5").offset().top)
-        //     // let offset6 = (scrollTop - $("#section6").offset().top)
-        //     // let offset7 = (scrollTop - $("#section7").offset().top)
-        //     // let offset8 = (scrollTop - $("#section8").offset().top)
-        //     // let offset9 = (scrollTop - $("#section9").offset().top)
-
-        //     // $("#section1 .content-item-desc").css({ transform: "translateX("+ offset1+"px)" });
-        //     // $("#section2 .content-item-desc").css({ transform: "translateX("+ offset2+"px)" });
-        //     // $("#section3 .content-item-desc").css({ transform: "translateX("+ offset3+"px)" });
-        //     // $("#section4 .content-item-desc").css({ transform: "translateX("+ offset4+"px)" });
-        //     // $("#section5 .content-item-desc").css({ transform: "translateX("+ offset5+"px)" });
-        //     // $("#section6 .content-item-desc").css({ transform: "translateX("+ offset6+"px)" });
-        //     // $("#section7 .content-item-desc").css({ transform: "translateX("+ offset7+"px)" });
-        //     // $("#section8 .content-item-desc").css({ transform: "translateX("+ offset8+"px)" });
-        //     // $("#section9 .content-item-desc").css({ transform: "translateX("+ offset9+"px)" });
-
-        //     // for(let i=1; i<=9; i++){
-        //     //     let offset = (scrollTop - $("#section"+i).offset().top)
-        //     //     $("#section"+i+" .content-item-desc").css({transform : "translateX("+offset+"px)"});
-        //     // }
-
-        //     $(".content-item").each(function () {
-        //         let offset1 = (scrollTop - $(this).offset().top) * 0.1;
-        //         let offset2 = (scrollTop - $(this).offset().top) * 0.2;
-        //         let offset3 = (scrollTop - $(this).offset().top) * 0.3;
-        //         let offset4 = (scrollTop - $(this).offset().top) * 0.4;
-
-        //         $(this).find(".content-item-desc").css({ "transform": "translateY(" + -offset2 + "px)" });
-        //         $(this).find(".content-item-num").css({ "transform": "translateY(" + offset1 + "px)" });
-        //         $(this).find(".content-item-img").css({ "transform": "translateY(" + offset2 + "px)" });
-        //     });
-
-            
-        // });
 
 
         window.addEventListener("scroll", () => {
-            let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop) + screen.height / 2;
+            let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop);
 
+            let offset1 = (pageYOffset - document.getElementById("section1").offsetTop) * 0.2;
+            let offset2 = (pageYOffset - document.getElementById("section2").offsetTop) * 0.2;
+            let offset3 = (pageYOffset - document.getElementById("section3").offsetTop) * 0.2;
+            let offset4 = (pageYOffset - document.getElementById("section4").offsetTop) * 0.2;
+            let offset5 = (pageYOffset - document.getElementById("section5").offsetTop) * 0.2;
+            let offset6 = (pageYOffset - document.getElementById("section6").offsetTop) * 0.2;
+            let offset7 = (pageYOffset - document.getElementById("section7").offsetTop) * 0.2;
+            let offset8 = (pageYOffset - document.getElementById("section8").offsetTop) * 0.2;
+            let offset9 = (pageYOffset - document.getElementById("section9").offsetTop) * 0.2;
+
+            document.querySelector("#section1 .content-item-desc").style.transform = "translateY("+ -offset1 +"px";
+            document.querySelector("#section2 .content-item-desc").style.transform = "translateY("+ -offset2 +"px";
+            document.querySelector("#section3 .content-item-desc").style.transform = "translateY("+ -offset3 +"px";
+            document.querySelector("#section4 .content-item-desc").style.transform = "translateY("+ -offset4 +"px";
+            document.querySelector("#section5 .content-item-desc").style.transform = "translateY("+ -offset5 +"px";
+            document.querySelector("#section6 .content-item-desc").style.transform = "translateY("+ -offset6 +"px";
+            document.querySelector("#section7 .content-item-desc").style.transform = "translateY("+ -offset7 +"px";
+            document.querySelector("#section8 .content-item-desc").style.transform = "translateY("+ -offset8 +"px";
+            document.querySelector("#section9 .content-item-desc").style.transform = "translateY("+ -offset9 +"px";
+            
+            //한번에
+            // document.querySelectorAll(".content-item").forEach(elem => {
+            //     let target = elem.childNodes[7];
+            //     let offset = (pageYOffset - elem.offsetTop) * 0.2;
+            //     target.style.transform = "translateY(" + -offset + "px)"
+            // });
+
+            //출력용
             document.querySelector(".scrollTop").textContent = pageYOffset;
-            document.querySelectorAll(".content-item").forEach(elem => {
-                let target = elem.childNodes[7];
-                let offset = (pageYOffset - elem.offsetTop) * 0.2;
-                target.style.transform = "translateY(" + -offset + "px)"
-            });
         });
     </script>
 </body>
