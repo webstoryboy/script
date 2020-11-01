@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax Effect01 - jQuery</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
-	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
+    <meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
+    <title>Parallax Effect03 - jQuery</title>
 
     <!-- webfonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
-
+    
     <style>
         /* reset */
         @font-face {
@@ -215,8 +215,8 @@
             width: var(--width);
             --overflow: 60px;
             position: absolute;
-            top: calc(-2 * var(--overflow));
-            height: calc(100% + (2 * var(--overflow)));
+            top: calc(-1 * var(--overflow));
+            height: calc(100% + (3 * var(--overflow)));
             background-size: cover;
             background-position: 50% 0;
         }
@@ -230,6 +230,7 @@
             word-break: keep-all;
             margin-top: -6vw;
             margin-right: -4vw;
+            padding-left: 1vw;
             position: relative;
             z-index: 20;
             font-weight: normal;
@@ -276,71 +277,39 @@
         #section9 .content-item-img {
             background-image: url(../assets/img/su01.jpg);
         }
-
-        /* 한번에 나타나기 */
-        /* .contents > section {
-            opacity: 0;
-            transform: translateY(200px);
-            transition: all 1s;
-        }
-
-        .contents > section.show {
-            transform: translateY(0);
-            opacity: 1;
-        } */
-
-        /* 개별적으로 나타나기 */
-        .contents > section .content-item-num     {opacity: 0; transform: translateY(200px); transition: all 1s 0.1s cubic-bezier(0, 0.51, 0.16, 1.1);}
-        .contents > section .content-item-title   {opacity: 0; transform: translateX(200px); transition: all 1s 0.3s cubic-bezier(0, 0.51, 0.16, 1.1);}
-        .contents > section .content-item-imgWrap {opacity: 0; transform: translateY(200px) rotate(30deg) skew(20deg); transition: all 1s 0.6s cubic-bezier(0, 0.51, 0.16, 1.1);}
-        .contents > section .content-item-desc    {opacity: 0; transform: translateX(200px); transition: all 1s 0.9s cubic-bezier(0, 0.51, 0.16, 1.1);}
-
-        .contents > section.show .content-item-num     {transform: translateY(0); opacity: .07;}
-        .contents > section.show .content-item-title   {transform: translateX(0); opacity: 1;}
-        .contents > section.show .content-item-imgWrap {transform: translateY(0) rotate(0) skew(0deg); opacity: 1;}
-        .contents > section.show .content-item-desc    {transform: translateX(0); opacity: 1;}
     </style>
 </head>
 <body>
 
     <!-- info -->
     <div class="info left">
-        <h1><a href="parallax00.html">jQuery Parallax Effect01</a></h1>
+        <h1><a href="parallax00.html">jQuery Parallax Effect03</a></h1>
         <p>패럴랙스 스크로링 효과</p>
     </div>
 
     <div class="info right">
         <ul>
-            <li class="active">Parallax <a href="parallax01.html">1</a><a href="parallax01-javascript.html">1</a></li>
-            <li>Parallax <a href="parallax02.html">2</a><a href="parallax02-javascript.html">2</a></li>
-            <li>Parallax <a href="parallax03.html">3</a><a href="parallax03-javascript.html">3</a></li>
-            <li>Parallax <a href="parallax04.html">4</a><a href="parallax04-javascript.html">4</a></li>
-            <li>Parallax <a href="parallax05.html">5</a><a href="parallax05-javascript.html">5</a></li>
-            <li>Parallax <a href="parallax06.html">6</a><a href="parallax06-javascript.html">6</a></li>
-            <li>Parallax <a href="parallax07.html">7</a><a href="parallax07-javascript.html">7</a></li>
-            <li>Parallax <a href="parallax08.html">8</a><a href="parallax08-javascript.html">8</a></li>
-            <li>Parallax <a href="parallax09.html">9</a><a href="parallax09-javascript.html">9</a></li>
-            <li>Parallax <a href="parallax10.html">10</a><a href="parallax10-javascript.html">10</a></li>
+            <li>Parallax <a href="parallax01-jquery.html">1</a><a href="parallax01-javascript.html">1</a></li>
+            <li>Parallax <a href="parallax02-jquery.html">2</a><a href="parallax02-javascript.html">2</a></li>
+            <li class="active">Parallax <a href="parallax03-jquery.html">3</a><a href="parallax03-javascript.html">3</a></li>
+            <li>Parallax <a href="parallax04-jquery.html">4</a><a href="parallax04-javascript.html">4</a></li>
+            <li>Parallax <a href="parallax05-jquery.html">5</a><a href="parallax05-javascript.html">5</a></li>
+            <li>Parallax <a href="parallax06-jquery.html">6</a><a href="parallax06-javascript.html">6</a></li>
+            <li>Parallax <a href="parallax07-jquery.html">7</a><a href="parallax07-javascript.html">7</a></li>
+            <li>Parallax <a href="parallax08-jquery.html">8</a><a href="parallax08-javascript.html">8</a></li>
+            <li>Parallax <a href="parallax09-jquery.html">9</a><a href="parallax09-javascript.html">9</a></li>
+            <li>Parallax <a href="parallax10-jquery.html">10</a><a href="parallax10-javascript.html">10</a></li>
         </ul>
     </div>
 
     <div class="info bottom">
         <ul>
             <li>scrollTop() : <span class="scrollTop">0</span>px</li>
-            <li>#section1 : <span class="s1OT">0</span>px</li>
-            <li>#section2 : <span class="s2OT">0</span>px</li>
-            <li>#section3 : <span class="s3OT">0</span>px</li>
-            <li>#section4 : <span class="s4OT">0</span>px</li>
-            <li>#section5 : <span class="s5OT">0</span>px</li>
-            <li>#section6 : <span class="s6OT">0</span>px</li>
-            <li>#section7 : <span class="s7OT">0</span>px</li>
-            <li>#section8 : <span class="s8OT">0</span>px</li>
-            <li>#section9 : <span class="s9OT">0</span>px</li>
         </ul>
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/387" target="_blank" class="view">소스보기</a>
+        <a href="https://wtss.tistory.com/388" target="_blank" class="view">소스보기</a>
     </div>
     <!-- //info -->
 
@@ -426,123 +395,31 @@
     </main>
     <!-- //main -->
 
-    <!-- script -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        $(window).scroll(function(){
-            const scrollTop = $(window).scrollTop() + $(window).height();
+        //제이쿼리
+        let scrollTop = $(window).scrollTop();
 
-            //console.log(parseInt(scrotllTop));
+        function scroll() {
+            const newScrollTop = $(window).scrollTop();
+            const different = newScrollTop - scrollTop;
 
-            //출력용
-            $(".scrollTop").text(parseInt(scrollTop));
-            $(".s1OT").text(parseInt( $("#section1").offset().top ));
-            $(".s2OT").text(parseInt( $("#section2").offset().top ));
-            $(".s3OT").text(parseInt( $("#section3").offset().top ));
-            $(".s4OT").text(parseInt( $("#section4").offset().top ));
-            $(".s5OT").text(parseInt( $("#section5").offset().top ));
-            $(".s6OT").text(parseInt( $("#section6").offset().top ));
-            $(".s7OT").text(parseInt( $("#section7").offset().top ));
-            $(".s8OT").text(parseInt( $("#section8").offset().top ));
-            $(".s9OT").text(parseInt( $("#section9").offset().top ));
+            console.log("scrollTop : " + scrollTop);
+            console.log("newScrollTop : " + newScrollTop);
+            console.log("different : " + different);
 
-            //출력용 - 레드
-            if( scrollTop >  $("#section1").offset().top ){
-                $(".s1OT").css("color","red");
-            } else {
-                $(".s1OT").css("color","white");
-            }
-            if( scrollTop >  $("#section2").offset().top ){
-                $(".s2OT").css("color","red");
-            } else {
-                $(".s2OT").css("color","white");
-            }
-            if( scrollTop >  $("#section3").offset().top ){
-                $(".s3OT").css("color","red");
-            } else {
-                $(".s3OT").css("color","white");
-            }
-            if( scrollTop >  $("#section4").offset().top ){
-                $(".s4OT").css("color","red");
-            } else {
-                $(".s4OT").css("color","white");
-            }
-            if( scrollTop >  $("#section5").offset().top ){
-                $(".s5OT").css("color","red");
-            } else {
-                $(".s5OT").css("color","white");
-            }
-            if( scrollTop >  $("#section6").offset().top ){
-                $(".s6OT").css("color","red");
-            } else {
-                $(".s6OT").css("color","white");
-            }
-            if( scrollTop >  $("#section7").offset().top ){
-                $(".s7OT").css("color","red");
-            } else {
-                $(".s7OT").css("color","white");
-            }
-            if( scrollTop >  $("#section8").offset().top ){
-                $(".s8OT").css("color","red");
-            } else {
-                $(".s8OT").css("color","white");
-            }
-            if( scrollTop >  $("#section9").offset().top ){
-                $(".s9OT").css("color","red");
-            } else {
-                $(".s9OT").css("color","white");
-            }
+            //$(".content-item-imgWrap").css({ "transform": "skewY(" + different * 0.3 + "deg)" });
 
-            //나타나기
-            if( scrollTop >  $("#section1").offset().top ){
-                $("#section1").addClass("show");
-            }
-            if( scrollTop >  $("#section2").offset().top ){
-                $("#section2").addClass("show");
-            }
-            if( scrollTop >  $("#section3").offset().top ){
-                $("#section3").addClass("show");
-            }
-            if( scrollTop >  $("#section4").offset().top ){
-                $("#section4").addClass("show");
-            }
-            if( scrollTop >  $("#section5").offset().top ){
-                $("#section5").addClass("show");
-            }
-            if( scrollTop >  $("#section6").offset().top ){
-                $("#section6").addClass("show");
-            }
-            if( scrollTop >  $("#section7").offset().top ){
-                $("#section7").addClass("show");
-            }
-            if( scrollTop >  $("#section8").offset().top ){
-                $("#section8").addClass("show");
-            }
-            if( scrollTop >  $("#section9").offset().top ){
-                $("#section9").addClass("show");
-            }
+            gsap.to(".content-item-imgWrap", .3, {skewY: different * 0.1, ease: Power1.ease});
+            gsap.to(".content-item-desc", .3, {skewY: different * 0.1, ease: Power1.ease});
+            gsap.to(".content-item-num", .3, {skewY: different * 0.3, ease: Power1.ease});
 
-            //한번에(출력용)
-            // for (let i = 1; i <= 9; i++) {
-            //     $(".s" + i + "OT").text(parseInt($("#section" + i).offset().top));
-
-            //     if (scrollTop > parseInt($("#section" + i).offset().top)) {
-            //         $(".s" + i + "OT").css("color", "red");
-            //     } else {
-            //         $(".s" + i + "OT").css("color", "white");
-            //     }
-            // }
-
-            //한번에
-            // $(".content-item").each(function () {
-            //     if (scrollTop > $(this).offset().top) {
-            //         $(this).addClass("show");
-            //     } else {
-            //         $(this).removeClass("show");
-            //     }
-            // });
-        });
+            scrollTop = newScrollTop;
+            requestAnimationFrame(scroll);
+        }
+        scroll();
     </script>
 </body>
 </html>

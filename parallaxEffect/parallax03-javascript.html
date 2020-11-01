@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax Effect03 - jQuery</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
-	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
+    <meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
+    <title>Parallax Effect03 - javascript</title>
 
     <!-- webfonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,900&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
             font-weight: normal;
             font-style: normal;
         }
-             
+                
         *, *::before, *::after {
             box-sizing: border-box; 
             margin: 0;
@@ -57,24 +57,33 @@
 
         .info h1 {
             font-size: 20px;
-            border-bottom: 1px dashed #fff;
+            border-bottom: 1px dashed #000;
             margin-bottom: 8px;
+        }
+
+        .info h1 a {
+            color: #000;
         }
 
         .info p, .info li {
             font-size: 14px;
             line-height: 1.8;
             margin-bottom: 3px;
+            color: #000;
         }
 
-        .info li.active a:first-child {
-            background: #fff;
+        .info li span {
             color: #000;
+        } 
+
+        .info li.active a:last-child {
+            background: #000;
+            color: #fff;
         }
 
         .info.left {
             left: 20px;
-            top: 20px; 
+            top: 20px;
         }
 
         .info.right {
@@ -86,17 +95,18 @@
             display: inline-block;
             margin-left: 5px;
             width: 20px; height: 20px;
-            border: 1px dashed #fff;
+            border: 1px dashed #000;
             border-radius: 50%;
             text-align: center;
             line-height: 20px;
             font-size: 12px;
             transition: all 0.2s;
+            color: #000;
         }
 
         .info.right a:hover {
-            background: #fff;
-            color: #000;
+            background: #000;
+            color: #fff;
         }
 
         .info.bottom {
@@ -110,8 +120,8 @@
         }
 
         .info.view a {
-            color: #fff;
-            border: 1px solid #fff;
+            color: #000;
+            border: 1px solid #000;
             border-radius: 30px;
             padding: 5px 30px;
         }
@@ -125,9 +135,9 @@
         body {
             --color-h1: #dc6e25;
             --color-title: #fff;
-            --color-sub: #999;
+            --color-sub: #fff;
             --color-link: #000;
-            --color-bg: #111;
+            --color-bg: rgb(206, 206, 206);
             --font-family: 'Lato','Chosunilbo_myungjo';
             --aspect-ratio: 33/17;
             --image-width-max: 500px;
@@ -182,6 +192,7 @@
             right: -5vw;
             top: -20vw;
             opacity: 0.07;
+            color: var(--color-link);
         }
 
         .content-item:nth-child(even) .content-item-num {
@@ -215,8 +226,8 @@
             width: var(--width);
             --overflow: 60px;
             position: absolute;
-            top: calc(-1 * var(--overflow));
-            height: calc(100% + (3 * var(--overflow)));
+            top: calc(-2 * var(--overflow));
+            height: calc(100% + (2 * var(--overflow)));
             background-size: cover;
             background-position: 50% 0;
         }
@@ -230,7 +241,6 @@
             word-break: keep-all;
             margin-top: -6vw;
             margin-right: -4vw;
-            padding-left: 1vw;
             position: relative;
             z-index: 20;
             font-weight: normal;
@@ -243,39 +253,39 @@
         }
 
         #section1 .content-item-img {
-            background-image: url(../assets/img/su09.jpg);
+            background-image: url(../assets/img/sc01.jpg);
         }
 
         #section2 .content-item-img {
-            background-image: url(../assets/img/su02.jpg);
+            background-image: url(../assets/img/sc02.jpg);
         }
 
         #section3 .content-item-img {
-            background-image: url(../assets/img/su03.jpg);
+            background-image: url(../assets/img/sc03.jpg);
         }
 
         #section4 .content-item-img {
-            background-image: url(../assets/img/su04.jpg);
+            background-image: url(../assets/img/sc04.jpg);
         }
 
         #section5 .content-item-img {
-            background-image: url(../assets/img/su05.jpg);
+            background-image: url(../assets/img/sc05.jpg);
         }
 
         #section6 .content-item-img {
-            background-image: url(../assets/img/su06.jpg);
+            background-image: url(../assets/img/sc06.jpg);
         }
 
         #section7 .content-item-img {
-            background-image: url(../assets/img/su07.jpg);
+            background-image: url(../assets/img/sc07.jpg);
         }
 
         #section8 .content-item-img {
-            background-image: url(../assets/img/su08.jpg);
+            background-image: url(../assets/img/sc08.jpg);
         }
 
         #section9 .content-item-img {
-            background-image: url(../assets/img/su01.jpg);
+            background-image: url(../assets/img/sc01.jpg);
         }
     </style>
 </head>
@@ -283,28 +293,22 @@
 
     <!-- info -->
     <div class="info left">
-        <h1><a href="parallax00.html">jQuery Parallax Effect02</a></h1>
+        <h1><a href="parallax00.html">jQuery Parallax Effect03</a></h1>
         <p>패럴랙스 스크로링 효과</p>
     </div>
 
     <div class="info right">
         <ul>
-            <li>Parallax <a href="parallax01.html">1</a><a href="parallax01-javascript.html">1</a></li>
-            <li class="active">Parallax <a href="parallax02.html">2</a><a href="parallax02-javascript.html">2</a></li>
-            <li>Parallax <a href="parallax03.html">3</a><a href="parallax03-javascript.html">3</a></li>
-            <li>Parallax <a href="parallax04.html">4</a><a href="parallax04-javascript.html">4</a></li>
-            <li>Parallax <a href="parallax05.html">5</a><a href="parallax05-javascript.html">5</a></li>
-            <li>Parallax <a href="parallax06.html">6</a><a href="parallax06-javascript.html">6</a></li>
-            <li>Parallax <a href="parallax07.html">7</a><a href="parallax07-javascript.html">7</a></li>
-            <li>Parallax <a href="parallax08.html">8</a><a href="parallax08-javascript.html">8</a></li>
-            <li>Parallax <a href="parallax09.html">9</a><a href="parallax09-javascript.html">9</a></li>
-            <li>Parallax <a href="parallax10.html">10</a><a href="parallax10-javascript.html">10</a></li>
-        </ul>
-    </div>
-
-    <div class="info bottom">
-        <ul>
-            <li>scrollTop() : <span class="scrollTop">0</span>px</li>
+            <li>Parallax <a href="parallax01-jquery.html">1</a><a href="parallax01-javascript.html">1</a></li>
+            <li>Parallax <a href="parallax02-jquery.html">2</a><a href="parallax02-javascript.html">2</a></li>
+            <li class="active">Parallax <a href="parallax03-jquery.html">3</a><a href="parallax03-javascript.html">3</a></li>
+            <li>Parallax <a href="parallax04-jquery.html">4</a><a href="parallax04-javascript.html">4</a></li>
+            <li>Parallax <a href="parallax05-jquery.html">5</a><a href="parallax05-javascript.html">5</a></li>
+            <li>Parallax <a href="parallax06-jquery.html">6</a><a href="parallax06-javascript.html">6</a></li>
+            <li>Parallax <a href="parallax07-jquery.html">7</a><a href="parallax07-javascript.html">7</a></li>
+            <li>Parallax <a href="parallax08-jquery.html">8</a><a href="parallax08-javascript.html">8</a></li>
+            <li>Parallax <a href="parallax09-jquery.html">9</a><a href="parallax09-javascript.html">9</a></li>
+            <li>Parallax <a href="parallax10-jquery.html">10</a><a href="parallax10-javascript.html">10</a></li>
         </ul>
     </div>
 
@@ -399,38 +403,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        //제이쿼리
-        let scrollTop = $(window).scrollTop();
+        let pageYOffset = window.pageYOffset;
 
-        function scroll() {
-            const newScrollTop = $(window).scrollTop();
-            const different = newScrollTop - scrollTop;
+        const scroll = () => {
+            const newPageYOffset = window.pageYOffset;
+            const different = newPageYOffset - pageYOffset;
 
-            console.log("scrollTop : " + scrollTop);
-            console.log("newScrollTop : " + newScrollTop);
-            console.log("different : " + different);
+            // console.log("pageYOffset : " + pageYOffset);
+            // console.log("newPageYOffset : " + newPageYOffset);
+            // console.log("different : " + different);
 
-            //$(".content-item-imgWrap").css({ "transform": "skewY(" + different * 0.3 + "deg)" });
+            // let target = document.querySelectorAll(".content-item-img");
+            
+            // target.style.transform = "rotate("+different+"deg)";
+            // target.forEach(box => {
+            //     box.style.transform = "rotate("+different * 0.03+"deg)";
+            // });
 
-            gsap.to(".content-item-imgWrap", .3, {
-                skewY: different * 0.1,
-                ease: Power1.ease
-            });
-
-            gsap.to(".content-item-desc", .3, {
-                skewY: different * 0.1,
-                ease: Power1.ease
-            });
-
-            gsap.to(".content-item-num", .3, {
-                skewY: different * 0.3,
-                ease: Power1.ease
-            });
-
-            scrollTop = newScrollTop
-            requestAnimationFrame(scroll)
+            //gsap
+            //gsap.to(".content-item-img", { duration: 0.3, ease: Power1.ease, rotation: different });
+            gsap.to(".content-item-imgWrap", { duration: 0.3, ease: "power1.out", skewY: different * 0.2 });
+            gsap.to(".content-item-desc", { duration: 0.3, ease: "power2.out", skewY: -different * 0.1 });
+            
+            
+            pageYOffset = newPageYOffset;
+            requestAnimationFrame(scroll);
         }
         scroll();
+
+        //일정한 시간 동안 반복적 함수를 실행
+        // let num = 0;
+        // function render(){
+        //     $(".content-item-num").text(num);
+        //     num++;
+        //     requestAnimationFrame(render)
+        //     //setInterval(render, 100);
+        // }
+        // render()
     </script>
 </body>
 </html>

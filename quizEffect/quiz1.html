@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단답형 퀴즈</title>
+    <style>
+        body {
+            font-size: 18px;
+            background: #9FDDD8;
+        }
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .quiz-wrap {
+            max-width: 500px;
+            background: #E3E3E3;
+            margin: 30px auto;
+            font-family: 'GmarketSansMedium';
+            padding: 20px;
+        }
+
+        .info {
+            padding: 10px;
+            background: #fff;
+            margin-bottom: 50px;
+        }
+
+        .info ul {
+            border: 3px solid #000;
+        }
+
+        .info li {
+            border-bottom: 3px solid #000;
+            padding: 8px;
+        }
+
+        .info li:last-child {
+            border-bottom: 0;
+        }
+
+        .quiz {
+            padding: 20px;
+            border: 3px solid #000;
+            margin-top: 60px;
+        }
+
+        .quiz h2 {
+            font-size: 30px;
+            margin-top: -36px;
+            margin-bottom: 20px;
+            background: #E3E3E3;
+            text-align: center;
+        }
+
+        .quiz .question {
+            font-size: 26px;
+            line-height: 1.4;
+            padding-bottom: 20px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .quiz .question::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #000;
+
+        }
+
+        .quiz .select {
+            list-style: none;
+        }
+
+        .quiz .select li {
+            font-size: 26px;
+            padding-bottom: 10px;
+        }
+
+        label {
+            display: -webkit-box;
+            display: flex;
+            cursor: pointer;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0.375em;
+        }
+
+        label input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        label.on input:checked+span {
+            background-color: #d6d6e5;
+        }
+
+        label.on input:checked+span:before {
+            box-shadow: inset 0 0 0 0.4375em #00005c;
+        }
+
+        label span {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            padding: 0.375em 0.75em 0.375em 0.375em;
+            border-radius: 99em;
+            transition: 0.25s ease;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        label span:hover {
+            background-color: #d6d6e5;
+        }
+
+        label span:before {
+            display: -webkit-box;
+            display: flex;
+            flex-shrink: 0;
+            content: "";
+            background-color: #fff;
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 50%;
+            margin-right: 0.375em;
+            -webkit-transition: 0.25s ease;
+            transition: 0.25s ease;
+            box-shadow: inset 0 0 0 0.125em #00005c;
+        }
+
+        .confirm {
+            margin: 20px 10px;
+            text-align: center;
+        }
+
+        .confirm .confirm-btn {
+            background-color: #00005c;
+            border-radius: 50px;
+            padding: 20px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .confirm .confirm-desc {
+            padding: 20px;
+            padding: 20px;
+            border: 3px solid #00005c;
+            display: ;
+        }
+
+        .confirm .confirm-ex {
+            text-align: left;
+            padding-top: 10px;
+            position: relative;
+            color: red;
+            padding-left: 10px;
+        }
+
+        .confirm .confirm-ex::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-wrap">
+        <div class="info">
+            <ul>
+                <li>시험 유형 : <span>주관식 퀴즈1</span></li>
+                <li>시험 과목 : <span>정보처리기사</span></li>
+                <li>시험 과목 : <span>응용 SW기초 기술 활용</span></li>
+            </ul>
+        </div>
+
+        <div class="quiz">
+            <h2>&lt; 문제<span class="num">0</span> &gt;</h2>
+            <p class="question"></p>
+            <div class="confirm">
+                <p class="confirm-btn">정답 확인하기</p>
+                <p class="confirm-desc"></p>
+                <p class="confirm-ex"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var questions = "운영체제의 성능 평가 기준은 무엇인가요?";
+        var correct = "처리시기";
+        var explanation = "처리시기는 성능평가의 기준이 됩니다.";
+        var questionIndex = 1;
+
+        var question = document.querySelector(".question");
+        var questionNum = document.querySelector(".num");
+        var questionBtn = document.querySelector(".confirm-btn");
+        var questionDesc = document.querySelector(".confirm-desc");
+        var questionEx = document.querySelector(".confirm-ex");
+
+        //문제 번호 출력
+        questionNum.innerHTML = questionIndex;
+
+        //문제 출력
+        question.innerHTML = questions;
+
+        //답 출력
+        questionDesc.innerHTML = correct;
+
+        //설명 출력
+        questionEx.innerHTML = explanation;
+
+        //정답 숨기기
+        questionDesc.style.display = "none";
+        questionEx.style.display = "none";
+
+        //정답 확인
+        questionBtn.addEventListener("click", function() {
+            questionBtn.style.display = "none";
+            questionDesc.style.display = "block";
+            questionEx.style.display = "block";
+        });
+    </script>
+</body>
+</html>
