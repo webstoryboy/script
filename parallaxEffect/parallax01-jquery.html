@@ -535,13 +535,13 @@
             // }
 
             //한번에
-            // $(".content-item").each(function () {
-            //     if (scrollTop > $(this).offset().top) {
-            //         $(this).addClass("show");
-            //     } else {
-            //         $(this).removeClass("show");
-            //     }
-            // });
+            $(".content-item").each(function () {
+                if (scrollTop > $(this).offset().top) {
+                    $(this).addClass("show");
+                } else {
+                    $(this).removeClass("show");
+                }
+            });
         });
     </script>
 </body>
