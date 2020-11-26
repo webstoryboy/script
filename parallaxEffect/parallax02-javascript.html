@@ -422,22 +422,29 @@
             let offset8 = (pageYOffset - document.getElementById("section8").offsetTop) * 0.2;
             let offset9 = (pageYOffset - document.getElementById("section9").offsetTop) * 0.2;
 
-            document.querySelector("#section1 .content-item-desc").style.transform = "translateY("+ -offset1 +"px";
-            document.querySelector("#section2 .content-item-desc").style.transform = "translateY("+ -offset2 +"px";
-            document.querySelector("#section3 .content-item-desc").style.transform = "translateY("+ -offset3 +"px";
-            document.querySelector("#section4 .content-item-desc").style.transform = "translateY("+ -offset4 +"px";
-            document.querySelector("#section5 .content-item-desc").style.transform = "translateY("+ -offset5 +"px";
-            document.querySelector("#section6 .content-item-desc").style.transform = "translateY("+ -offset6 +"px";
-            document.querySelector("#section7 .content-item-desc").style.transform = "translateY("+ -offset7 +"px";
-            document.querySelector("#section8 .content-item-desc").style.transform = "translateY("+ -offset8 +"px";
-            document.querySelector("#section9 .content-item-desc").style.transform = "translateY("+ -offset9 +"px";
+            document.querySelector("#section1 .content-item-desc").style.transform = "translateY("+ -offset1 +"px)";
+            document.querySelector("#section2 .content-item-desc").style.transform = "translateY("+ -offset2 +"px)";
+            document.querySelector("#section3 .content-item-desc").style.transform = "translateY("+ -offset3 +"px)";
+            document.querySelector("#section4 .content-item-desc").style.transform = "translateY("+ -offset4 +"px)";
+            document.querySelector("#section5 .content-item-desc").style.transform = "translateY("+ -offset5 +"px)";
+            document.querySelector("#section6 .content-item-desc").style.transform = "translateY("+ -offset6 +"px)";
+            document.querySelector("#section7 .content-item-desc").style.transform = "translateY("+ -offset7 +"px)";
+            document.querySelector("#section8 .content-item-desc").style.transform = "translateY("+ -offset8 +"px)";
+            document.querySelector("#section9 .content-item-desc").style.transform = "translateY("+ -offset9 +"px)";
             
-            //한번에
-            // document.querySelectorAll(".content-item").forEach(elem => {
-            //     let target = elem.childNodes[7];
-            //     let offset = (pageYOffset - elem.offsetTop) * 0.2;
-            //     target.style.transform = "translateY(" + -offset + "px)"
-            // });
+            //한번에(for문)
+            // for( let i=1; i<=9; i++ ){
+            //     let offset = (pageYOffset - document.getElementById("section"+i).offsetTop) * 0.2;
+            //     document.querySelector("#section"+i+" .content-item-desc").style.transform = "translateY("+ -offset +"px)";
+            // }
+
+            //한번에(forEach)
+            document.querySelectorAll(".content-item").forEach((elem) => {
+                //console.log(elem);
+                let target = elem.childNodes[7];
+                let offset = (pageYOffset - elem.offsetTop) * 0.2;
+                target.style.transform = "translateY("+ -offset +"px)";
+            });
 
             //출력용
             document.querySelector(".scrollTop").textContent = pageYOffset;

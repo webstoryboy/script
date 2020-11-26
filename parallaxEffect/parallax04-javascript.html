@@ -287,6 +287,31 @@
         #section9 .content-item-img {
             background-image: url(../assets/img/sc01.jpg);
         }
+
+        .content-item-desc {
+            padding-left: 10vw;
+        }
+        .content-item:nth-child(even) .content-item-desc {
+            padding-left: 0vw; padding-right: 10vw;
+        }
+        .content-item-desc span {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.77s cubic-bezier(0, 0.48, 0, 1.04);
+            display: inline-block;
+            min-width: 20px;
+        }
+        .content-item-desc span.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* .content-item-desc span {
+            opacity: 0;
+            transform: translateY(50px);
+            display: inline-block;
+            min-width: 20px;
+        } */
     </style>
 </head>
 <body>
@@ -422,15 +447,29 @@
 
         window.addEventListener("scroll", () => {
             let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop);
-            
-            document.querySelectorAll(".content-item").forEach(elem => {
-                let target = elem.childNodes[7].getElementsByTagName("span");
-                console.log(target);
-                if ( pageYOffset > elem.offsetTop) {
-                    //gsap.to( $(this).find(".content-item-desc span"), .3, {y:0, stagger:0.05, opacity: 1, ease: Power1.ease});
-                }
-            });
+
+            if( pageYOffset > document.getElementById("section1").offsetTop ){
+                document.querySelectorAll("#section1 .content-item-desc span").forEach((elem, index) => {
+                    setTimeout(function () {
+                        elem.classList.add("show");
+                    }, 50 * (index + 1));
+                });
+            }
         });
+
+        // window.addEventListener("scroll", () => {
+        //     let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop);
+            
+        //     document.querySelectorAll(".content-item").forEach(elem => {
+        //         let target = elem.childNodes[7].getElementsByTagName("span");
+        //         console.log(target);
+        //         if ( pageYOffset > elem.offsetTop) {
+        //             gsap.to( elem.find(".content-item-desc span"), .3, {y:0, stagger:0.05, opacity: 1, ease: Power1.ease});
+        //         }
+        //     });
+        // });
+
+        
         
     </script>
 </body>

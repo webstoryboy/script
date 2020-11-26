@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery Slider Effect01</title>
+    <title>jQuery Slider Effect02</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
@@ -143,30 +143,31 @@
 
         /* slide */
         .slider-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
             height: 100vh;
-        }
-
-        .slider-img {
-            position: relative;
             width: 1000px;
             height: 600px;
             overflow: hidden;
             box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
         }
 
-        .slider-img .slider {
-            position: absolute;
-            left: 0;
-            top: 0;
+        .slider-img {
+            position: relative;
+            width: 5000px;
+            height: 600px;
+            overflow: hidden;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
         }
-        .slider-img .slider:nth-child(1) {z-index: 5;}
-        .slider-img .slider:nth-child(2) {z-index: 4;}
-        .slider-img .slider:nth-child(3) {z-index: 3;}
-        .slider-img .slider:nth-child(4) {z-index: 2;}
-        .slider-img .slider:nth-child(5) {z-index: 1;}
+
+        .slider-img .slider {
+            float: left;
+            width: 1000px;
+            height: 600px;
+            position: relative;
+        }
 
         .slider-img .slider span {
             position: absolute;
@@ -181,62 +182,63 @@
     <main>
         <div class="slider-wrap">
             <div class="slider-img">
-                <div class="slider"><img src="../assets/img/su01.jpg" alt="이미지1"><span>이미지1</span></div>
-                <div class="slider"><img src="../assets/img/su02.jpg" alt="이미지2"><span>이미지2</span></div>
-                <div class="slider"><img src="../assets/img/su03.jpg" alt="이미지3"><span>이미지3</span></div>
-                <div class="slider"><img src="../assets/img/su04.jpg" alt="이미지4"><span>이미지4</span></div>
-                <div class="slider"><img src="../assets/img/su05.jpg" alt="이미지5"><span>이미지5</span></div>
+                <div class="slider"><img src="../assets/img/su06.jpg" alt="이미지1"><span>이미지1</span></div>
+                <div class="slider"><img src="../assets/img/su07.jpg" alt="이미지2"><span>이미지2</span></div>
+                <div class="slider"><img src="../assets/img/su08.jpg" alt="이미지3"><span>이미지3</span></div>
+                <div class="slider"><img src="../assets/img/su09.jpg" alt="이미지4"><span>이미지4</span></div>
+                <div class="slider"><img src="../assets/img/su10.jpg" alt="이미지5"><span>이미지5</span></div>
             </div>
         </div>
     </main>
-    <!-- //main -->
+    <!-- main -->
     
     <!-- info -->
     <div class="info left">
-        <h1><a href="slider00.html">jQuery Slider Effect01</a></h1>
-        <p>이미지 슬라이드 효과</p>
+        <h1><a href="slider00.html">jQuery Slider Effect02</a></h1>
+        <p>이미지 슬라이드 효과 : 좌로 넘기기</p>
     </div>
 
     <div class="info right">
         <ul>
-            <li class="active">Slider <a href="slider01.html">1</a><a href="slider01-javascript.html">1</a></li>
-            <li>Slider <a href="slider02.html">2</a><a href="slider02-javascript.html">2</a></li>
-            <li>Slider <a href="slider03.html">3</a><a href="slider03-javascript.html">3</a></li>
-            <li>Slider <a href="slider04.html">4</a><a href="slider04-javascript.html">4</a></li>
-            <li>Slider <a href="slider05.html">5</a><a href="slider05-javascript.html">5</a></li>
-            <li>Slider <a href="slider06.html">6</a><a href="slider06-javascript.html">6</a></li>
-            <li>Slider <a href="slider07.html">7</a><a href="slider07-javascript.html">7</a></li>
-            <li>Slider <a href="slider08.html">8</a><a href="slider08-javascript.html">8</a></li>
-            <li>Slider <a href="slider09.html">9</a><a href="slider09-javascript.html">9</a></li>
-            <li>Slider <a href="slider10.html">10</a><a href="slider10-javascript.html">10</a></li>
+            <li>Slider <a href="slider01-jquery.html">1</a><a href="slider01-javascript.html">1</a></li>
+            <li class="active">Slider <a href="slider02-jquery.html">2</a><a href="slider02-javascript.html">2</a></li>
+            <li>Slider <a href="slider03-jquery.html">3</a><a href="slider03-javascript.html">3</a></li>
+            <li>Slider <a href="slider04-jquery.html">4</a><a href="slider04-javascript.html">4</a></li>
+            <li>Slider <a href="slider05-jquery.html">5</a><a href="slider05-javascript.html">5</a></li>
+            <li>Slider <a href="slider06-jquery.html">6</a><a href="slider06-javascript.html">6</a></li>
+            <li>Slider <a href="slider07-jquery.html">7</a><a href="slider07-javascript.html">7</a></li>
+            <li>Slider <a href="slider08-jquery.html">8</a><a href="slider08-javascript.html">8</a></li>
+            <li>Slider <a href="slider09-jquery.html">9</a><a href="slider09-javascript.html">9</a></li>
+            <li>Slider <a href="slider10-jquery.html">10</a><a href="slider10-javascript.html">10</a></li>
         </ul>
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/367" target="_blank">소스보기</a>
+        <a href="https://wtss.tistory.com/368" target="_blank" class="view">소스보기</a>
     </div>
     <!-- //info -->
+
 
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
-        let sliderWrap = $(".slider-wrap");
-        let sliderImg = $(".slider-img");
-        let slider = $(".slider");
+        const sliderWrap = $(".slider-wrap");
+        const sliderImg = $(".slider-img");
+        const slider = $(".slider");
 
-        let currentIndex = 0;               //현재 첫 번재 보이는 이미지
-        let sliderCount = slider.length;     //이미지 갯수
+        let currentIndex = 0;
 
-        setInterval(function(){
-            let nextIndex = (currentIndex + 1) % sliderCount;
+        setInterval(function () {
+            // if( currentIndex < 4 ){
+            //     currentIndex++;
+            // } else {
+            //     currentIndex = 0;
+            // }
+            currentIndex < 4 ? currentIndex++ : currentIndex = 0;
 
-            slider.eq(currentIndex).fadeOut();  //현재 이미지를 사라지게
-            slider.eq(nextIndex).fadeIn();      //다음 이미지를 나타나게
-            // console.log("currentIndex : " + currentIndex);  
-            // console.log("nextIndex : " + nextIndex);
-
-            currentIndex = nextIndex;
-        }, 2000);
+            let sliderPosition = currentIndex * (-1000) + "px";
+            sliderImg.animate({ left: sliderPosition }, 400);
+        }, 3000);
     </script>
 </body>
 </html>
