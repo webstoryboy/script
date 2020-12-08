@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html, #container, #dragger {
+            width: 100%;
+            height: 100%;
+            overflow:hidden;    
+        }
+
+        div {
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="dragger"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/Draggable.min.js">
+        const n = 30,
+        c = document.getElementById('container'),
+        startPos = 87; //adjust to improve centering
+
+    gsap.timeline()
+        .set(c, {perspective:900})
+        .set('#dragger', {background:'#000', opacity:0, width:'200%', height:'100%', left:'50%', xPercent:-50})
+
+        for (let i=0; i<n; i++){ 
+        
+        let b = document.createElement('div');
+        
+        b.classList.add('box');
+        c.appendChild(b);
+
+        gsap.set(b, {
+            left:'50%',
+            xPercent:-50,
+            z:-999,
+            width:300,
+            height:'100%',
+            borderRadius:20,
+            background:()=>'hsl('+(i/n*360)+',100%,50%)',
+            backfaceVisibility: 'hidden'
+        });
+        
+        gsap.fromTo(b, {
+            scaleY:0,
+            zIndex:()=>(i<n/2)?i:-i,
+            rotationY:startPos-i/n*180,
+            transformOrigin:String("50% 50% -3000%")
+        },{
+            scaleY:1,
+            duration:1,
+            delay:1-0.5*(i/n),
+            ease:'elastic'
+        });
+        }
+
+        Draggable.create('#dragger', {
+        type:'x',
+        bounds:c,
+        onDrag:moveBoxes
+        })
+
+        function moveBoxes(){
+        let percent = gsap.getProperty('#dragger','x')/(vw/2); console.log(percent)
+        gsap.to('.box', {duration:0.5, rotationY:(i)=>startPos-i/n*180+startPos*percent });
+        }
+
+        window.onresize = window.onload = ()=>{
+        vw = window.innerWidth;
+        if (gsap.getProperty('#dragger','x')<0) gsap.set('#dragger', {x:0});
+        }
+    </script>
+</body>
+</html>

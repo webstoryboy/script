@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery Slider Effect06</title>
+    <title>jQuery Slider Effect04</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
     
     <style>
         /* reset */
-        @font-face { 
-            font-family: 'MapoFlowerIsland'; 
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff'); 
-            font-weight: normal; 
-            font-style: normal; 
-        }
+        @font-face { font-family: 'MapoFlowerIsland'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff'); font-weight: normal; font-style: normal; }
 
         *, *::before, *::after {
             box-sizing: border-box; 
@@ -147,47 +142,30 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: 1200px;
+            height: 100vh;
+            width: 1000px;
+            height: 600px;
             overflow: hidden;
-            /* background: #ccc; */
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
         }
 
         .slider-img {
             position: relative;
             width: 5000px;
-            overflow: hidden;
+            height: 600px;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
         }
 
         .slider-img .slider {
-            float: left;
-            width: 400px;
+            width: 1000px;
+            height: 600px;
             position: relative;
-            padding: 10px;
-            box-sizing: border-box;
         }
 
         .slider-img .slider span {
             position: absolute;
-            left: 15px;
-            top: 15px;
-        }
-
-        .slider-btn a {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            text-transform: capitalize;
-        }
-
-        .slider-btn a.prev {
-            left: 0;
-        }
-
-        .slider-btn a.next {
-            right: 0;
+            left: 5px;
+            top: 5px;
         }
     </style>
 </head>
@@ -205,17 +183,13 @@
                 <div class="slider"><img src="../assets/img/so05.jpg" alt="이미지5"><span>이미지5</span></div>
             </div>
         </div>
-        <div class="slider-btn">
-            <a href="#" class="prev">prev</a>
-            <a href="#" class="next">next</a>
-        </div>
     </main>
     <!-- main -->
     
     <!-- info -->
     <div class="info left">
-        <h1><a href="slider00.html">jQuery Slider Effect06</a></h1>
-        <p>이미지 슬라이드 효과 : 3단 슬라이드 만들기</p>
+        <h1><a href="slider00.html">jQuery Slider Effect04</a></h1>
+        <p>이미지 슬라이드 효과 : 위로 넘기기</p>
     </div>
 
     <div class="info right">
@@ -223,9 +197,9 @@
             <li>Slider <a href="slider01.html">1</a><a href="slider01-javascript.html">1</a></li>
             <li>Slider <a href="slider02.html">2</a><a href="slider02-javascript.html">2</a></li>
             <li>Slider <a href="slider03.html">3</a><a href="slider03-javascript.html">3</a></li>
-            <li>Slider <a href="slider04.html">4</a><a href="slider04-javascript.html">4</a></li>
+            <li class="active">Slider <a href="slider04.html">4</a><a href="slider04-javascript.html">4</a></li>
             <li>Slider <a href="slider05.html">5</a><a href="slider05-javascript.html">5</a></li>
-            <li class="active">Slider <a href="slider06.html">6</a><a href="slider06-javascript.html">6</a></li>
+            <li>Slider <a href="slider06.html">6</a><a href="slider06-javascript.html">6</a></li>
             <li>Slider <a href="slider07.html">7</a><a href="slider07-javascript.html">7</a></li>
             <li>Slider <a href="slider08.html">8</a><a href="slider08-javascript.html">8</a></li>
             <li>Slider <a href="slider09.html">9</a><a href="slider09-javascript.html">9</a></li>
@@ -249,44 +223,24 @@
         const sliderWrap = $(".slider-wrap");
         const sliderImg = $(".slider-img");
         const slider = $(".slider");
-        const sliderBtn = $(".slider-btn");
 
-        let sliderCount = slider.length;
-        let sliderWidth = slider.outerWidth();
-        let showNumber = 3;
         let currentIndex = 0;
 
-        var sliderCopy = $(".slider:lt(" + showNumber + ")").clone();
-        sliderImg.append(sliderCopy);
+        //위로 넘기기
+        // setInterval(function () {
+        //     currentIndex < 4 ? currentIndex++ : currentIndex = 0;
 
-        //이미지 움직이기
-        function back() {
-            if (currentIndex == 0) {
-                currentIndex = sliderCount;
-                sliderImg.css("margin-left", -currentIndex * sliderWidth + "px");
-            }
-            currentIndex--;
-            sliderImg.stop().animate({ "margin-left": -sliderWidth * currentIndex + "px" }, 400);
-        }
+        //     let sliderPosition = currentIndex * (-600) + "px";
+        //     sliderImg.animate({ top: sliderPosition }, 400);
+        // }, 3000);
 
-        function next() {
-            if (currentIndex == sliderCount) {
-                currentIndex = 0;
-                sliderImg.css("margin-left", currentIndex);
-            }
-            currentIndex++;
-            sliderImg.stop().animate({ "margin-left": -sliderWidth * currentIndex + "px" }, 400);
-        }
-
-        //버튼 클릭하기
-        sliderBtn.on("click", "a", function () {
-            if ($(this).hasClass("prev")) {
-                back();
-            } else {
-                next();
-            }
-        });
-        
+        //위로 연속적으로 넘기기
+        setInterval(function () {
+            sliderImg.animate({ top: "-600px" }, 400, function () {
+                $('.slider:first-child').appendTo(sliderImg);
+                sliderImg.css("top", "");
+            });
+        }, 3000);
     </script>
 </body>
 </html>
