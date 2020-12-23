@@ -63,11 +63,11 @@
             backface-visibility: hidden;
         }
         /* 카드를 클릭했을 때 */
-        .card.is-selected .front {
+        .card.visible .front {
             transform: rotateY(180deg);
             transition: transform 0.6s;
         }
-        .card.is-selected .back {
+        .card.visible .back {
             transform: rotateY(0deg);
             transition: transform 0.6s;
         }
@@ -118,6 +118,10 @@
     </style>
 </head>
 <body>
+
+    <div class="overlay-text visible">Click to Start</div>
+    <div id="time-remaining">100</div>
+    <div id="flips">0</div>
     
     <div id="wrap">
         <h1>Memory Game</h1>
@@ -242,8 +246,16 @@
             this.timeRemaining = totalTime;
             this.timer = document.getElementById('time-remaining')
             this.ticker = document.getElementById('flips');
-            this.audioController = new ㄴ();
+            this.audioController = new AudioController();
         }
+        startGame() {
+            this.totalClicks = 0;
+            this.timeRemaining = this.totalTime;
+            this.cardToCheck = null;
+            this.matchedCards = [];
+        }
+
+
     }
 
     function ready() {

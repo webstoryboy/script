@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mouse Effect02 - jQuery</title>
+    <title>Mouse Effect01 - jQuery</title>
     <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
 	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
     <meta name="author" content="webstoryboy">
@@ -47,7 +47,7 @@
         }
 
         body {
-            background: url(../assets/img/su03.jpg) no-repeat center center;
+            background: url(../assets/img/su02.jpg) no-repeat center center;
             background-size: cover;
             color: #fff;
             height: 100vh;
@@ -172,34 +172,22 @@
 
         .cursor {
             position: absolute;
-            width: 10px; height: 10px;
-            background: #fff;
+            left: -100px;
+            top: -100px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            border: 3px solid #fff;
             z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.1);
             user-select: none;
             pointer-events: none;
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+            transition: background-color .2s, border-color .2s;
         }
 
         .cursor.active {
-            opacity: .5;
-            transform: scale(0);
-        }
-
-        .cursor-follower {
-            position: absolute;
-            width: 30px; height: 30px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            user-select: none;
-            pointer-events: none;
-            transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
-        }
-
-        .cursor-follower.active {
-            opacity: .7;
-            transform: scale(4);
+            background-color: rgba(255, 165, 0, 0.4);
+            border-color: orange;
         }
     </style>
 </head>
@@ -208,75 +196,79 @@
     <!-- main -->
     <main>
         <div class="cursor"></div>
-        <div class="cursor-follower"></div>
 
         <div class="contents">
-            <p>When money speaks, the <em>truth</em> keeps silent.</p>
-            <p>돈이 말할 때는 <em>진실</em>은 입을 다문다</p>
+            <p>To climb steep hills requires <em>slow</em> pace at first. </p>
+            <p>험준한 산을 오르기 위해선 먼저 <em>천천히</em> 걸어야 한다.</p>
         </div>
     </main>
-    <!-- //main -->
+    <!-- main -->
     
+
     <!-- info -->
     <div class="info left">
-        <h1><a href="mouse00.html">jQuery Mouse Effect02</a></h1>
+        <h1><a href="mouse00.html">jQuery Mouse Effect01</a></h1>
         <p>마우스 따라다니기</p>
     </div>
 
     <div class="info right">
         <ul>
-            <li>Mouse <a href="mouse01.html">1</a><a href="mouse01-javascript.html">1</a></li>
-            <li class="active">Mouse <a href="mouse02.html">2</a><a href="mouse02-javascript.html">2</a></li>
-            <li>Mouse <a href="mouse03.html">3</a><a href="mouse03-javascript.html">3</a></li>
-            <li>Mouse <a href="mouse04.html">4</a><a href="mouse04-javascript.html">4</a></li>
-            <li>Mouse <a href="mouse05.html">5</a><a href="mouse05-javascript.html">5</a></li>
-            <li>Mouse <a href="mouse06.html">6</a><a href="mouse06-javascript.html">6</a></li>
-            <li>Mouse <a href="mouse07.html">7</a><a href="mouse07-javascript.html">7</a></li>
-            <li>Mouse <a href="mouse08.html">8</a><a href="mouse08-javascript.html">8</a></li>
-            <li>Mouse <a href="mouse09.html">9</a><a href="mouse09-javascript.html">9</a></li>
-            <li>Mouse <a href="mouse10.html">10</a><a href="mouse10-javascript.html">10</a></li>
+            <li class="active">Mouse <a href="mouse01-jquery.html">1</a><a href="mouse01-javascript.html">1</a></li>
+            <li>Mouse <a href="mouse02-jquery.html">2</a><a href="mouse02-javascript.html">2</a></li>
+            <li>Mouse <a href="mouse03-jquery.html">3</a><a href="mouse03-javascript.html">3</a></li>
+            <li>Mouse <a href="mouse04-jquery.html">4</a><a href="mouse04-javascript.html">4</a></li>
+            <li>Mouse <a href="mouse05-jquery.html">5</a><a href="mouse05-javascript.html">5</a></li>
+            <li>Mouse <a href="mouse06-jquery.html">6</a><a href="mouse06-javascript.html">6</a></li>
+            <li>Mouse <a href="mouse07-jquery.html">7</a><a href="mouse07-javascript.html">7</a></li>
+            <li>Mouse <a href="mouse08-jquery.html">8</a><a href="mouse08-javascript.html">8</a></li>
+            <li>Mouse <a href="mouse09-jquery.html">9</a><a href="mouse09-javascript.html">9</a></li>
+            <li>Mouse <a href="mouse10-jquery.html">10</a><a href="mouse10-javascript.html">10</a></li>
         </ul>
     </div>
 
     <div class="info bottom">
         <ul>
+            <li>clientX : <span class="clientX">0</span></li>
+            <li>clientY : <span class="clientY">0</span></li>
+            <li>offsetX : <span class="offsetX">0</span></li>
+            <li>offsetY : <span class="offsetY">0</span></li>
             <li>pageX : <span class="pageX">0</span></li>
             <li>pageY : <span class="pageY">0</span></li>
+            <li>screenX : <span class="screenX">0</span></li>
+            <li>screenY : <span class="screenY">0</span></li>
         </ul>
     </div>
 
     <div class="info view">
-        <a href="https://wtss.tistory.com/348" target="_blank" class="view">소스보기</a>
+        <a href="https://wtss.tistory.com/347" target="_blank" class="view">소스보기</a>
     </div>
     <!-- //info -->
 
+
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script>
-        //jQuery + GSAP
-        const cursor = $(".cursor");
-        const follower = $(".cursor-follower");
-
-        //움직임 효과
-        $(document).mousemove(function(e){
-            gsap.to(cursor, 0.3, {left: e.pageX - 5, top: e.pageY - 5 });
-            gsap.to(follower, 0.8, {left: e.pageX - 15 , top: e.pageY  - 15});
-        });
-
-        //오버 효과
-        $(".contents em").hover(function(){
-            cursor.addClass("active");
-            follower.addClass("active");
-        }, function(){
-            cursor.removeClass("active");
-            follower.removeClass("active");
-        });
-
         //출력용
-        $(document).mousemove(function(e){  //마우스가 움직였을 때 이벤트 함수
-            $(".pageX").text(e.pageX);  //이벤트 pageX 값을 화면에 출력
-            $(".pageY").text(e.pageY);  //이벤트 pageY 값을 화면에 출력
+        $(window).mousemove(function (event) {
+            $(".clientX").text(event.clientX);
+            $(".clientY").text(event.clientY);
+            $(".offsetX").text(event.offsetX);
+            $(".offsetY").text(event.offsetY);
+            $(".pageX").text(event.pageX);
+            $(".pageY").text(event.pageY);
+            $(".screenX").text(event.screenX);
+            $(".screenY").text(event.screenY);
+        });
+
+        //마우스 움직이기
+        $(window).mousemove(function (event) {
+            $(".cursor").css({ left: event.clientX - 25, top: event.clientY - 25 });
+
+            $(".contents em").hover(function () {
+                $(".cursor").addClass("active");
+            }, function () {
+                $(".cursor").removeClass("active");
+            });
         });
     </script>
 </body>
