@@ -10,5 +10,5 @@ https://webstoryboy.github.io/script/mouseEffect/mouse07-jquery.html
 https://webstoryboy.github.io/script/mouseEffect/mouse08-jquery.html
 
 ##유튜브 영상
-https://www.youtube.com/embed/lNptKy93sf4
-https://www.youtube.com/embed/2G8FwcKWFj0
+https://youtu.be/lNptKy93sf4
+https://youtu.be/2G8FwcKWFj0
