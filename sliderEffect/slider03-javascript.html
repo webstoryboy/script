@@ -224,34 +224,29 @@
         const sliderWrap = document.querySelector(".slider-wrap");
         const sliderImg = document.querySelector(".slider-img");
         const slider = document.querySelectorAll(".slider");
+        const sliderCount = slider.length;
+        const sliderWidth = sliderImg.clientWidth / 5;
 
         let currentIndex = 0;
+        let clone = sliderImg.firstElementChild.cloneNode(true);
+        sliderImg.appendChild(clone);
         
-        let firstChild = sliderImg.firstElementChild;
-        let clonedFirst = firstChild.cloneNode(true);
+        function sliderEffect(){
+            currentIndex++;
+            sliderImg.style.transition = "0.3s";
+            sliderImg.style.transform = `translateX(${-sliderWidth * currentIndex}px)`
 
-        //sliderImg.style.transition = "300ms";
-        //sliderImg.style.transform = "translateX(-1000px)";
+            console.log(-sliderWidth * currentIndex)
 
-        let currentIndex = 0;
-        let sliderCount = slider.length;
-        let sliderWidth = sliderWrap.clientWidth;
-
-        setInterval(function(){
-            currentIndex < sliderCount -1 ? currentIndex++ : currentIndex = 0;
-            let sliderPosition = currentIndex * -sliderWidth;
-   
-            sliderImg.style.transition = "300ms";
-            sliderImg.style.left = sliderPosition;
-        },3000);
-
-        // setInterval(function () {
-        //     //sliderImg.appendChild(firstChild);
-        //     sliderImg.style.transition = "300ms";
-        //     sliderImg.style.transform = sliderPosition;
-           
-        // }, 3000);
-
+            if(currentIndex == 5){
+                setTimeout(() => {
+                    sliderImg.style.transition = "0s";
+                    sliderImg.style.transform = "translateX(0)"
+                }, 300);
+                currentIndex = 0;
+            }
+        }
+        setInterval(sliderEffect, 2100);
 
       
         

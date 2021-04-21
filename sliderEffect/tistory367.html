@@ -12,7 +12,7 @@
         <br />
 
         <p class="bubble warning">샘플 소스는 여기서 확인 할 수 있습니다. </p>
-        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/sliderEffect/slider01.html">바로가기</a></p>
+        <p class="bubble warning"><a class="color-values" href="https://webstoryboy.github.io/script/sliderEffect/slider01-jquery.html">바로가기</a></p>
     </div>
     <div class="code-reference">
         <h2>Code Reference</h2>
@@ -109,8 +109,8 @@
                 <div>
 <pre class="line-numbers language-css"><code>/* reset */
 @font-face { 
-    font-family: 'MapoFlowerIsland'; 
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff'); 
+    font-family: 'NEXON Lv1 Gothic OTF'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
     font-weight: normal; 
     font-style: normal; 
 }
@@ -136,10 +136,6 @@ img {
     vertical-align: top;
 }
 
-ul {
-    padding: 10px 20px;
-}
-
 li {
     list-style: none;
 }
@@ -153,7 +149,7 @@ body {
     overflow: hidden;
     font-size: 16px;
     line-height: 1.5;
-    font-family: 'MapoFlowerIsland';
+    font-family: 'NEXON Lv1 Gothic OTF'; 
 }
 
 body::before {
@@ -185,6 +181,26 @@ body::before {
     margin-bottom: 3px;
 }
 
+.info ul {
+    position: relative;
+    margin-bottom: 3px;
+}
+
+.info ul:first-child::before {
+    content: 'jQuery';
+    position: absolute;
+    right: 108%; top: 0;
+}
+.info ul:last-child::before {
+    content: 'JavaScript';
+    position: absolute;
+    right: 108%; top: 0;
+}
+
+.info li {
+    display: inline;
+}
+
 .info li.active a:first-child {
     background: #fff;
     color: #000;
@@ -196,13 +212,12 @@ body::before {
 }
 
 .info.right {
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
 }
 
 .info.right a {
     display: inline-block;
-    margin-left: 5px;
     width: 20px; height: 20px;
     border: 1px dashed #fff;
     border-radius: 50%;
@@ -249,10 +264,9 @@ body::before {
 
 .slider-img {
     position: relative;
-    width: 1000px;
-    height: 600px;
+    width: 800px;
+    height: 480px;
     overflow: hidden;
-    box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
 }
 
 .slider-img .slider {
@@ -268,31 +282,44 @@ body::before {
 
 .slider-img .slider span {
     position: absolute;
-    left: 5px;
-    top: 5px;
+    left: 5px; top: 5px;
+    background: rgba(0,0,0,.4);
+    color: #fff;
+    padding: 5px 10px;
+    line-height: 1;
 }</code></pre>
                 </div>
                 <!--//tab-cont2 -->
                 <div>
 <pre class="line-numbers xml"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-    let sliderWrap = $(".slider-wrap");
-    let sliderImg = $(".slider-img");
-    let slider = $(".slider");
+    const sliderWrap = $(".slider-wrap");
+    const sliderImg = $(".slider-img");
+    const slider = $(".slider");
 
-    let currentIndex = 0;               //현재 첫 번재 보이는 이미지
-    let sliderCount = slider.length;     //이미지 갯수
+    let currentIndex = 0;               //현재 첫 번째 보이는 이미지
+    let sliderCount = slider.length;    //현재 이미지 갯수
 
     setInterval(function(){
         let nextIndex = (currentIndex + 1) % sliderCount;
+                // 1       =        (0 + 1) % 5  
+                // 2       =        (1 + 1) % 5
+                // 3       =        (2 + 1) % 5
+                // 4       =        (3 + 1) % 5
+                // 0       =        (4 + 1) % 5
+                // 1       =        (0 + 1) % 5
+                // 2       =        (1 + 1) % 5
+                // ..........
 
-        slider.eq(currentIndex).fadeOut();  //현재 이미지를 사라지게
-        slider.eq(nextIndex).fadeIn();      //다음 이미지를 나타나게
-        // console.log("currentIndex : " + currentIndex);  
-        // console.log("nextIndex : " + nextIndex);
+        slider.eq(currentIndex).fadeOut();  //첫 번째(현재 보이는) 이미지를 사라지게
+        slider.eq(nextIndex).fadeIn();      //두 번재 이미지를 보이게
 
+        //console.log("currentIndex : " + currentIndex) //0 1 2 3 4 0 1 2 3 4.....
+        //console.log("nextIndex : " +nextIndex)        //1 2 3 4 5 1 2 3 4 5.....
+
+        //currentIndex++;
         currentIndex = nextIndex;
-    }, 2000);
+    }, 3000)
 &lt;/script&gt;</code></pre>
                 </div>
                 <!--//tab-cont3 -->
@@ -309,7 +336,8 @@ body::before {
         <p class="bubble warning">INSTAGRAM <a class="color-values" href="https://www.instagram.com/webstoryboy/" target="_blank" rel="noopener"> 바로가기</a></p>
         <p class="bubble warning">TWITTER <a class="color-values" href="https://twitter.com/webstoryboy" target="_blank" rel="noopener"> 바로가기</a></p>
         <p class="bubble warning">STUDY <a class="color-values" href="https://cafe.naver.com/crossbrowsing" target="_blank" rel="noopener"> 바로가기</a></p>
-        <p class="bubble warning">YOUTUBE <a class="color-values" href="https://www.youtube.com/webstoryboy" target="_blank" rel="noopener"> 바로가기</a></p><br>
+        <p class="bubble warning">YOUTUBE <a class="color-values" href="https://www.youtube.com/webstoryboy" target="_blank" rel="noopener"> 바로가기</a></p>
+        <p class="bubble warning">INFLUENCER <a class="color-values" href="https://in.naver.com/webstoryboy" target="_blank" rel="noopener"> 바로가기</a></p><br>
         <p class="bubble">여러분의 댓글은 영상을 제작하는데 많은 힘이 됩니다.<br />모르시거나 궁금한 사항은 언제든지 댓글로 남겨주세요.<br />최대한 힘이 되어 드리겠습니다.<br />오늘도 수고하셨습니다.</p>
     </div>
 </div>

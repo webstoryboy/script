@@ -11,8 +11,8 @@
     <style>
         /* reset */
         @font-face { 
-            font-family: 'MapoFlowerIsland'; 
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff') format('woff'); 
+            font-family: 'NEXON Lv1 Gothic OTF'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
             font-weight: normal; 
             font-style: normal; 
         }
@@ -38,10 +38,6 @@
             vertical-align: top;
         }
 
-        ul {
-            padding: 10px 20px;
-        }
-
         li {
             list-style: none;
         }
@@ -55,7 +51,7 @@
             overflow: hidden;
             font-size: 16px;
             line-height: 1.5;
-            font-family: 'MapoFlowerIsland';
+            font-family: 'NEXON Lv1 Gothic OTF'; 
         }
 
         body::before {
@@ -87,6 +83,26 @@
             margin-bottom: 3px;
         }
 
+        .info ul {
+            position: relative;
+            margin-bottom: 3px;
+        }
+
+        .info ul:first-child::before {
+            content: 'jQuery';
+            position: absolute;
+            right: 108%; top: 0;
+        }
+        .info ul:last-child::before {
+            content: 'JavaScript';
+            position: absolute;
+            right: 108%; top: 0;
+        }
+
+        .info li {
+            display: inline;
+        }
+
         .info li.active a:first-child {
             background: #fff;
             color: #000;
@@ -98,13 +114,12 @@
         }
 
         .info.right {
-            right: 10px;
-            top: 10px;
+            right: 20px;
+            top: 20px;
         }
 
         .info.right a {
             display: inline-block;
-            margin-left: 5px;
             width: 20px; height: 20px;
             border: 1px dashed #fff;
             border-radius: 50%;
@@ -220,21 +235,25 @@
 
     <div class="info right">
         <ul>
-            <li>Slider <a href="slider01.html">1</a><a href="slider01-javascript.html">1</a></li>
-            <li>Slider <a href="slider02.html">2</a><a href="slider02-javascript.html">2</a></li>
-            <li>Slider <a href="slider03.html">3</a><a href="slider03-javascript.html">3</a></li>
-            <li>Slider <a href="slider04.html">4</a><a href="slider04-javascript.html">4</a></li>
-            <li>Slider <a href="slider05.html">5</a><a href="slider05-javascript.html">5</a></li>
-            <li class="active">Slider <a href="slider06.html">6</a><a href="slider06-javascript.html">6</a></li>
-            <li>Slider <a href="slider07.html">7</a><a href="slider07-javascript.html">7</a></li>
-            <li>Slider <a href="slider08.html">8</a><a href="slider08-javascript.html">8</a></li>
-            <li>Slider <a href="slider09.html">9</a><a href="slider09-javascript.html">9</a></li>
-            <li>Slider <a href="slider10.html">10</a><a href="slider10-javascript.html">10</a></li>
+            <li><a href="slider01-jquery.html">1</a></li>
+            <li><a href="slider02-jquery.html">2</a></li>
+            <li><a href="slider03-jquery.html">3</a></li>
+            <li><a href="slider04-jquery.html">4</a></li>
+            <li><a href="slider05-jquery.html">5</a></li>
+            <li class="active"><a href="slider06-jquery.html">6</a></li>
+            <li><a href="slider07-jquery.html">7</a></li>
+            <li><a href="slider08-jquery.html">8</a></li>
         </ul>
-    </div>
-
-    <div class="info bottom">
-        
+        <ul>
+            <li><a href="slider01-javascript.html">1</a></li>
+            <li><a href="slider02-javascript.html">2</a></li>
+            <li><a href="slider03-javascript.html">3</a></li>
+            <li><a href="slider04-javascript.html">4</a></li>
+            <li><a href="slider05-javascript.html">5</a></li>
+            <li><a href="slider06-javascript.html">6</a></li>
+            <li><a href="slider07-javascript.html">7</a></li>
+            <li><a href="slider08-javascript.html">8</a></li>
+        </ul>
     </div>
 
     <div class="info view">
