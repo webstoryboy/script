@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://codepen.io/cmykw/pen/Noagbw">
+    <style>
+        :root {
+            --system-font: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+            --zmin: -1;
+            --z1: 1;
+            --zmax: 10;
+        }
+
+        .debug {
+            border: 1px solid hotpink;
+        }
+
+        body {
+            font-family: var(--system-font);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        a,
+        span,
+        blockquote,
+        caption,
+        ul,
+        li,
+        img,
+        button,
+        section,
+        article,
+        figure,
+        main,
+        footer {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        button {
+            border: none;
+            background: #ccc;
+            cursor: pointer;
+        }
+
+        video,
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style-type: none;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        :focus {
+            outline: 0;
+        }
+
+        /*==========
+df  -  0-359
+xs  -  360
+sm  -  400
+md  -  700
+mdl -  1000
+lg  -  1200
+xl  -  1500
+===========*/
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #161616;
+            font-family: "Monument Extended", sans-serif;
+            color: white;
+        }
+
+        .smooth-scroll-wrapper {
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        body {
+            margin: 800px auto;
+        }
+
+        .content {
+            width: 70%;
+            margin: 160px auto;
+        }
+
+        section {
+            transition: transform 0.25s;
+            will-change: transform;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: lighter;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-weight: lighter;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        section img {
+            width: 100%;
+        }
+
+        div {
+            margin: 0 0 70px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="smooth-scroll-wrapper">
+        <div class="content">
+            <section>
+                <div>
+                    <img
+                        src="https://images.unsplash.com/flagged/photo-1565896209840-a18b89dd65d7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" />
+                    <h1>Boundary Supply</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat quia,
+                        inventore dolorem consequatur nulla aperiam laudantium optio fuga a
+                        facere nobis enim cum hic distinctio quae tempore rem? In quo placeat
+                        commodi ad hic omnis earum officiis voluptatibus esse dolores!
+                    </p>
+                </div>
+                <div>
+                    <img
+                        src="https://images.unsplash.com/flagged/photo-1565896209840-a18b89dd65d7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" />
+                    <h1>Runway Three</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente a
+                        necessitatibus tempora officia doloremque soluta eos ex mollitia
+                        possimus voluptas voluptates, quaerat nemo atque quos ducimus sint saepe
+                        vitae labore.
+                    </p>
+                </div>
+                <div>
+                    <img
+                        src="https://images.unsplash.com/flagged/photo-1565896209840-a18b89dd65d7?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" />
+                    <h1>Waste Matters</h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis minus
+                        enim fugit laudantium quisquam numquam dolorum voluptas sequi a officia?
+                        Vitae quisquam aliquid id, adipisci in ex modi quae totam possimus
+                        obcaecati deleniti eos minus impedit facilis nam laboriosam tempore.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const body = document.body,
+            scrollWrap = document.getElementsByClassName("smooth-scroll-wrapper")[0],
+            height = scrollWrap.getBoundingClientRect().height - 1,
+            speed = 0.04;
+
+        var offset = 0;
+
+        body.style.height = Math.floor(height) + "px";
+
+        function smoothScroll() {
+            offset += (window.pageYOffset - offset) * speed;
+
+            var scroll = "translateY(-" + offset + "px) translateZ(0)";
+            scrollWrap.style.transform = scroll;
+
+            callScroll = requestAnimationFrame(smoothScroll);
+        }
+
+        smoothScroll();
+
+        const content = document.querySelector("section");
+        let currentPos = window.pageYOffset;
+
+        const callDistort = function () {
+            const newPos = window.pageYOffset;
+            const diff = newPos - currentPos;
+            const speed = diff * 0.35;
+
+            content.style.transform = "skewY(" + speed + "deg)";
+            currentPos = newPos;
+            requestAnimationFrame(callDistort);
+        };
+
+        callDistort();
+    </script>
+</body>
+
+</html>

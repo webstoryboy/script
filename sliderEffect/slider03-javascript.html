@@ -141,38 +141,27 @@
             .info.right {display: none;}
         }
 
-        /* slide */
+        /* slider */
         .slider-wrap {
             position: absolute;
-            left: 50%;
-            top: 50%;
+            left: 50%; top: 50%;
             transform: translate(-50%, -50%);
-            height: 100vh;
-            width: 1000px;
-            height: 600px;
+            width: 800px; height: 480px;
             overflow: hidden;
-            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
+            z-index: 100;
         }
-
         .slider-img {
-            position: relative;
-            width: 5000px;
-            height: 600px;
             overflow: hidden;
-            transition: all 500ms ease;
-        }
-
-        .slider-img .slider {
-            float: left;
-            width: 1000px;
-            height: 600px;
+            width: 4800px; height: 480px;
             position: relative;
         }
-
+        .slider-img .slider {
+            width: 800px; height: 480px;
+            float: left;
+            position: relative;
+        }
         .slider-img .slider span {
-            position: absolute;
-            left: 5px;
-            top: 5px;
+            position: absolute; left: 5px; top: 5px;
         }
     </style>
 </head>
@@ -224,8 +213,9 @@
         const sliderWrap = document.querySelector(".slider-wrap");
         const sliderImg = document.querySelector(".slider-img");
         const slider = document.querySelectorAll(".slider");
+        
         const sliderCount = slider.length;
-        const sliderWidth = sliderImg.clientWidth / 5;
+        const sliderWidth = sliderImg.clientWidth / 6;
 
         let currentIndex = 0;
         let clone = sliderImg.firstElementChild.cloneNode(true);
@@ -247,10 +237,6 @@
             }
         }
         setInterval(sliderEffect, 2100);
-
-      
-        
-
     </script>
 </body>
 </html>

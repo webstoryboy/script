@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Slider Effect05</title>
+    <meta name="description" content="웹스토리보이와 함께 예제를 통해 배우는 스크립트 튜토리얼">
+	<meta name="keywords" content="mouse, animation, parallax, menu, slider, canvas, javascript, text, webs">
+    <meta name="author" content="webstoryboy">
+    
+    <style>
+        /* reset */
+        @font-face { 
+            font-family: 'NEXON Lv1 Gothic OTF'; 
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal; 
+            font-style: normal; 
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px dashed #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            background: url(../assets/img/su10.jpg) no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            height: 100vh;
+            transition: all 0.2s;
+            overflow: hidden;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: 'NEXON Lv1 Gothic OTF'; 
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(8, 31, 36, 0.9);
+            z-index: -1;
+        }
+
+        /* info */
+        .info {
+            position: absolute;
+            z-index: 1000;
+        }
+
+        .info h1 {
+            font-size: 20px;
+            border-bottom: 1px dashed #fff;
+            margin-bottom: 8px;
+        }
+
+        .info p, .info li {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 3px;
+        }
+
+        .info ul {
+            position: relative;
+            margin-bottom: 3px;
+        }
+
+        .info ul:first-child::before {
+            content: 'jQuery';
+            position: absolute;
+            right: 108%; top: 0;
+        }
+        .info ul:last-child::before {
+            content: 'JavaScript';
+            position: absolute;
+            right: 108%; top: 0;
+        }
+
+        .info li {
+            display: inline;
+        }
+
+        .info li.active a:first-child {
+            background: #fff;
+            color: #000;
+        }
+
+        .info.left {
+            left: 20px;
+            top: 20px;
+        }
+
+        .info.right {
+            right: 20px;
+            top: 20px;
+        }
+
+        .info.right a {
+            display: inline-block;
+            width: 20px; height: 20px;
+            border: 1px dashed #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .info.right a:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .info.bottom {
+            left: 10px;
+            bottom: 10px;
+        }
+
+        .info.view {
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .info.view a {
+            color: #fff;
+            border: 1px solid #fff;
+            border-radius: 30px;
+            padding: 5px 30px;
+        }
+
+        @media (max-width: 800px){
+            .info.bottom {display: none;}
+            .info.right {display: none;}
+        }
+
+        /* slide */
+        .slider-wrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: 100vh;
+            width: 1000px;
+            height: 600px;
+            overflow: hidden;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
+        }
+
+        .slider-img {
+            position: relative;
+            width: 5000px;
+            height: 600px;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
+            overflow: hidden;
+        }
+
+        .slider-img .slider {
+            width: 1000px;
+            height: 600px;
+            position: relative;
+            display: none;
+        }
+    
+        .slider-img .slider.active {
+            display: block;
+            animation: fadeImg 0.8s;
+        }
+        .slider-img .slider span {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+        }
+        .slider-btn a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+        }
+        .slider-btn a.prev {
+            left: 0;
+        }
+        .slider-btn a.next {
+            right: 0;
+        }
+        
+        @keyframes fadeImg {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+
+        
+    
+    
+    <!-- info -->
+    <div class="info left">
+        <h1><a href="slider00.html">JavaScript Slider Effect04</a></h1>
+        <p>이미지 슬라이드 효과 : 버튼 만들기</p>
+    </div>
+
+    <div class="info right">
+        <ul>
+            <li><a href="slider01-jquery.html">1</a></li>
+            <li><a href="slider02-jquery.html">2</a></li>
+            <li><a href="slider03-jquery.html">3</a></li>
+            <li><a href="slider04-jquery.html">4</a></li>
+            <li><a href="slider05-jquery.html">5</a></li>
+            <li><a href="slider06-jquery.html">6</a></li>
+            <li><a href="slider07-jquery.html">7</a></li>
+            <li><a href="slider08-jquery.html">8</a></li>
+        </ul>
+        <ul>
+            <li><a href="slider01-javascript.html">1</a></li>
+            <li><a href="slider02-javascript.html">2</a></li>
+            <li><a href="slider03-javascript.html">3</a></li>
+            <li class="active"><a href="slider04-javascript.html">4</a></li>
+            <li><a href="slider05-javascript.html">5</a></li>
+            <li><a href="slider06-javascript.html">6</a></li>
+            <li><a href="slider07-javascript.html">7</a></li>
+            <li><a href="slider08-javascript.html">8</a></li>
+        </ul>
+    </div>
+
+    <div class="info view">
+        <a href="#" target="_blank" class="view">소스보기</a>
+    </div>
+    <!-- info -->
+
+
+    <!-- main -->
+    <main>
+        <div class="slider-wrap">
+            <div class="slider-img">
+                <div class="slider active"><img src="../assets/img/so01.jpg" alt="이미지1"><span>이미지1</span></div>
+                <div class="slider"><img src="../assets/img/so02.jpg" alt="이미지2"><span>이미지2</span></div>
+                <div class="slider"><img src="../assets/img/so03.jpg" alt="이미지3"><span>이미지3</span></div>
+                <div class="slider"><img src="../assets/img/so04.jpg" alt="이미지4"><span>이미지4</span></div>
+                <div class="slider"><img src="../assets/img/so05.jpg" alt="이미지5"><span>이미지5</span></div>
+            </div>
+
+            <div class="slider-btn">
+                <a href="#" class="prev">prev</a>
+                <a href="#" class="next">next</a>
+            </div>
+        </div>
+    </main>
+    <!-- main -->
+
+
+    <!-- script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script>
+        const sliderWrap = document.querySelector(".slider-wrap");
+        const sliderImg = sliderWrap.querySelector(".slider-img");
+        const slider = sliderImg.querySelectorAll(".slider");
+
+        const sliderBtn = document.querySelector(".slider-btn");
+        const nextBtn = sliderBtn.querySelector(".next");
+        const prevBtn = sliderBtn.querySelector(".prev");
+
+        const sliderCount = slider.length;
+        let currentIndex = 0;
+
+        function showNext() {
+            slider[currentIndex].classList.remove("active");
+
+            if (currentIndex < sliderCount - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+
+            slider[currentIndex].classList.add("active");
+            //console.log(count);
+        }
+
+        function showPrev() {
+            slider[currentIndex].classList.remove("active");
+
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = sliderCount - 1;
+            }
+
+            slider[currentIndex].classList.add("active");
+            //console.log(count);
+        }
+
+        function keyPress(e) {
+            e = e || window.event;
+
+            if (e.keyCode == '37') {
+                showPrev();
+            } else if (e.keyCode == '39') {
+                showNext();
+            }
+        }
+
+        nextBtn.addEventListener("click", showNext);
+        prevBtn.addEventListener("click", showPrev);
+        document.addEventListener("keydown", keyPress);
+        
+    </script>
+</body>
+</html>
